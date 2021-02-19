@@ -9,18 +9,17 @@ namespace ProdutoEstoque
         {
             Produto x;
 
-            x = new Produto();
-
-
             Console.WriteLine("========== BEM VINDO AO PROGRAMA DE PRODUTO ESTOQUE ==========");
 
             Console.WriteLine("Entre com os dados do produto:");
             Console.Write("Nome: ");
-            x.Nome = Console.ReadLine();
+            string nome = Console.ReadLine();
             Console.Write("Preço: ");
-            x.Preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             Console.Write("Quantidade: ");
-            x.Quantidade = int.Parse(Console.ReadLine());
+            int quantidade = int.Parse(Console.ReadLine());
+
+            x = new Produto(nome, preco, quantidade);
 
             Console.WriteLine(x.InfoProduto());
             
