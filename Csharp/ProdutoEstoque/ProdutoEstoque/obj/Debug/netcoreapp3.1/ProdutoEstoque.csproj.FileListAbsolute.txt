@@ -1,0 +1,13 @@
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\ProdutoEstoque\ProdutoEstoque\bin\Debug\netcoreapp3.1\ProdutoEstoque.exe
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\ProdutoEstoque\ProdutoEstoque\bin\Debug\netcoreapp3.1\ProdutoEstoque.deps.json
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\ProdutoEstoque\ProdutoEstoque\bin\Debug\netcoreapp3.1\ProdutoEstoque.runtimeconfig.json
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\ProdutoEstoque\ProdutoEstoque\bin\Debug\netcoreapp3.1\ProdutoEstoque.runtimeconfig.dev.json
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\ProdutoEstoque\ProdutoEstoque\bin\Debug\netcoreapp3.1\ProdutoEstoque.dll
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\ProdutoEstoque\ProdutoEstoque\bin\Debug\netcoreapp3.1\ProdutoEstoque.pdb
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\ProdutoEstoque\ProdutoEstoque\obj\Debug\netcoreapp3.1\ProdutoEstoque.csprojAssemblyReference.cache
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\ProdutoEstoque\ProdutoEstoque\obj\Debug\netcoreapp3.1\ProdutoEstoque.AssemblyInfoInputs.cache
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\ProdutoEstoque\ProdutoEstoque\obj\Debug\netcoreapp3.1\ProdutoEstoque.AssemblyInfo.cs
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\ProdutoEstoque\ProdutoEstoque\obj\Debug\netcoreapp3.1\ProdutoEstoque.csproj.CoreCompileInputs.cache
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\ProdutoEstoque\ProdutoEstoque\obj\Debug\netcoreapp3.1\ProdutoEstoque.dll
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\ProdutoEstoque\ProdutoEstoque\obj\Debug\netcoreapp3.1\ProdutoEstoque.pdb
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\ProdutoEstoque\ProdutoEstoque\obj\Debug\netcoreapp3.1\ProdutoEstoque.genruntimeconfig.cache
