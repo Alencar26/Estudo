@@ -9,11 +9,15 @@ namespace ProdutoEstoque
         public int Quantidade { get; set; }
 
 
-        public Produto(string nome, double preco, int quantidade)
+        public Produto(string nome, double preco, int quantidade) : this(nome, preco)
+        {
+            Quantidade = quantidade;
+        }
+
+        public Produto(string nome, double preco)
         {
             Nome = nome;
-            Preco = preco;
-            Quantidade = quantidade;
+            Preco = preco;  
         }
 
         public double ValorEmEstoque()
