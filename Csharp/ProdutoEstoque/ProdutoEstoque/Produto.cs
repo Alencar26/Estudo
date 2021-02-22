@@ -11,7 +11,7 @@ namespace ProdutoEstoque
 
         public Produto(string nome, double preco, int quantidade) : this(nome, preco)
         {
-            Quantidade = quantidade;
+            Quantidade = quantidade; 
         }
 
         public Produto(string nome, double preco)
