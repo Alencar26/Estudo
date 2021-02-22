@@ -11,3 +11,16 @@ C:\Users\andre\www\ws_csarp\Vetores\Vetores\obj\Debug\netcoreapp3.1\Vetores.cspr
 C:\Users\andre\www\ws_csarp\Vetores\Vetores\obj\Debug\netcoreapp3.1\Vetores.dll
 C:\Users\andre\www\ws_csarp\Vetores\Vetores\obj\Debug\netcoreapp3.1\Vetores.pdb
 C:\Users\andre\www\ws_csarp\Vetores\Vetores\obj\Debug\netcoreapp3.1\Vetores.genruntimeconfig.cache
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Vetores\Vetores\bin\Debug\netcoreapp3.1\Vetores.exe
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Vetores\Vetores\bin\Debug\netcoreapp3.1\Vetores.deps.json
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Vetores\Vetores\bin\Debug\netcoreapp3.1\Vetores.runtimeconfig.json
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Vetores\Vetores\bin\Debug\netcoreapp3.1\Vetores.runtimeconfig.dev.json
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Vetores\Vetores\bin\Debug\netcoreapp3.1\Vetores.dll
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Vetores\Vetores\bin\Debug\netcoreapp3.1\Vetores.pdb
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Vetores\Vetores\obj\Debug\netcoreapp3.1\Vetores.csprojAssemblyReference.cache
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Vetores\Vetores\obj\Debug\netcoreapp3.1\Vetores.AssemblyInfoInputs.cache
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Vetores\Vetores\obj\Debug\netcoreapp3.1\Vetores.AssemblyInfo.cs
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Vetores\Vetores\obj\Debug\netcoreapp3.1\Vetores.csproj.CoreCompileInputs.cache
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Vetores\Vetores\obj\Debug\netcoreapp3.1\Vetores.dll
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Vetores\Vetores\obj\Debug\netcoreapp3.1\Vetores.pdb
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Vetores\Vetores\obj\Debug\netcoreapp3.1\Vetores.genruntimeconfig.cache

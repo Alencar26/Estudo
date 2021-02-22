@@ -33,6 +33,10 @@ namespace Vetores
                 if (quartos[i] != null)
                     Console.WriteLine($"\n{i}: {quartos[i].Nome}, {quartos[i].Email}");
             }
+
+            // =================================================================================
+            int result = Calculator.Sum(new int[] { 2,3,5,2 });
+            Console.WriteLine(result);
         }
     }
 }

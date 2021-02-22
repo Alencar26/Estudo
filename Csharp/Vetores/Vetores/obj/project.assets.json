@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andre\\www\\ws_csarp\\Vetores\\Vetores\\Vetores.csproj",
+      "projectUniqueName": "C:\\Users\\andre\\www\\ws_csarp\\Exercicios_POO\\Csharp\\Vetores\\Vetores\\Vetores.csproj",
       "projectName": "Vetores",
-      "projectPath": "C:\\Users\\andre\\www\\ws_csarp\\Vetores\\Vetores\\Vetores.csproj",
+      "projectPath": "C:\\Users\\andre\\www\\ws_csarp\\Exercicios_POO\\Csharp\\Vetores\\Vetores\\Vetores.csproj",
       "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andre\\www\\ws_csarp\\Vetores\\Vetores\\obj\\",
+      "outputPath": "C:\\Users\\andre\\www\\ws_csarp\\Exercicios_POO\\Csharp\\Vetores\\Vetores\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
