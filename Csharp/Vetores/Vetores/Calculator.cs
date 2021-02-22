@@ -6,7 +6,8 @@ namespace Vetores
 {
     class Calculator
     {
-        public static int Sum(int[] numbers)
+        // ao adicionar a palavra "params" não precisa mais instanciar um array ao chamar o método.
+        public static int Sum(params int[] numbers)
         {
             int sum = 0;
             for (int i = 0; i < numbers.Length; i++)

@@ -35,7 +35,7 @@ namespace Vetores
             }
 
             // =================================================================================
-            int result = Calculator.Sum(new int[] { 2,3,5,2 });
+            int result = Calculator.Sum(2,3,5,2);
             Console.WriteLine(result);
         }
     }
