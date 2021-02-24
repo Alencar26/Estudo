@@ -41,7 +41,7 @@ namespace Vetores
                         negativos += 1;
 
                     if (i == j)
-                        arr[i] = mat[i, j];
+                        arr[i] = mat[i, j]; 
                 }
             }
 
