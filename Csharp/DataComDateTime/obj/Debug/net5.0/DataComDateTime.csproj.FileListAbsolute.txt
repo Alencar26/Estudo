@@ -1,0 +1,16 @@
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/DataComDateTime/bin/Debug/net5.0/DataComDateTime
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/DataComDateTime/bin/Debug/net5.0/DataComDateTime.deps.json
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/DataComDateTime/bin/Debug/net5.0/DataComDateTime.runtimeconfig.json
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/DataComDateTime/bin/Debug/net5.0/DataComDateTime.runtimeconfig.dev.json
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/DataComDateTime/bin/Debug/net5.0/DataComDateTime.dll
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/DataComDateTime/bin/Debug/net5.0/ref/DataComDateTime.dll
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/DataComDateTime/bin/Debug/net5.0/DataComDateTime.pdb
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/DataComDateTime/obj/Debug/net5.0/DataComDateTime.csprojAssemblyReference.cache
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/DataComDateTime/obj/Debug/net5.0/DataComDateTime.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/DataComDateTime/obj/Debug/net5.0/DataComDateTime.AssemblyInfoInputs.cache
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/DataComDateTime/obj/Debug/net5.0/DataComDateTime.AssemblyInfo.cs
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/DataComDateTime/obj/Debug/net5.0/DataComDateTime.csproj.CoreCompileInputs.cache
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/DataComDateTime/obj/Debug/net5.0/DataComDateTime.dll
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/DataComDateTime/obj/Debug/net5.0/ref/DataComDateTime.dll
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/DataComDateTime/obj/Debug/net5.0/DataComDateTime.pdb
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/DataComDateTime/obj/Debug/net5.0/DataComDateTime.genruntimeconfig.cache
