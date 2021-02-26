@@ -1,0 +1,13 @@
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\String_funcoes\String_funcoes\bin\Debug\netcoreapp3.1\String_funcoes.exe
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\String_funcoes\String_funcoes\bin\Debug\netcoreapp3.1\String_funcoes.deps.json
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\String_funcoes\String_funcoes\bin\Debug\netcoreapp3.1\String_funcoes.runtimeconfig.json
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\String_funcoes\String_funcoes\bin\Debug\netcoreapp3.1\String_funcoes.runtimeconfig.dev.json
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\String_funcoes\String_funcoes\bin\Debug\netcoreapp3.1\String_funcoes.dll
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\String_funcoes\String_funcoes\bin\Debug\netcoreapp3.1\String_funcoes.pdb
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\String_funcoes\String_funcoes\obj\Debug\netcoreapp3.1\String_funcoes.csprojAssemblyReference.cache
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\String_funcoes\String_funcoes\obj\Debug\netcoreapp3.1\String_funcoes.AssemblyInfoInputs.cache
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\String_funcoes\String_funcoes\obj\Debug\netcoreapp3.1\String_funcoes.AssemblyInfo.cs
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\String_funcoes\String_funcoes\obj\Debug\netcoreapp3.1\String_funcoes.csproj.CoreCompileInputs.cache
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\String_funcoes\String_funcoes\obj\Debug\netcoreapp3.1\String_funcoes.dll
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\String_funcoes\String_funcoes\obj\Debug\netcoreapp3.1\String_funcoes.pdb
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\String_funcoes\String_funcoes\obj\Debug\netcoreapp3.1\String_funcoes.genruntimeconfig.cache

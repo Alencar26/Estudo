@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andre\\www\\ws_csarp\\Exercicios_POO\\Csharp\\Structs\\Structs\\Structs.csproj",
-      "projectName": "Structs",
-      "projectPath": "C:\\Users\\andre\\www\\ws_csarp\\Exercicios_POO\\Csharp\\Structs\\Structs\\Structs.csproj",
+      "projectUniqueName": "C:\\Users\\andre\\www\\ws_csarp\\Exercicios_POO\\Csharp\\String_funcoes\\String_funcoes\\String_funcoes.csproj",
+      "projectName": "String_funcoes",
+      "projectPath": "C:\\Users\\andre\\www\\ws_csarp\\Exercicios_POO\\Csharp\\String_funcoes\\String_funcoes\\String_funcoes.csproj",
       "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andre\\www\\ws_csarp\\Exercicios_POO\\Csharp\\Structs\\Structs\\obj\\",
+      "outputPath": "C:\\Users\\andre\\www\\ws_csarp\\Exercicios_POO\\Csharp\\String_funcoes\\String_funcoes\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

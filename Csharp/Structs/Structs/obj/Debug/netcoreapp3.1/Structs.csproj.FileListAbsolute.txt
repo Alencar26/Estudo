@@ -11,3 +11,16 @@ C:\Users\andre\www\ws_csarp\Structs\Structs\obj\Debug\netcoreapp3.1\Structs.cspr
 C:\Users\andre\www\ws_csarp\Structs\Structs\obj\Debug\netcoreapp3.1\Structs.dll
 C:\Users\andre\www\ws_csarp\Structs\Structs\obj\Debug\netcoreapp3.1\Structs.pdb
 C:\Users\andre\www\ws_csarp\Structs\Structs\obj\Debug\netcoreapp3.1\Structs.genruntimeconfig.cache
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Structs\Structs\bin\Debug\netcoreapp3.1\Structs.exe
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Structs\Structs\bin\Debug\netcoreapp3.1\Structs.deps.json
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Structs\Structs\bin\Debug\netcoreapp3.1\Structs.runtimeconfig.json
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Structs\Structs\bin\Debug\netcoreapp3.1\Structs.runtimeconfig.dev.json
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Structs\Structs\bin\Debug\netcoreapp3.1\Structs.dll
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Structs\Structs\bin\Debug\netcoreapp3.1\Structs.pdb
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Structs\Structs\obj\Debug\netcoreapp3.1\Structs.csprojAssemblyReference.cache
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Structs\Structs\obj\Debug\netcoreapp3.1\Structs.AssemblyInfoInputs.cache
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Structs\Structs\obj\Debug\netcoreapp3.1\Structs.AssemblyInfo.cs
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Structs\Structs\obj\Debug\netcoreapp3.1\Structs.csproj.CoreCompileInputs.cache
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Structs\Structs\obj\Debug\netcoreapp3.1\Structs.dll
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Structs\Structs\obj\Debug\netcoreapp3.1\Structs.pdb
+C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Structs\Structs\obj\Debug\netcoreapp3.1\Structs.genruntimeconfig.cache
