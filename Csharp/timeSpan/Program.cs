@@ -54,9 +54,68 @@ namespace timeSpan
             Console.WriteLine(t10);
             Console.WriteLine(t11);
             
-                       
-           
-           
+            //==================== PROPRIEDADES E OPERAÇÕES =======================
+
+            Console.WriteLine("================= PROPRIEDADE E OPERAÇÕES =====================");
+            
+
+            TimeSpan t12 = TimeSpan.MaxValue;
+            TimeSpan t13 = TimeSpan.MinValue;
+            TimeSpan zero = TimeSpan.Zero;
+
+            Console.WriteLine(t12);
+            Console.WriteLine(t13);
+            Console.WriteLine(zero);
+            Console.WriteLine($"\n=======================\n");
+            
+            //usando a variável t5
+            Console.WriteLine($"Completo: {t5}");
+
+            // devolvem números interiros:
+            Console.WriteLine($"Dias: {t5.Days}");
+            Console.WriteLine($"Horas: {t5.Hours}");
+            Console.WriteLine($"Minutos: {t5.Minutes}");
+            Console.WriteLine($"Milisegundos: {t5.Milliseconds}");
+            Console.WriteLine($"Segundos: {t5.Seconds}");
+            Console.WriteLine($"Ticks: {t5.Ticks}");
+            // devolvem números quebrados:
+            Console.WriteLine($"Total de Dias: {t5.TotalDays}");
+            Console.WriteLine($"Total de Horas: {t5.TotalHours}");
+            Console.WriteLine($"Total de Minutos: {t5.TotalMinutes}");
+            Console.WriteLine($"Total de Segundos: {t5.TotalSeconds}");
+            Console.WriteLine($"Total de Milisegundos: {t5.Milliseconds}");
+            
+            
+            Console.WriteLine("================= OPERAÕES ====================");
+
+            // construtor (hora, minuto, segundo)
+            TimeSpan tempo1 = new TimeSpan(1,30,10);
+            TimeSpan tempo2 = new TimeSpan(0,10,5);
+
+            Console.WriteLine($"\nTempo 1: {tempo1}");
+            Console.WriteLine($"Tempo 2: {tempo2}");
+            Console.WriteLine("\n===========================\n");
+            
+            TimeSpan soma = tempo1.Add(tempo2);
+            TimeSpan diferenca = tempo1.Subtract(tempo2);
+            // recebe um double como argumento
+            TimeSpan multiplicacao = tempo2.Multiply(2.0);
+            TimeSpan divisao = tempo2.Divide(2.0);
+
+            Console.WriteLine($"Soma: {soma}");
+            Console.WriteLine($"Difereça: {diferenca}");
+            Console.WriteLine($"Multiplicação: {multiplicacao}");
+            Console.WriteLine($"Divisão: {divisao}");
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
         }
     }
 }
