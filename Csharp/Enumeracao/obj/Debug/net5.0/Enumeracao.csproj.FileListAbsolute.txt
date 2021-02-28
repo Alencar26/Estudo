@@ -1,0 +1,16 @@
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/Enumeracao/obj/Debug/net5.0/Enumeracao.csprojAssemblyReference.cache
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/Enumeracao/obj/Debug/net5.0/Enumeracao.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/Enumeracao/obj/Debug/net5.0/Enumeracao.AssemblyInfoInputs.cache
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/Enumeracao/obj/Debug/net5.0/Enumeracao.AssemblyInfo.cs
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/Enumeracao/obj/Debug/net5.0/Enumeracao.csproj.CoreCompileInputs.cache
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/Enumeracao/bin/Debug/net5.0/Enumeracao
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/Enumeracao/bin/Debug/net5.0/Enumeracao.deps.json
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/Enumeracao/bin/Debug/net5.0/Enumeracao.runtimeconfig.json
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/Enumeracao/bin/Debug/net5.0/Enumeracao.runtimeconfig.dev.json
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/Enumeracao/bin/Debug/net5.0/Enumeracao.dll
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/Enumeracao/bin/Debug/net5.0/ref/Enumeracao.dll
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/Enumeracao/bin/Debug/net5.0/Enumeracao.pdb
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/Enumeracao/obj/Debug/net5.0/Enumeracao.dll
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/Enumeracao/obj/Debug/net5.0/ref/Enumeracao.dll
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/Enumeracao/obj/Debug/net5.0/Enumeracao.pdb
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/Enumeracao/obj/Debug/net5.0/Enumeracao.genruntimeconfig.cache
