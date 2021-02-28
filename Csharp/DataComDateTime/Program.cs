@@ -112,8 +112,50 @@ namespace DataComDateTime
             TimeSpan diferença = (data2.Subtract(data));
             Console.WriteLine($"Diferença: {diferença}");
             
+
+            // =========================== PADRÃO DE FORMATAÇÃO DE DATA ==============================
+            
+            Console.WriteLine("=============== DATETIMEKIND E PADÃO ISO 8601 PARA FORMATAÇÃO ==============");
+            
+
+            /*
+
+                SEMPRE armazene em formato UTC(no: banco de dados, json, xml...)
+                somente quando for mostrar ao usuário é que você instancia com a data local
+
+                usando: data.ToLocalTime(); ou data.ToUniversalTime();
+
+            */ 
+             
+            // instanciando a data com horário local (ano, mês, dia, hora, minutos, segundos, formato)
+            DateTime local = new DateTime(2021, 2, 28, 7, 38, 52, DateTimeKind.Local);
+            
+            // instanciando a data com horário UTC (ano, mês, dia, hora, minutos, segundos, formato)
+            DateTime universal = new DateTime(2021, 2, 28, 7, 38, 52, DateTimeKind.Utc);
+            // não especificado
+            DateTime semEspecificacao = new DateTime(2021, 2, 28, 7, 38, 52, DateTimeKind.Unspecified);
+
+
+            Console.WriteLine("Converções:");
+            Console.WriteLine($"Data: {local}");
+            Console.WriteLine($"Kind da data: {local.Kind}");
+            Console.WriteLine($"To Local: {local.ToLocalTime()}");
+            Console.WriteLine($"To UTC: {local.ToUniversalTime()}");
             
             
+            //====================== PADRÃO ISO 8601 ==============================
+
+            Console.WriteLine("\n================= PADRÃO ISO 8601 ======================\n");
+            Console.WriteLine($"Padrão mais utilizado:  yyyy-MM-ddTHH:mm:ssZ ");
+            Console.WriteLine("*Z indica que a data/hora está em UTC.");
+            
+            // sem especificação
+            DateTime d1 = DateTime.Parse("2021-02-28 07:54:36");
+            //usando padrão ISO 8601
+            DateTime d6 = DateTime.Parse("2021-02-28T07:54:36Z");
+            
+            //converção segura. Primeiro garante que está no formato UTC e depois aplica a máscara.
+            d6.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ");
 
             Console.WriteLine("\n");
             
