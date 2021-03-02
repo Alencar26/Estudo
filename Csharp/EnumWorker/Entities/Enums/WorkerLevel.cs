@@ -1,10 +1,11 @@
+using System;
 
 namespace EnumWorker.Entities.Enums
 {
-    public enum MyEnumType : int
+    public enum WorkerLevel : int
     {
-        JUNIOR,
-        MID_LEVEL,
-        SENIOR
+        Junior,
+        MidLevel,
+        Senior
     }
 }

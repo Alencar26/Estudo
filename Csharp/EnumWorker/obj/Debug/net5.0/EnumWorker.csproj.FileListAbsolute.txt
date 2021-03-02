@@ -1,0 +1,16 @@
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/EnumWorker/obj/Debug/net5.0/EnumWorker.csprojAssemblyReference.cache
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/EnumWorker/obj/Debug/net5.0/EnumWorker.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/EnumWorker/obj/Debug/net5.0/EnumWorker.AssemblyInfoInputs.cache
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/EnumWorker/obj/Debug/net5.0/EnumWorker.AssemblyInfo.cs
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/EnumWorker/obj/Debug/net5.0/EnumWorker.csproj.CoreCompileInputs.cache
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/EnumWorker/bin/Debug/net5.0/EnumWorker
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/EnumWorker/bin/Debug/net5.0/EnumWorker.deps.json
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/EnumWorker/bin/Debug/net5.0/EnumWorker.runtimeconfig.json
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/EnumWorker/bin/Debug/net5.0/EnumWorker.runtimeconfig.dev.json
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/EnumWorker/bin/Debug/net5.0/EnumWorker.dll
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/EnumWorker/bin/Debug/net5.0/ref/EnumWorker.dll
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/EnumWorker/bin/Debug/net5.0/EnumWorker.pdb
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/EnumWorker/obj/Debug/net5.0/EnumWorker.dll
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/EnumWorker/obj/Debug/net5.0/ref/EnumWorker.dll
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/EnumWorker/obj/Debug/net5.0/EnumWorker.pdb
+/mnt/c/Users/andre/www/ws_csarp/Exercicios_POO/Csharp/EnumWorker/obj/Debug/net5.0/EnumWorker.genruntimeconfig.cache
