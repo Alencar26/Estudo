@@ -1,6 +1,7 @@
 ﻿using Heranca.Entities;
 using System;
-
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace Heranca
 {
@@ -8,6 +9,9 @@ namespace Heranca
     {
         static void Main(string[] args)
         {
+            /*  PARTINDO PARA UMA NOVA REVISÃO EM CLASSES ABSTRATAS (logo após os comentários) */
+
+            /*
             Account acc = new Account(2001, "Ana", 500.0);
             BusinessAccount bacc = new BusinessAccount(2002, "Alencar", 100.0, 500.0);
 
@@ -49,7 +53,23 @@ namespace Heranca
 
             Console.WriteLine(acc8.Balance);
             Console.WriteLine(acc9.Balance);
+            */
 
+            List<Account> list = new List<Account>();
+
+            list.Add(new SavingsAccount(002, "Ana", 230.50, 0.02));
+            list.Add(new BusinessAccount(003, "Heloísa", 210.23, 400.00));
+            list.Add(new SavingsAccount(004, "Marcos", 0.00, 0.02));
+            list.Add(new BusinessAccount(005, "Maria", 1500.22, 652.00));
+
+            double soma = 0;
+            foreach (Account account in list)
+            {
+
+                soma += account.Balance;
+            }
+
+            Console.WriteLine($"Total das Contas: {soma.ToString("F2", CultureInfo.InvariantCulture)}");
         }
     }
 }
