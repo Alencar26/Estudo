@@ -12,43 +12,33 @@ namespace SystemEmployee
         {
             List<Employee> employeesList = new List<Employee>();
 
-            string name;
-            int hours;
-            double valuePerHour;
-            double additionalCharge;
-
             Console.Write("Enter the number of employees:");
             int numEmployee = int.Parse(Console.ReadLine());
 
             for (int i = 1; i <= numEmployee; i++)
             {
                 Console.WriteLine($"Employee #{i} data: ");
+                
                 Console.Write("Outsourced (y/n)? ");
-                string outsourced = Console.ReadLine();
+                char outsourced = char.Parse(Console.ReadLine());
+
+                Console.Write("Name: ");
+                string name = Console.ReadLine();
+                Console.Write("Hours: ");
+                int hours = int.Parse(Console.ReadLine());
+                Console.Write("Value per hour: ");
+                double valuePerHour = double.Parse(Console.ReadLine());
 
                 switch (outsourced)
                 {
-                    case "y":
-                        Console.Write("Name: ");
-                        name = Console.ReadLine();
-                        Console.Write("Hours: ");
-                        hours = int.Parse(Console.ReadLine());
-                        Console.Write("Value per hour: ");
-                        valuePerHour = double.Parse(Console.ReadLine());
+                    case 'y':
                         Console.Write("Additional charge: ");
-                        additionalCharge = double.Parse(Console.ReadLine());
+                        double additionalCharge = double.Parse(Console.ReadLine());
                         
                         OutsourcedEmployee outsourcedEmployee = new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge);
                         employeesList.Add(outsourcedEmployee);
                         break;
-                    case "n":
-                        Console.Write("Name: ");
-                        name = Console.ReadLine();
-                        Console.Write("Hours: ");
-                        hours = int.Parse(Console.ReadLine());
-                        Console.Write("Value per hour: ");
-                        valuePerHour = double.Parse(Console.ReadLine());
-
+                    case 'n':
                         Employee employee = new Employee(name, hours, valuePerHour);
                         employeesList.Add(employee);
                         break;
