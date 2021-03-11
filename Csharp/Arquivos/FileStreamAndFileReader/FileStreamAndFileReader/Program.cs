@@ -7,7 +7,7 @@ namespace FileStreamAndFileReader
     {
         static void Main(string[] args)
         {
-            string path = @"C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Arquivos\File1.txt";
+            string path = @"C:caminho_do_arquivo\Arquivos\File1.txt";
 
 
             // SEM USER O BLOCO USING
