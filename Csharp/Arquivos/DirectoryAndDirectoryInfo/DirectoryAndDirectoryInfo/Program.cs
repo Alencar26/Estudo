@@ -8,7 +8,7 @@ namespace DirectoryAndDirectoryInfo
     {
         static void Main(string[] args)
         {
-            string path = @"C:\Users\andre\www\ws_csarp\Exercicios_POO\Csharp\Arquivos\pastaDeTeste";
+            string path = @"C:caminho_do_arquivo\Arquivos\pastaDeTeste";
 
             try
             {
