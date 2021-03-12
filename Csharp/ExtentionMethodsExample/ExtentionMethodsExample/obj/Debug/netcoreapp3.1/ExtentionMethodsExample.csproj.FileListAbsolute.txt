@@ -1,0 +1,13 @@
+C:\Users\andre\www\ws_csarp\GITHUB\Exercicios_POO\Csharp\ExtentionMethodsExample\ExtentionMethodsExample\bin\Debug\netcoreapp3.1\ExtentionMethodsExample.exe
+C:\Users\andre\www\ws_csarp\GITHUB\Exercicios_POO\Csharp\ExtentionMethodsExample\ExtentionMethodsExample\bin\Debug\netcoreapp3.1\ExtentionMethodsExample.deps.json
+C:\Users\andre\www\ws_csarp\GITHUB\Exercicios_POO\Csharp\ExtentionMethodsExample\ExtentionMethodsExample\bin\Debug\netcoreapp3.1\ExtentionMethodsExample.runtimeconfig.json
+C:\Users\andre\www\ws_csarp\GITHUB\Exercicios_POO\Csharp\ExtentionMethodsExample\ExtentionMethodsExample\bin\Debug\netcoreapp3.1\ExtentionMethodsExample.runtimeconfig.dev.json
+C:\Users\andre\www\ws_csarp\GITHUB\Exercicios_POO\Csharp\ExtentionMethodsExample\ExtentionMethodsExample\bin\Debug\netcoreapp3.1\ExtentionMethodsExample.dll
+C:\Users\andre\www\ws_csarp\GITHUB\Exercicios_POO\Csharp\ExtentionMethodsExample\ExtentionMethodsExample\bin\Debug\netcoreapp3.1\ExtentionMethodsExample.pdb
+C:\Users\andre\www\ws_csarp\GITHUB\Exercicios_POO\Csharp\ExtentionMethodsExample\ExtentionMethodsExample\obj\Debug\netcoreapp3.1\ExtentionMethodsExample.csprojAssemblyReference.cache
+C:\Users\andre\www\ws_csarp\GITHUB\Exercicios_POO\Csharp\ExtentionMethodsExample\ExtentionMethodsExample\obj\Debug\netcoreapp3.1\ExtentionMethodsExample.AssemblyInfoInputs.cache
+C:\Users\andre\www\ws_csarp\GITHUB\Exercicios_POO\Csharp\ExtentionMethodsExample\ExtentionMethodsExample\obj\Debug\netcoreapp3.1\ExtentionMethodsExample.AssemblyInfo.cs
+C:\Users\andre\www\ws_csarp\GITHUB\Exercicios_POO\Csharp\ExtentionMethodsExample\ExtentionMethodsExample\obj\Debug\netcoreapp3.1\ExtentionMethodsExample.csproj.CoreCompileInputs.cache
+C:\Users\andre\www\ws_csarp\GITHUB\Exercicios_POO\Csharp\ExtentionMethodsExample\ExtentionMethodsExample\obj\Debug\netcoreapp3.1\ExtentionMethodsExample.dll
+C:\Users\andre\www\ws_csarp\GITHUB\Exercicios_POO\Csharp\ExtentionMethodsExample\ExtentionMethodsExample\obj\Debug\netcoreapp3.1\ExtentionMethodsExample.pdb
+C:\Users\andre\www\ws_csarp\GITHUB\Exercicios_POO\Csharp\ExtentionMethodsExample\ExtentionMethodsExample\obj\Debug\netcoreapp3.1\ExtentionMethodsExample.genruntimeconfig.cache
