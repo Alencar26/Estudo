@@ -29,7 +29,7 @@ namespace DelegateExample
                          opShow += CalculatioShowService.ShowSum;
 
             opShow(x, y);
-            //opShow.Invoke(x, y);
+          //opShow.Invoke(x, y);
         }
     }
 }
