@@ -58,6 +58,23 @@ namespace DemoLINQExample
             //retornando apenas um elemento
             var r7 = products.Where(p => p.Id == 3).SingleOrDefault();
             Console.WriteLine("Single or default: " + r7);
+
+            var r8 = products.Where(p => p.Category.Id == 1).Select(p => p.Price).Aggregate(0.0, (x,y) => x + y);
+            Console.WriteLine("Category 1 aggregate sum: " + r8 + "\n");
+
+
+            // group by
+
+            var r9 = products.GroupBy(p => p.Category);
+            foreach (IGrouping<Category, Product> group in r9)
+            {
+                Console.WriteLine("Category " + group.Key.Name + ":");
+                foreach (Product p in group)
+                {
+                    Console.WriteLine(p);
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
