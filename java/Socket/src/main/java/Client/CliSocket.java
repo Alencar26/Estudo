@@ -14,9 +14,13 @@ public class CliSocket {
             Socket client = new Socket("127.0.0.1", 12345);
 
             PrintStream output = new PrintStream(client.getOutputStream());
+            Scanner input = new Scanner(client.getInputStream());
 
-            while(teclado.hasNextLine()){
-                output.println(teclado.nextLine());
+            String mensagem = "";
+            while(!mensagem.toUpperCase().equals("SAIR") && !mensagem.toUpperCase().equals("FECHAR")){
+                mensagem = teclado.nextLine();
+                output.println(mensagem);
+                System.out.println(input.nextLine());
             }
         } catch (IOException e) {
             e.printStackTrace();
