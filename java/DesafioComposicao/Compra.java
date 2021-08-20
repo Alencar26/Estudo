@@ -1,13 +1,14 @@
 package DesafioComposicao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Compra {
 
-    List<Item> itens;
+    List<Item> itens = new ArrayList<>();
 
-    public Compra(List<Item> itens) {
-        this.itens = itens;
+    void adicionaNoCarrinho(Item item){
+        itens.add(item);
     }
 
     double obterValorTotal(){

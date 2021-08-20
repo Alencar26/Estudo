@@ -1,15 +1,19 @@
 package DesafioComposicao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
 
     String nome;
-    List<Compra> compras;
+    List<Compra> compras = new ArrayList<>();
 
-    public Cliente(String nome, List<Compra> compras) {
+    public Cliente(String nome) {
         this.nome = nome;
-        this.compras = compras;
+    }
+
+    void adicionaCompra(Compra compra){
+        compras.add(compra);
     }
 
     double gastos(){
