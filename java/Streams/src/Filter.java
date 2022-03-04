@@ -5,15 +5,15 @@ public class Filter {
 
     public static void main(String[] args) {
 
-        AlunoFilter a1 = new AlunoFilter("Ana", 7.8);
-        AlunoFilter a2 = new AlunoFilter("Bia", 5.8);
-        AlunoFilter a3 = new AlunoFilter("Daniel", 9.8);
-        AlunoFilter a4 = new AlunoFilter("Gui", 6.8);
-        AlunoFilter a5 = new AlunoFilter("Rebeca", 7.1);
-        AlunoFilter a6 = new AlunoFilter("Pedro", 8.8);
+        Aluno a1 = new Aluno("Ana", 7.8);
+        Aluno a2 = new Aluno("Bia", 5.8);
+        Aluno a3 = new Aluno("Daniel", 9.8);
+        Aluno a4 = new Aluno("Gui", 6.8);
+        Aluno a5 = new Aluno("Rebeca", 7.1);
+        Aluno a6 = new Aluno("Pedro", 8.8);
 
 
-        List<AlunoFilter> alunos = Arrays.asList(a1, a2, a3, a4, a5, a6);
+        List<Aluno> alunos = Arrays.asList(a1, a2, a3, a4, a5, a6);
 
         alunos.stream()
                 .filter(a -> a.nota >= 7)
