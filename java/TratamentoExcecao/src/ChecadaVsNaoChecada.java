@@ -15,8 +15,11 @@ public class ChecadaVsNaoChecada {
 
         System.out.println("FIM.");
     }
-
-    //Não chegada (não verificada) <- você escolhe se quer ou não, tratar esse erro.
+    /*
+     * Não chegada (não verificada) <- você escolhe se quer ou não, tratar esse erro.
+     * Qualquer classe que herdar de RuntimeException não tem a obrigatoriedade de tratar a exceção.
+     */
+    // Não verificada ou não checada
     static void geraErro1(){
         throw new RuntimeException("Ocorreu um erro AQUI: #01!");
     }
