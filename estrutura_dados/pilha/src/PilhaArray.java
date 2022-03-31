@@ -1,19 +1,17 @@
-package Pilha;
-
 public class PilhaArray<E> implements  Pilha<E> {
 
     protected int capacidade;
-    public  static final int CAPACIDADE = 1000;
-    protected  E array[];
+    public static final int CAPACIDADE = 1000;
+    protected E array[];
     protected int top = -1;
 
     public PilhaArray() {
         this(CAPACIDADE);
     }
 
-    public  PilhaArray(int capacidade) {
-            this.capacidade = capacidade;
-            array = (E[]) new Object[capacidade];
+    public PilhaArray(int capacidade) {
+        this.capacidade = capacidade;
+        array = (E[]) new Object[capacidade];
     }
 
     @Override
@@ -43,7 +41,7 @@ public class PilhaArray<E> implements  Pilha<E> {
         element = array[top];
         array[top--] = null;
 
-        if(this.size() == 0)
+        if (this.size() == 0)
             throw new PilhaNegativaException("A Pilha está VAZIA.");
 
         return element;
@@ -64,10 +62,10 @@ public class PilhaArray<E> implements  Pilha<E> {
         s = new StringBuilder("[");
         if (size() > 0) s.append(array[0]);
         if (size() > 1)
-            for (int i = 1; i <= size() - 1; i++){
+            for (int i = 1; i <= size() - 1; i++) {
                 s.append(", ").append(array[i]);
             }
-        return  s + "]";
+        return s + "]";
     }
 
     public static void main(String[] args) {

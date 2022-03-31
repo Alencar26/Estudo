@@ -1,5 +1,3 @@
-package Pilha;
-
 public class PilhaNegativaException extends Exception{
 
     public  PilhaNegativaException(String msg) {

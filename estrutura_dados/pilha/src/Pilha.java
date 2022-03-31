@@ -1,5 +1,3 @@
-package Pilha;
-
 public interface Pilha<E> {
 
     public int size();
