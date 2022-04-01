@@ -42,7 +42,8 @@ public class PilhaArray<E> implements  Pilha<E> {
         array[top--] = null;
 
         if (this.size() == 0)
-            throw new PilhaNegativaException("A Pilha está VAZIA.");
+            throw new PilhaNegativaException("A LISTA ESTÁ " +
+                    "VAZIA! ESTA OPERAÇÃO NÃO PODE SER EXECUTADA");
 
         return element;
     }
