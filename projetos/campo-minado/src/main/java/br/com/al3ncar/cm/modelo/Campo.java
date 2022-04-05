@@ -19,7 +19,49 @@ public class Campo {
         this.coluna = coluna;
     }
 
+    /*
+     * Implementação da lógica para adicionar um vizinho:
+     *
+     * Para que seja possível adicionar um vizinho ao campo
+     * deve-se verificar o delta dos campos ao vizinho se o
+     * delta for  igual a 1 significa que ele é um vizinho
+     * da linha horizontal ou vertical, já se o delta for 2
+     * significa que esse vizinho é da diagonal.
+     * Exemplo:
+     *
+     * Considere a matriz abaixo.
+     *
+     *          1,1  1,2  1,3
+     *          2,1  2,2  2,3
+     *          3,1  3,2  3,3
+     *
+     * Se pegarmos o valor do meio da matriz ou seja (2,2)
+     * e subtrairmos os valores da linha e coluna do mesmo
+     * e pegarmos o vbalor absoluto, então teremos 1. Agora
+     * se pegar os valores na diagora e fazer o mesmo processo
+     * de subtração e pegar o valor absoluto, então teremos 2.
+     *
+     * Essa é a lógica que define se adicionamos um vizinho ou não.
+     *
+     */
     boolean adicionarVizinho(Campo vizinho) {
-        return false;
+
+        boolean linhaDiferente = linha != vizinho.linha;
+        boolean colunaDiferente = coluna != vizinho.coluna;
+        boolean diagonal = linhaDiferente && colunaDiferente;
+
+        int deltaLinha = Math.abs(linha - vizinho.linha);
+        int deltaColuna = Math.abs(coluna - vizinho.coluna);
+        int deltaGeral = deltaColuna + deltaLinha;
+
+        if (deltaGeral == 1 && !diagonal) {
+            vizinhos.add(vizinho);
+            return true;
+        } else if (deltaGeral == 2 && diagonal) {
+            vizinhos.add(vizinho);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
