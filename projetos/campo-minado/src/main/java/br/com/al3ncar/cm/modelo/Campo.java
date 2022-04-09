@@ -1,5 +1,7 @@
 package br.com.al3ncar.cm.modelo;
 
+import br.com.al3ncar.cm.excecao.ExplosaoException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,5 +65,53 @@ public class Campo {
         } else {
             return false;
         }
+    }
+
+    void alternarMarcacao() {
+        if (!aberto) {
+            marcado = !marcado;
+        }
+    }
+
+    boolean abrir() {
+        if (!aberto && !marcado) {
+            aberto = true;
+
+            if (minado) {
+                throw new ExplosaoException();
+            }
+
+            if (vizinhancaSegura()) {
+                vizinhos.forEach(vizinho -> vizinho.abrir());
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    boolean vizinhancaSegura() {
+        return vizinhos.stream().noneMatch(vizinho -> vizinho.minado);
+    }
+
+    boolean minar() {
+        if(!minado) {
+            minado = true;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isMarcado() {
+        return marcado;
+    }
+
+    public boolean isAberto() {
+        return aberto;
+    }
+
+    public boolean isFechado() {
+        return !isAberto();
     }
 }
