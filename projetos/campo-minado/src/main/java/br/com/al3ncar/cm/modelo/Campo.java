@@ -111,7 +111,55 @@ public class Campo {
         return aberto;
     }
 
+    public boolean isMinado() {
+        return minado;
+    }
+
     public boolean isFechado() {
         return !isAberto();
+    }
+
+    public boolean isDesmarcado() {
+        return !isAberto();
+    }
+
+    public int getLinha() {
+        return linha;
+    }
+
+    public int getColuna() {
+        return coluna;
+    }
+
+    boolean objetivoAlcancado() {
+        boolean desvendado = !minado && aberto;
+        boolean protegido = minado && marcado;
+
+        return desvendado || protegido;
+    }
+
+    long minasNaVizinhanca() {
+        return vizinhos.stream().filter(vizinho -> vizinho.minado).count();
+    }
+
+    void reiniciar() {
+        aberto = false;
+        minado = false;
+        marcado = false;
+    }
+
+    @Override
+    public String toString() {
+        if(marcado) {
+            return "x";
+        } else if(aberto && minado) {
+            return "*";
+        } else if(aberto && minasNaVizinhanca() > 0) {
+            return Long.toString(minasNaVizinhanca());
+        } else if(aberto) {
+            return " ";
+        } else {
+            return "?";
+        }
     }
 }

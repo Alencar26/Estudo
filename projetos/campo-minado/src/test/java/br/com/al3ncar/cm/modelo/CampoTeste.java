@@ -125,9 +125,7 @@ public class CampoTeste {
     @Test
     public void testeAbrirCampoMinadoNaoMarcado() {
         campo.minar();
-        Assert.assertThrows(ExplosaoException.class, () -> {
-            campo.abrir();
-        });
+        Assert.assertThrows(ExplosaoException.class, () -> campo.abrir());
     }
 
     @Test
@@ -193,6 +191,140 @@ public class CampoTeste {
         campo.abrir();
 
         Assert.assertTrue(meuVizinho.isAberto() && vizinhoDoMeuVizinho.isFechado());
+    }
+
+    @Test
+    public void testeValidarImpressaoSeCampoEstaMarcado() {
+        campo.alternarMarcacao();
+        Assert.assertEquals(campo.toString(), "x");
+    }
+
+    @Test
+    public void testeValidarImpressaoSeCampoEstaAberto() {
+        campo.abrir();
+        Assert.assertEquals(campo.toString(), " ");
+    }
+
+    @Test
+    public void testeValidarImpressaoSeCampoEstaFechado() {
+        Assert.assertEquals(campo.toString(), "?");
+    }
+
+    @Test
+    public void testeValidarImpressaoSeCampoAbertoEstaMinado() {
+        campo.minar();
+        Assert.assertThrows(ExplosaoException.class, () -> campo.abrir());
+        Assert.assertEquals(campo.toString(), "*");
+    }
+
+    @Test
+    public void testeValidarImpressaoSeCampoAbertoPossuiUmVizinhoMinado() {
+        Campo vizinho1 = new Campo(2,2);
+        vizinho1.minar();
+
+        campo.adicionarVizinho(vizinho1);
+        campo.abrir();
+
+        Assert.assertEquals(campo.toString(), "1");
+    }
+
+    @Test
+    public void testeValidarImpressaoSeCampoAbertoPossuiDoisVizinhosMinados() {
+        Campo vizinho1 = new Campo(2,2);
+        Campo vizinho2 = new Campo(2,3);
+        vizinho1.minar();
+        vizinho2.minar();
+
+        campo.adicionarVizinho(vizinho1);
+        campo.adicionarVizinho(vizinho2);
+        campo.abrir();
+
+        Assert.assertEquals(campo.toString(), "2");
+    }
+
+    @Test
+    public void testeValidarImpressaoSeCampoAbertoPossuiTresVizinhosMinados() {
+        Campo vizinho1 = new Campo(2,2);
+        Campo vizinho2 = new Campo(2,3);
+        Campo vizinho3 = new Campo(2,4);
+        vizinho1.minar();
+        vizinho2.minar();
+        vizinho3.minar();
+
+        campo.adicionarVizinho(vizinho1);
+        campo.adicionarVizinho(vizinho2);
+        campo.adicionarVizinho(vizinho3);
+        campo.abrir();
+
+        Assert.assertEquals(campo.toString(), "3");
+    }
+
+    @Test
+    public void testeValidarImpressaoSeCampoAbertoPossuiUmVizinhosQuePossuiUmVizinhoMinado() {
+        Campo vizinho1 = new Campo(1,2);
+        Campo vizinho2 = new Campo(2,3);
+        Campo vizinho3 = new Campo(2,4);
+        vizinho1.minar();
+
+        vizinho2.adicionarVizinho(vizinho1);
+        campo.adicionarVizinho(vizinho2);
+        campo.adicionarVizinho(vizinho3);
+        campo.abrir();
+
+        Assert.assertEquals(campo.toString(), " ");
+        Assert.assertEquals(vizinho2.toString(), "1");
+    }
+
+    @Test
+    public void testeReiniciarPartida() {
+        campo.reiniciar();
+
+        Assert.assertFalse(campo.isMinado());
+        Assert.assertTrue(campo.isFechado());
+        Assert.assertTrue(campo.isDesmarcado());
+
+    }
+
+    @Test
+    public void testeObjetivoAlcancadoCampoAbertoSemMina() {
+        campo.abrir();
+        Assert.assertTrue(campo.objetivoAlcancado());
+    }
+
+    @Test
+    public void testeObjetivoAlcancadoCampoAbertoComMina() {
+        campo.minar();
+        Assert.assertThrows(ExplosaoException.class, () -> campo.abrir());
+        Assert.assertFalse(campo.objetivoAlcancado());
+    }
+
+    @Test
+    public void testeObjetivoAlcancadoCampoMarcadoComMina() {
+        campo.minar();
+        campo.alternarMarcacao();
+        Assert.assertTrue(campo.objetivoAlcancado());
+    }
+
+    @Test
+    public void testeObjetivoAlcancadoCampoAbertoSemMinaEComMinaMarcado() {
+        Campo vizinho = new Campo(3,4);
+        vizinho.minar();
+        vizinho.alternarMarcacao();
+
+        campo.adicionarVizinho(vizinho);
+        campo.abrir();
+        Assert.assertTrue(campo.objetivoAlcancado());
+        Assert.assertTrue(vizinho.objetivoAlcancado());
+    }
+
+    @Test
+    public void testeValidarLinhaDoCampo() {
+        Assert.assertEquals(campo.getLinha(), 3);
+    }
+
+    @Test
+    public void testeValidarColunaDoCampo() {
+        Assert.assertEquals(campo.getColuna(), 3);
     }
 
 }
