@@ -48,4 +48,48 @@ public class Tabuleiro {
             campos.get(campoAleatorio).minar();
         } while (minasArmadas < minas);
     }
+
+    public void abrir(int linha, int coluna) {
+        campos.parallelStream()
+                .filter(campo -> campo.getLinha() == linha)
+                .filter(campo -> campo.getColuna() == coluna)
+                .findFirst()
+                .ifPresent(Campo::abrir);
+    }
+
+    public void alternarMarcacao(int linha, int coluna) {
+        campos.parallelStream()
+                .filter(campo -> campo.getLinha() == linha)
+                .filter(campo -> campo.getColuna() == coluna)
+                .findFirst()
+                .ifPresent(Campo::alternarMarcacao);
+    }
+
+    //método que diz se jogador ganhou.
+    public boolean objetivoAlcancado() {
+        return campos.stream().allMatch(Campo::objetivoAlcancado);
+    }
+
+    //reiniciar jogo
+    public void reniciar() {
+        campos.forEach(Campo::reiniciar);
+        sortearMinas();
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        int i = 0;
+        for (int linha = 1; linha <= linhas; linha++) {
+            for (int coluna = 1; coluna <= colunas; coluna++) {
+                sb.append(" ");
+                sb.append(campos.get(i));
+                sb.append(" ");
+                i++;
+            }
+            sb.append("\n");
+        }
+
+        return sb.toString();
+    }
 }
