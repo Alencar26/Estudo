@@ -131,6 +131,10 @@ public class Campo {
         return coluna;
     }
 
+    void setAberto(boolean aberto) {
+        this.aberto = aberto;
+    }
+
     boolean objetivoAlcancado() {
         boolean desvendado = !minado && aberto;
         boolean protegido = minado && marcado;

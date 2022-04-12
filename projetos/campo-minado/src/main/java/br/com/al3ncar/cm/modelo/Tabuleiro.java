@@ -1,5 +1,7 @@
 package br.com.al3ncar.cm.modelo;
 
+import br.com.al3ncar.cm.excecao.ExplosaoException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -43,18 +45,23 @@ public class Tabuleiro {
         Predicate<Campo> minado = Campo::isMinado;
 
         do {
-            minasArmadas = campos.stream().filter(minado).count();
-                int campoAleatorio = (int) (Math.random() * campos.size());
+            int campoAleatorio = (int) (Math.random() * campos.size());
             campos.get(campoAleatorio).minar();
+            minasArmadas = campos.stream().filter(minado).count();
         } while (minasArmadas < minas);
     }
 
     public void abrir(int linha, int coluna) {
-        campos.parallelStream()
-                .filter(campo -> campo.getLinha() == linha)
-                .filter(campo -> campo.getColuna() == coluna)
-                .findFirst()
-                .ifPresent(Campo::abrir);
+        try {
+            campos.parallelStream()
+                    .filter(campo -> campo.getLinha() == linha)
+                    .filter(campo -> campo.getColuna() == coluna)
+                    .findFirst()
+                    .ifPresent(Campo::abrir);
+        } catch (ExplosaoException e) {
+            campos.forEach(campo -> campo.setAberto(true));
+            throw e;
+        }
     }
 
     public void alternarMarcacao(int linha, int coluna) {
@@ -79,8 +86,18 @@ public class Tabuleiro {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
+        for(int c = 1; c <= colunas; c++) {
+            if (c ==1) sb.append("  ");
+            sb.append(" ");
+            sb.append(c);
+            sb.append(" ");
+        }
+        sb.append("\n");
+
         int i = 0;
         for (int linha = 1; linha <= linhas; linha++) {
+            sb.append(linha);
+            sb.append(" ");
             for (int coluna = 1; coluna <= colunas; coluna++) {
                 sb.append(" ");
                 sb.append(campos.get(i));
