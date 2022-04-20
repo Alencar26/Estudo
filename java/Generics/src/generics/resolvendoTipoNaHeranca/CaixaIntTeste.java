@@ -1,4 +1,6 @@
-package generics;
+package generics.resolvendoTipoNaHeranca;
+
+import generics.resolvendoTipoNaHeranca.CaixaInt;
 
 public class CaixaIntTeste {
 

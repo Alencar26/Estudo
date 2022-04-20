@@ -1,4 +1,6 @@
-package generics;
+package generics.resolvendoTipaNaInstancia;
+
+import generics.resolvendoTipaNaInstancia.Caixa;
 
 public class CaixaTeste {
 

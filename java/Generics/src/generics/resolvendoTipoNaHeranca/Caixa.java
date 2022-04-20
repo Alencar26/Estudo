@@ -1,4 +1,4 @@
-package generics;
+package generics.resolvendoTipoNaHeranca;
 
 // É mais comum usar apenas uma letra no tipo genérico
 public class Caixa<TIPO> {

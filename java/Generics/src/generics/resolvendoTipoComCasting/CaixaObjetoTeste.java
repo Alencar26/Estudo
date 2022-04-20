@@ -1,4 +1,6 @@
-package generics;
+package generics.resolvendoTipoComCasting;
+
+import generics.resolvendoTipoComCasting.CaixaObjeto;
 
 public class CaixaObjetoTeste {
 
