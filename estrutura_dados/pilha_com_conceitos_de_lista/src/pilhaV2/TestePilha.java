@@ -26,10 +26,9 @@ public class TestePilha {
     }
 
     public static boolean removendoUmAUm(Pilha<String> pilha) {
-        if (pilha.size() == 0) return false;
-        do {
+        if (pilha.isEmpty()) return fd
             System.out.println("Retirando: "+ pilha.pop());
-        } while (pilha.size() != 0);
+        } while (!pilha.isEmpty());
         return true;
     }
 }
