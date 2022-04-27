@@ -2,15 +2,17 @@ package br.com.al3ncar.cm.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class Tabuleiro {
+public class Tabuleiro implements CampoObservador {
 
     private int linhas;
     private int colunas;
     private int minas;
 
     private final List<Campo> campos = new ArrayList<>();
+    private final List<Consumer<ResultadoEvento>> observadores = new ArrayList<>();
 
     public Tabuleiro(int linhas, int colunas, int minas) {
         this.linhas = linhas;
@@ -22,10 +24,20 @@ public class Tabuleiro {
         sortearMinas();
     }
 
+    public void registrarObservador(Consumer<ResultadoEvento> observador) {
+        observadores.add(observador);
+    }
+
+    private void notificarObservador(boolean resultado) {
+        observadores.forEach(observador -> observador.accept(new ResultadoEvento(resultado)));
+    }
+
     private void gerarCampos() {
         for(int linha = 1; linha <= linhas; linha++) {
             for (int coluna = 1; coluna <= colunas; coluna++) {
-                campos.add(new Campo(linha, coluna));
+                Campo campo = new Campo(linha, coluna);
+                campo.registrarObservador(this);
+                campos.add(campo);
             }
         }
     }
@@ -50,17 +62,11 @@ public class Tabuleiro {
     }
 
     public void abrir(int linha, int coluna) {
-        try {
             campos.parallelStream()
                     .filter(campo -> campo.getLinha() == linha)
                     .filter(campo -> campo.getColuna() == coluna)
                     .findFirst()
                     .ifPresent(Campo::abrir);
-        } catch (Exception e) {
-            //FIXME ajustar implementação do método abrir
-            campos.forEach(campo -> campo.setAberto(true));
-            throw e;
-        }
     }
 
     public void alternarMarcacao(int linha, int coluna) {
@@ -80,5 +86,21 @@ public class Tabuleiro {
     public void reniciar() {
         campos.forEach(Campo::reiniciar);
         sortearMinas();
+    }
+
+    @Override
+    public void eventoOcorreu(Campo campo, CampoEvento evento) {
+        if (evento == CampoEvento.EXPLODIR) {
+            mostrarMinas();
+            notificarObservador(false);
+        } else if (objetivoAlcancado()) {
+            notificarObservador(true);
+        }
+    }
+
+    private void mostrarMinas() {
+        campos.stream()
+                .filter(Campo::isMinado)
+                .forEach(campo -> campo.setAberto(true));
     }
 }
