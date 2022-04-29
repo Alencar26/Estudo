@@ -13,7 +13,15 @@ public class PainelTabuleiro extends JPanel {
 
         tabuleiro.paraCadaCampo(campo -> add(new BotaoCampo(campo)));
         tabuleiro.registrarObservador(e -> {
-            //TODO mostrar resultado para o usuário.
+
+            //renderizar componente depois dos outros componentes
+            SwingUtilities.invokeLater(() -> {
+                if (e.isGanhou()) {
+                    JOptionPane.showMessageDialog(this, "Parabéns!!! Você Ganhou!");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Poxa, você perdeu!");
+                }
+            });
         });
     }
 }
