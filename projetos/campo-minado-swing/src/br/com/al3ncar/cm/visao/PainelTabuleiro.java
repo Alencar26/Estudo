@@ -21,6 +21,7 @@ public class PainelTabuleiro extends JPanel {
                 } else {
                     JOptionPane.showMessageDialog(this, "Poxa, você perdeu!");
                 }
+                tabuleiro.reniciar();
             });
         });
     }
