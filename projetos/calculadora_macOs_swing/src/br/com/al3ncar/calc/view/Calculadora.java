@@ -9,7 +9,7 @@ public class Calculadora extends JFrame {
 
         organizarLayout();
 
-        setSize(232,322);
+        setSize(300,400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
@@ -20,7 +20,8 @@ public class Calculadora extends JFrame {
         setLayout(new BorderLayout());
 
         Display display = new Display();
-        display.setPreferredSize(new Dimension(233,60));
+        display.setPreferredSize(new Dimension(301,85));
+        //setUndecorated(true); << tirar a barra superior do sistema
         // segundo parâmetro indica a posição do elemento, só funciona com BorderLayout
         add(display, BorderLayout.NORTH);
         Teclado teclado = new Teclado();
