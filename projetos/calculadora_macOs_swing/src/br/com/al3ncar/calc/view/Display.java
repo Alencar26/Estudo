@@ -1,5 +1,7 @@
 package br.com.al3ncar.calc.view;
 
+import br.com.al3ncar.calc.model.Memoria;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,7 +11,7 @@ public class Display extends JPanel {
 
     public Display() {
         setBackground(new Color(33,37,43));
-        label  = new JLabel("123,45");
+        label  = new JLabel(Memoria.getInstancia().getTextoAtual());
         label.setForeground(Color.WHITE);
         label.setFont(new Font("courier", Font.PLAIN, 30));
 
