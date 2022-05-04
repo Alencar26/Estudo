@@ -60,7 +60,7 @@ public class Memoria {
     }
 
     private String obterResultadoOperação() {
-        if (ultimaOperação == null) {
+        if (ultimaOperação == null || ultimaOperação == TipoComando.IGUAL) {
             return textoAtual;
         }
 
@@ -77,8 +77,6 @@ public class Memoria {
              resultado = numeroBuffer / numeroAtual;
          else if (ultimaOperação == TipoComando.MULT)
              resultado = numeroBuffer * numeroAtual;
-         else if (ultimaOperação == TipoComando.IGUAL)
-             return resultado+"";
 
          String resultadoString = Double.toString(resultado).replace(".", ",");
          boolean inteiro = resultadoString.endsWith(",0");
