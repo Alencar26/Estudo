@@ -35,3 +35,4 @@ Nesse projeto foi utilizado:
     - outros...
   - Métodos da Classe Double
     - parseDouble
+![imagem calculadora](target/img/calc.png)
