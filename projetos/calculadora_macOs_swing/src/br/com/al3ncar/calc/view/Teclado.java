@@ -2,8 +2,10 @@ package br.com.al3ncar.calc.view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Teclado extends JPanel {
+public class Teclado extends JPanel implements ActionListener {
 
     private final Color COR_CINZA_ESCURO = new Color(50,56,68);
     private final Color COR_CINZA_CLARO = new Color(89,92,96);
@@ -28,7 +30,7 @@ public class Teclado extends JPanel {
         adicionarBotao("7", COR_CINZA_CLARO, c, 1, 0);
         adicionarBotao("8", COR_CINZA_CLARO, c, 1, 1);
         adicionarBotao("9", COR_CINZA_CLARO, c, 1, 2);
-        adicionarBotao("X", COR_LARANJA, c, 1, 3);
+        adicionarBotao("x", COR_LARANJA, c, 1, 3);
         //linha 3
         adicionarBotao("4", COR_CINZA_CLARO, c, 2, 0);
         adicionarBotao("5", COR_CINZA_CLARO, c, 2, 1);
@@ -51,6 +53,16 @@ public class Teclado extends JPanel {
         c.gridx = x;
         c.gridy = y;
         Botao botao = new Botao(texto, cor);
+        botao.addActionListener(this);
         add(botao, c);
+    }
+
+    // capturar o evento produzido pelo botão
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() instanceof  JButton) {
+            JButton button = (JButton) e.getSource();
+            System.out.println(button.getText());
+        }
     }
 }
