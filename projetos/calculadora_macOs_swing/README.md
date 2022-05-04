@@ -17,3 +17,21 @@ Nesse projeto foi utilizado:
 - JFrame
 - JLabel
 - JButton
+- Java Básico
+  - Condicionais
+  - Operações matemáticas
+  - Enumerables
+  - List
+  - ArrayList
+  - Operador Ternário
+  - ForEach
+  - Lambdas expressions
+  - Métodos da classe String
+    - replace
+    - equals
+    - isEmpty
+    - endsWith
+    - contains
+    - outros...
+  - Métodos da Classe Double
+    - parseDouble
