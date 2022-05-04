@@ -5,6 +5,9 @@ Essa calculadora foi inspirada na mesma dos sistemas da Apple.
 
 Nesse projeto foi utilizado:
 
+- Design patterns
+  - Singleton
+  - Observer
 - Gerenciadores de Layout - (*swing*)
   - GridBagLayout - (*no teclado*)
     - GridBagConstraints
