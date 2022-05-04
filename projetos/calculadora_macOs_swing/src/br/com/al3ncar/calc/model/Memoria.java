@@ -6,7 +6,7 @@ import java.util.List;
 public class Memoria {
 
     private enum TipoComando {
-            ZERAR, NUMERO, DIV, MULT, SUB, SOMA, IGUAL, VIRGULA;
+            ZERAR, NUMERO, DIV, MULT, SUB, SOMA, IGUAL, VIRGULA, NEGATIVAR;
     };
 
     // USANDO PADRÃO DE PROJETO SINGLETON: só posso ter uma instância dessa classe.
@@ -46,6 +46,10 @@ public class Memoria {
             textoBuffer = "";
             substituir = false;
             ultimaOperação = null;
+        } else if (tipoComando == TipoComando.NEGATIVAR && textoAtual.contains("-")) {
+            textoAtual = textoAtual.substring(1);
+        } else if (tipoComando == TipoComando.NEGATIVAR && !textoAtual.contains("-")) {
+            textoAtual = "-" + textoAtual;
         } else if (tipoComando == TipoComando.NUMERO
                 || tipoComando == TipoComando.VIRGULA) {
             textoAtual = substituir ? texto : textoAtual + texto;
@@ -96,7 +100,7 @@ public class Memoria {
             // Quando não for número
             if ("AC".equals(texto)) {
                 return TipoComando.ZERAR;
-            } else if ("/".equals(texto)) {
+            } else if ("÷".equals(texto)) {
                 return  TipoComando.DIV;
             } else if ("+".equals(texto)) {
                 return  TipoComando.SOMA;
@@ -106,6 +110,8 @@ public class Memoria {
                 return  TipoComando.MULT;
             } else if ("=".equals(texto)) {
                 return  TipoComando.IGUAL;
+            } else if ("±".equals(texto)) {
+                return  TipoComando.NEGATIVAR;
             } else if (",".equals(texto) && !textoAtual.contains(",")) {
                 return  TipoComando.VIRGULA;
             }
