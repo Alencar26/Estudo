@@ -15,6 +15,14 @@ public class Sorting {
       System.out.println(v[i]);
     }
 
+    String[] vs = {"Zeze", "Ana", "Gabi", "Willian", "Maria", "Fernando"};
+    ordenarString(vs);
+    System.out.println("\nOrdenar String:");
+     for (int i = 0; i < vs.length; i++) {
+      System.out.println(vs[i]);
+    }
+
+
   }
 
   public static void ordenar(int[] vetor) {
@@ -39,6 +47,21 @@ public class Sorting {
     for (int i = 0; i < n - 1; i++) {
       for (int j = 0; j < n -1; j++) {
         if (vetor[j] < vetor[j + 1]) {
+         temporario = vetor[j + 1];
+         vetor[j + 1] = vetor[j];
+         vetor[j] = temporario;
+        }
+      }
+    }
+  }
+
+   public static void ordenarString(String[] vetor) {
+    
+    int n = vetor.length;
+    String temporario;
+    for (int i = 0; i < n - 1; i++) {
+      for (int j = 0; j < n -1; j++) {
+        if (vetor[j].compareTo(vetor[j + 1]) > 0) {
          temporario = vetor[j + 1];
          vetor[j + 1] = vetor[j];
          vetor[j] = temporario;
