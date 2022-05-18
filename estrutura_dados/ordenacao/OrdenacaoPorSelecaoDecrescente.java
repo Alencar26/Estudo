@@ -22,7 +22,7 @@ public class OrdenacaoPorSelecaoDecrescente {
 
   public static void ordenarPorSelecao(int[] v) {
     int n = v.length;
-    int i, j;
+    int i;
     int temporario;
     while (n > 1) {
       i = seleciona(v, n);

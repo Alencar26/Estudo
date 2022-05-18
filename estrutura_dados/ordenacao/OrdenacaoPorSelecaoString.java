@@ -22,7 +22,7 @@ public class OrdenacaoPorSelecaoString {
 
   public static void ordenarPorSelecao(String[] v) {
     int n = v.length;
-    int i, j;
+    int i;
     String temporario;
     while (n > 1) {
       i = seleciona(v, n);
