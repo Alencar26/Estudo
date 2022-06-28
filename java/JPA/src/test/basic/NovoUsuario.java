@@ -16,12 +16,14 @@ public class NovoUsuario {
         EntityManager em = emF.createEntityManager();
 
         //criando um objeto
-        Usuario user = new Usuario("Pedro", "pe.dro@email.com");
+        Usuario user = new Usuario("Andre", "andre@email.com");
         //add no banco
         em.getTransaction().begin();
         em.persist(user);
         em.getTransaction().commit();
         //final da inclusão no banco.
+
+        System.out.println("O Id gerado foi: " + user.getId());
 
         em.close();
         emF.close();
