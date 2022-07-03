@@ -19,8 +19,8 @@ public class Produto {
 
     public Produto() { }
 
-    public Produto(Long id, String nome, Double preco) {
-        this.id = id;
+    public Produto(String nome, Double preco) {
+        super();
         this.nome = nome;
         this.preco = preco;
     }
