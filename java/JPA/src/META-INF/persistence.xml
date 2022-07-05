@@ -10,6 +10,8 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>model.basic.Usuario</class>
         <class>model.basic.Produto</class>
+        <class>model.umpraum.Assento</class>
+        <class>model.umpraum.Cliente</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
