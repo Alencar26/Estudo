@@ -17,5 +17,6 @@ public class ObterPedido {
             System.out.println(item.getProduto().getNome());
         }
 
+        dao.fechar();
     }
 }
