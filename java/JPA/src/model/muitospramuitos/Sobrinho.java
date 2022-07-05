@@ -1,8 +1,7 @@
 package model.muitospramuitos;
 
 import javax.persistence.*;
-import java.util.ArrayList;s
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
