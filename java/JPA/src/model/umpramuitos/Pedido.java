@@ -15,7 +15,15 @@ public class Pedido {
     @Column(nullable = false)
     private Date data;
 
-    @OneToMany(mappedBy = "pedido")
+    /* quando a operação é UmParaMuitos ou UmParaUm por padrão a
+       operação é fetch = FetchType.EAGER que trás os elementos
+       do banco em uma única operação. (não precisa informar o
+       parâmetro nesse caso, pois é default).
+
+       No caso de MuitosParaUm ou MuitosParaMuitos por padrão o
+       fetch é = FetchType.LAZY que não tráz tudo.
+    */
+    @OneToMany(mappedBy = "pedido", fetch = FetchType.EAGER)
     private List<ItemPedido> itens;
 
     public Pedido() {
