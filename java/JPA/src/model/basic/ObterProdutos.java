@@ -20,5 +20,7 @@ public class ObterProdutos {
                 .reduce(0.0, (t, p)-> t + p);
 
         System.out.println("Valor total é: " + precoTotal);
+
+        dao.fechar();
     }
 }
