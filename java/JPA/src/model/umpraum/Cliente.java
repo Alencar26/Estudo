@@ -12,7 +12,8 @@ public class Cliente {
 
     private String nome;
 
-    @OneToOne
+    // poderia colocar CascadeType.ALL para todos os cenários
+    @OneToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "assento_id", unique = true)
     private Assento assento;
 
