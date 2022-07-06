@@ -9,8 +9,8 @@ import java.util.List;
 public class DAO<E> {
 
     private static EntityManagerFactory emF;
-    private EntityManager em;
-    private Class<E> classe;
+    final private EntityManager em;
+    final private Class<E> classe;
 
     //bloco estático (só é inicializado uma vez quando a classe é carregada)
     static {
@@ -68,6 +68,15 @@ public class DAO<E> {
         TypedQuery<E> query = em.createQuery(jpql, classe);
         query.setMaxResults(qtde);
         query.setFirstResult(deslocamento);
+        return query.getResultList();
+    }
+    //Named Query
+    // Consulta personalizada com base no arquivo consultas.xml
+    public List<E> consultar(String nomeConsulta, Object... params) {
+        TypedQuery<E> query = em.createNamedQuery(nomeConsulta, classe);
+        for (int i = 0; i < params.length; i += 2) {
+         query.setParameter(params[i].toString(), params[i + 1].toString());
+        }
         return query.getResultList();
     }
 

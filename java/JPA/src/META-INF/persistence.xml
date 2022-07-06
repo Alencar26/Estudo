@@ -8,6 +8,9 @@
             Persistence unit for the JPA tutorial of the Hibernate Getting Started Guide
         </description>
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <mapping-file>META-INF/consultas.xml</mapping-file>
+
         <class>model.basic.Usuario</class>
         <class>model.basic.Produto</class>
         <class>model.umpraum.Assento</class>
