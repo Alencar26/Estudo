@@ -21,6 +21,8 @@
         <class>model.muitospramuitos.Tio</class>
         <class>model.muitospramuitos.Ator</class>
         <class>model.muitospramuitos.Filme</class>
+        <class>model.heranca.Aluno</class>
+        <class>model.heranca.AlunoBolsista</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
