@@ -1,5 +1,3 @@
-package com.al3ncar.exerciciosjavafx;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 

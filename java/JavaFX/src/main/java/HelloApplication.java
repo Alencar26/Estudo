@@ -1,5 +1,3 @@
-package com.al3ncar.exerciciosjavafx;
-
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
