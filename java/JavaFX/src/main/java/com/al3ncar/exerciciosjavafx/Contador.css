@@ -1,5 +1,5 @@
 .conteudo {
-  -fx-background-color: red;
+  -fx-background-color: #000;
   -fx-font-family: Oswald;
 }
 
@@ -10,5 +10,24 @@
 
 .numero {
   -fx-text-fill: #EEE;
+  -fx-font-size: 28px;
+}
+
+.botoes {
+  -fx-background-color: #FFF;
+  -fx-text-fill: #48b2ee;
+  -fx-font-size: 24px;
+  -fx-min-width: 60px;
+  -fx-min-height: 60px;
+  -fx-background-radius: 50%;
+}
+
+.verde {
+  -fx-text-fill: #4bdb82;
+  -fx-font-size: 28px;
+}
+
+.vermelho {
+  -fx-text-fill: #ee4139;
   -fx-font-size: 28px;
 }
