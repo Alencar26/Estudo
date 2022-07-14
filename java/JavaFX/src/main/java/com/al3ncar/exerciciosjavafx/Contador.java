@@ -44,7 +44,10 @@ public class Contador extends Application {
         boxPrincipal.getChildren().add(lblNumero);
         boxPrincipal.getChildren().add(boxBotoes);
 
+        //String PathCSS = getClass().getResource("/com/al3ncar/exerciciosjavafx/Contador.css").toExternalForm();
         Scene cenaPrincipal = new Scene(boxPrincipal, 400 ,400);
+        //cenaPrincipal.getStylesheets().add(PathCSS);
+
         stage.setScene(cenaPrincipal);
         stage.show();
     }
