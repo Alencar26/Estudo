@@ -10,15 +10,7 @@ public class AppLayout extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        VBox temp = new VBox();
-        temp.getChildren().add(new Quadrado());
-        temp.getChildren().add(new Quadrado());
-        temp.getChildren().add(new Quadrado());
-        temp.getChildren().add(new Quadrado());
-        temp.getChildren().add(new Quadrado());
-        temp.getChildren().add(new Quadrado());
-        temp.getChildren().add(new Quadrado());
-        Scene principal = new Scene(temp, 800, 600);
+        Scene principal = new Scene(new TesteAnchorPane(), 800, 800);
 
         stage.setScene(principal);
         stage.setTitle("Gerenciadores de Layout");
