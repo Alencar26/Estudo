@@ -3,6 +3,7 @@ package com.al3ncar.layout;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 public class AppLayout extends Application {
@@ -12,7 +13,8 @@ public class AppLayout extends Application {
 
         Parent raiz = null;
 //      raiz = new TesteAnchorPane();
-        raiz = new TesteBorderPane();
+//      raiz = new TesteBorderPane();
+        raiz = new TesteFlowPane();
 
         Scene principal = new Scene(raiz, 800, 800);
 
