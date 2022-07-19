@@ -1,5 +1,6 @@
 package com.al3ncar.layout;
 
+import javafx.application.Platform;
 import javafx.scene.layout.StackPane;
 
 public class TesteStackPane extends StackPane {
@@ -28,6 +29,24 @@ public class TesteStackPane extends StackPane {
             }
         });
 
+        Thread t = new Thread(() -> {
+           while (true) {
+               try {
+                   Thread.sleep(3000); //deixar a thread dormir por 3 segundos
+
+                   //Para a thread funcionar no javafx precisa de uma classe apropriada
+                   // chamada de Platform que executa a thread dentro do javafx
+                   Platform.runLater(() -> {
+                    getChildren().get(0).toFront();
+                   });
+               } catch (Exception e) {
+                   System.out.println("Mensagem de erro na Thread: " + e.getMessage());
+               }
+           }
+        });
+
+        t.setDaemon(true); //quando o processo principal morrer a thread morre junto
+        t.start(); //iniciar a Thread
 
     }
 }
