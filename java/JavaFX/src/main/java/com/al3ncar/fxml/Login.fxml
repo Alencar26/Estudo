@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<GridPane
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.al3ncar.fxml.LoginController"
+        styleClass="login"
+        hgap="15"
+        vgap="15"
+        prefHeight="400.0" prefWidth="600.0">
+
+    <padding>
+        <Insets left="40" right="40" top="40" bottom="40"/>
+    </padding>
+
+    <columnConstraints>
+        <ColumnConstraints
+                minWidth="60"
+                prefWidth="60"
+                halignment="RIGHT"/>
+        <ColumnConstraints
+                prefWidth="200"
+                maxWidth="Infinity"
+                hgrow="ALWAYS"/>
+    </columnConstraints>
+
+    <Label
+            text="Seja Bem-Vindo"
+            styleClass="login-titulo"
+            GridPane.columnSpan="2"
+            GridPane.halignment="CENTER"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="0">
+
+        <GridPane.margin>
+            <Insets top="20" bottom="20"/>
+        </GridPane.margin>
+    </Label>
+
+    <Label
+            text="E-mail: "
+            styleClass="login-form-label"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="1">
+    </Label>
+    <TextField
+            fx:id="emailField"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="1">
+    </TextField>
+
+    <Label
+            text="Senha: "
+            styleClass="login-form-label"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="2">
+    </Label>
+    <PasswordField
+            fx:id="passwordField"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="2">
+    </PasswordField>
+
+    <Button
+            text="Entrar"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="3"
+            styleClass="login-form-botao"
+            GridPane.columnSpan="2"
+            GridPane.halignment="CENTER"
+            onAction="#entrar">
+
+        <GridPane.margin>
+            <Insets top="20" bottom="20"/>
+        </GridPane.margin>
+    </Button>
+</GridPane>
