@@ -17,7 +17,7 @@ public class ClienteController {
         return new Cliente(id, "Maria", "987.654.321-00");
     }
 
-//Forma mais comum de passar parâmetros na URL.
+    //Forma mais comum de passar parâmetros na URL.
     @GetMapping
     public Cliente obterClientePorId2(@RequestParam(name = "id") int id) {
         return new Cliente(id, "Julio", "444.333.222-11");
