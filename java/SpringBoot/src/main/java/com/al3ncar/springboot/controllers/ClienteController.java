@@ -1,10 +1,7 @@
 package com.al3ncar.springboot.controllers;
 
 import com.al3ncar.springboot.models.Cliente;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/clientes")
@@ -18,5 +15,11 @@ public class ClienteController {
     @GetMapping("/{id}")
     public Cliente obterClientePorId1(@PathVariable("id") int id) {
         return new Cliente(id, "Maria", "987.654.321-00");
+    }
+
+//Forma mais comum de passar parâmetros na URL.
+    @GetMapping
+    public Cliente obterClientePorId2(@RequestParam(name = "id") int id) {
+        return new Cliente(id, "Julio", "444.333.222-11");
     }
 }
