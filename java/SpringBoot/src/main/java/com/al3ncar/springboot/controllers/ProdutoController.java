@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class ProdutoController {
 
     @Autowired
+    // anotation para injeção de dependência para implementação da classe abixo
     private ProdutoRepository produtoRepository;
 
     @PostMapping
