@@ -1,4 +1,4 @@
-package com.al3ncar.springboot.models;
+package com.al3ncar.springboot.model.entities;
 
 public class Cliente {
 

@@ -1,6 +1,6 @@
 package com.al3ncar.springboot.controllers;
 
-import com.al3ncar.springboot.models.Cliente;
+import com.al3ncar.springboot.model.entities.Cliente;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
