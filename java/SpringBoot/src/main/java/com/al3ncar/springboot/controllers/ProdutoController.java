@@ -5,6 +5,8 @@ import com.al3ncar.springboot.model.entities.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/produtos")
 public class ProdutoController {
@@ -14,7 +16,7 @@ public class ProdutoController {
     private ProdutoRepository produtoRepository;
 
     @PostMapping
-    public @ResponseBody Produto novoProduto(Produto produto) {
+    public @ResponseBody Produto novoProduto(@Valid Produto produto) {
         produtoRepository.save(produto);
         return produto;
     }
