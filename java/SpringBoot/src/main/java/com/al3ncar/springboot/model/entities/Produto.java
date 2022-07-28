@@ -11,6 +11,8 @@ public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    private String nome;
     private double preco;
     private double desconso;
 
@@ -21,8 +23,6 @@ public class Produto {
         this.desconso = desconso;
         this.nome = nome;
     }
-
-    private String nome;
 
     public int getId() {
         return id;
