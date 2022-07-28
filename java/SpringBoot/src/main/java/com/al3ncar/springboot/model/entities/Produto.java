@@ -23,13 +23,13 @@ public class Produto {
 
     @Min(0)
     @Max(1) //valor maximo
-    private double desconso;
+    private double desconto;
 
     public Produto() { }
 
-    public Produto(String nome ,double preco, double desconso) {
+    public Produto(String nome ,double preco, double desconto) {
         this.preco = preco;
-        this.desconso = desconso;
+        this.desconto = desconto;
         this.nome = nome;
     }
 
@@ -57,11 +57,11 @@ public class Produto {
         this.preco = preco;
     }
 
-    public double getDesconso() {
-        return desconso;
+    public double getDesconto() {
+        return desconto;
     }
 
-    public void setDesconso(double desconso) {
-        this.desconso = desconso;
+    public void setDesconto(double desconto) {
+        this.desconto = desconto;
     }
 }
