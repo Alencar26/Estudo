@@ -37,4 +37,10 @@ public class ProdutoController {
 //        produtoRepository.save(produto);
 //        return produto;
 //    }
+
+    @DeleteMapping(path = "/{id}")
+    public String excluirProduto(@PathVariable(name = "id") int id) {
+        produtoRepository.deleteById(id);
+        return "Deletado com sucesso";
+    }
 }
