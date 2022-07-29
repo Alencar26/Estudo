@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/produtos")
@@ -24,5 +25,10 @@ public class ProdutoController {
     @GetMapping
     public Iterable<Produto> obterProdutos() {
         return produtoRepository.findAll();
+    }
+
+    @GetMapping(params = "id")
+    public Optional<Produto> obterPorId(@RequestParam(name = "id") int id) {
+        return produtoRepository.findById(id);
     }
 }
