@@ -31,4 +31,10 @@ public class ProdutoController {
     public Optional<Produto> obterPorId(@RequestParam(name = "id") int id) {
         return produtoRepository.findById(id);
     }
+
+    @PutMapping
+    public Produto alterarProduto(@Valid Produto produto) {
+        produtoRepository.save(produto);
+        return produto;
+    }
 }
