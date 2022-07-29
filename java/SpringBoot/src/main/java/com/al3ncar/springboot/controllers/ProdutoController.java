@@ -3,6 +3,8 @@ package com.al3ncar.springboot.controllers;
 import com.al3ncar.springboot.model.entities.Produto;
 import com.al3ncar.springboot.model.entities.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -25,6 +27,13 @@ public class ProdutoController {
     @GetMapping
     public Iterable<Produto> obterProdutos() {
         return produtoRepository.findAll();
+    }
+
+    //Efetuar consulta com paginação
+    @GetMapping(path = "/pagina/{numeroPagina}")
+    public Iterable<Produto> obterPordutosPorPagina(@PathVariable int numeroPagina) {
+        Pageable page = PageRequest.of(numeroPagina - 1, 5); //numero da página está com -1 pois começa em zerp.
+        return produtoRepository.findAll(page);
     }
 
     @GetMapping(params = "id")
