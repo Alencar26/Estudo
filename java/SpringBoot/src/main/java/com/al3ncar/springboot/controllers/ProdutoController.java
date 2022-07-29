@@ -16,8 +16,8 @@ public class ProdutoController {
     // anotation para injeção de dependência para implementação da classe abixo
     private ProdutoRepository produtoRepository;
 
-    @PostMapping
-    public @ResponseBody Produto novoProduto(@Valid Produto produto) {
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT}) //usando dois verbos Http no mesmo método.
+    public @ResponseBody Produto salvarProduto(@Valid Produto produto) {
         produtoRepository.save(produto);
         return produto;
     }
@@ -32,9 +32,9 @@ public class ProdutoController {
         return produtoRepository.findById(id);
     }
 
-    @PutMapping
-    public Produto alterarProduto(@Valid Produto produto) {
-        produtoRepository.save(produto);
-        return produto;
-    }
+//    @PutMapping
+//    public Produto alterarProduto(@Valid Produto produto) {
+//        produtoRepository.save(produto);
+//        return produto;
+//    }
 }
