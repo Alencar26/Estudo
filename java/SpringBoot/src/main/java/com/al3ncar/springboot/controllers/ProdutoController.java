@@ -20,4 +20,9 @@ public class ProdutoController {
         produtoRepository.save(produto);
         return produto;
     }
+
+    @GetMapping
+    public Iterable<Produto> obterProdutos() {
+        return produtoRepository.findAll();
+    }
 }
