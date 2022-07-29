@@ -29,6 +29,11 @@ public class ProdutoController {
         return produtoRepository.findAll();
     }
 
+    @GetMapping(path = "/nome/{parteDoNome}")
+    public Iterable<Produto> obterProdutosPorNome(@PathVariable String parteDoNome) {
+        return produtoRepository.findByNomeContainingIgnoreCase(parteDoNome); // método customizado na interface. (ler descrição lá)
+    }
+
     //Efetuar consulta com paginação
     @GetMapping(path = "/pagina/{numeroPagina}")
     public Iterable<Produto> obterPordutosPorPagina(@PathVariable int numeroPagina) {
