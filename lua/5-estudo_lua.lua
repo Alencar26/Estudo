@@ -25,3 +25,29 @@ end
 print("Informe seu nome: ")
 pegarNome(io.read())
 
+
+-- MELHORANDO AS FUNÇÕES - FUNÇÕES COM RETORNE DE VALORES:
+
+function pular(intensidade)
+  print("Vou pular com a intensidade: " .. intensidade)
+end
+
+function calcularFisica(forca)
+  return forca * 0.5 + 32.98 / 4
+end
+
+function calcularFormulaSecreta(senha)
+  return senha + 1
+end
+
+pular(calcularFisica(13.5) + calcularFormulaSecreta(987))
+
+-- OUTRA FORMA DE EXECUTAR      
+
+fisica = calcularFisica(1)
+secreta = calcularFormulaSecreta(1)
+
+pular(fisica + secreta)
+--OU
+intensidade = fisica + secreta
+pular(intensidade)
