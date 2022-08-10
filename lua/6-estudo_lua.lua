@@ -36,3 +36,23 @@ function fizzBuzz(a)
 end
 
 fizzBuzz(30)
+
+-- operador OR (ou)
+
+function contarPontos(nome)
+
+  if(nome == "Tartaruga" or nome == "planta") then
+    return 100
+  else
+    return 50
+  end
+end
+
+ponto = contarPontos("Arroz")
+print("[Arroz] - Seu ponto foi: " .. ponto)
+
+ponto = contarPontos("planta")
+print("[planta] - Seu ponto foi: " .. ponto)
+
+ponto = contarPontos("Tartaruga")
+print("[Tartaruga] - Seu ponto foi: " .. ponto)
