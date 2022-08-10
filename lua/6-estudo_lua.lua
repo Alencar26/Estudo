@@ -18,3 +18,21 @@ function condicao(a,b)
 end
 
 condicao(2,6)
+
+-- operador E (and)
+
+
+function fizzBuzz(a)
+
+  for i=1,a do
+    if i % 3 == 0 and i % 5 == 0 then
+      print("FizzBuzz")
+    elseif result % 3 ~= 0 and i % 5 == 0 then
+      print("Buzz")
+    else
+      print("Fizz")
+    end
+  end
+end
+
+fizzBuzz(30)
