@@ -56,3 +56,13 @@ print("[planta] - Seu ponto foi: " .. ponto)
 
 ponto = contarPontos("Tartaruga")
 print("[Tartaruga] - Seu ponto foi: " .. ponto)
+
+
+-- Operador NOT - inverte o valor seguinte
+-- exemplo: not true > isso é igual a false
+-- not true = false
+
+
+if not false then
+ print("Não é false, logo é verdadeiro.")
+end
