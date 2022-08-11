@@ -18,4 +18,8 @@ function map.loadInArray(name)
   return data
 end
 
+function map.wall(line)
+  return string.gsub(line, "=", "MURO")
+end
+
 return map

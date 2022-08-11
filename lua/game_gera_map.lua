@@ -18,3 +18,8 @@ print("Imprimindo o level 1:")
 for chave, valor in pairs(map.loadInArray("map_level1.txt")) do
   print(valor)
 end
+
+print("Trocando = pela palavra MURO")
+for k, v in pairs(map.loadInArray("map_level1.txt")) do
+  print(map.wall(v))
+end
