@@ -42,3 +42,13 @@ end
 for linha in io.lines("mapa_exemplo.txt") do
   print(linha)
 end
+
+
+
+
+----- USANDO MINHA PRÓPRIA BIBLIOTECA
+
+local calculadora = require("calculadora")
+
+print(calculadora.somar(2,2))
+print(calculadora.multiplicar(3,3))
