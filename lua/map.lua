@@ -7,4 +7,15 @@ function map.load(name)
   return data
 end
 
+function map.loadInArray(name)
+  local file = io.open(name)
+  local data = {}
+
+  for line in file:lines() do
+    table.insert(data, line)
+  end
+
+  return data
+end
+
 return map
