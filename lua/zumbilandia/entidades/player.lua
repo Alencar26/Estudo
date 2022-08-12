@@ -8,4 +8,8 @@ function player.novo(nome)
   }
 end
 
+function player.obter_pocao(player, pocao)
+  table.insert(player.pocoes, pocao)
+end
+
 return player
