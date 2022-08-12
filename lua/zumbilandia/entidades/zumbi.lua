@@ -1,4 +1,4 @@
-local inimigo = require("inimigo")
+local inimigo = require("entidades/inimigo")
 local zumbi = {}
 
 function zumbi.novo()

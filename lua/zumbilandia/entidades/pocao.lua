@@ -1,4 +1,4 @@
-local item = require("item") -- Herança em lua
+local item = require("entidades/item") -- Herança em lua
 local pocao = {}
 
 function pocao.novo()
