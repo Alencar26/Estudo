@@ -1,4 +1,6 @@
 import datetime
+from dateutil.relativedelta import relativedelta
+
 
 print("=========ATIVIDADE COM DATA E HORAS==========\n")
 
@@ -31,32 +33,34 @@ if alterar.lower() == "s":
     valor = int(input("Acrescente um valor: "))
     if resp == "1":
         #adicionando dias na data
-        acrescimo_dias = datetime.timedelta(days=valor)
+        acrescimo_dias = relativedelta(days=valor)
         data_hora = data_hora + acrescimo_dias
         print("Data atualizada:", data_hora)
     elif resp == "2":
         #adicionando mês na data
-        acrescimo_mes = datetime.timedelta(months=valor)
+        acrescimo_mes = relativedelta(months=valor)
         data_hora = data_hora + acrescimo_mes
         print("Data atualizada:", data_hora)
     elif resp == "3":
         #adicionando ano na data
-        acrescimo_ano = datetime.timedelta(years=valor)
-        data_hora = data_hora + acrescimo_ano
+        #resolvando problema de ano bissexto
+        acrescimo_ano = relativedelta(years=valor)
+        acrescimo_dias = relativedelta(days=1)
+        data_hora = data_hora + acrescimo_ano + acrescimo_dias
         print("Data atualizada:", data_hora)
     elif resp == "4":
         #adicionando horas na data
-        acrescimo_hora = datetime.timedelta(hours=valor)
+        acrescimo_hora = relativedelta(hours=valor)
         data_hora = data_hora + acrescimo_hora
         print("Data atualizada:", data_hora)
     elif resp == "5":
         #adicionando minutos na data
-        acrescimo_minuto = datetime.timedelta(minutes=valor)
+        acrescimo_minuto = relativedelta(minutes=valor)
         data_hora = data_hora + acrescimo_minuto
         print("Data atualizada:", data_hora)
     elif resp == "6":
         #adicionando segundo na data
-        acrescimo_segundo = datetime.timedelta(seconds=valor)
+        acrescimo_segundo = relativedelta(seconds=valor)
         data_hora = data_hora + acrescimo_segundo
         print("Data atualizada:", data_hora)
     else:
