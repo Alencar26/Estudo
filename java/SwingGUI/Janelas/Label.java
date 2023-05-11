@@ -42,7 +42,7 @@ public class Label extends JFrame {
 
         JLabel etiqueta = new JLabel("Assim também da para escrever", SwingConstants.CENTER);
         etiqueta.setFont(new Font("Arial", Font.ITALIC, 20)); // define a fonte.
-        etiqueta.setBounds(0, 0, 300, 300); //precisa desabilitar o layout padrão
+        etiqueta.setBounds(0, 0, 300, 300); //precisa desabilitar o layout padrão (posição da label)
 
         //coloração do label
         etiqueta.setForeground(Color.BLUE);
