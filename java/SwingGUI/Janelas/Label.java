@@ -3,7 +3,9 @@ package Janelas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -37,18 +39,23 @@ public class Label extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(null); // não deixa usar o layout padrão.
         panel.setBackground(Color.ORANGE);
-        panel.setBounds(0, 0, 300, 300);
+        panel.setBounds(0, 0, 1000, 1000);
         this.getContentPane().add(panel);
 
         JLabel etiqueta = new JLabel("Assim também da para escrever", SwingConstants.CENTER);
         etiqueta.setFont(new Font("Arial", Font.ITALIC, 20)); // define a fonte.
-        etiqueta.setBounds(0, 0, 300, 300); //precisa desabilitar o layout padrão (posição da label)
+        etiqueta.setBounds(0, 0, 500, 500); //precisa desabilitar o layout padrão (posição da label)
 
         //coloração do label
         etiqueta.setForeground(Color.BLUE);
-
-
         panel.add(etiqueta);
+
+        //IMAGEM
+        ImageIcon mario = new ImageIcon("mario.png");
+        JLabel imagem = new JLabel(mario);
+        imagem.setBounds( 100, 150, 250, 250);
+        imagem.setIcon(new ImageIcon(mario.getImage().getScaledInstance(imagem.getWidth(), imagem.getHeight(), Image.SCALE_SMOOTH)));
+        panel.add(imagem);
     }
 
 
