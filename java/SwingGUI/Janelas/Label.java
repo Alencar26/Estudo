@@ -51,7 +51,7 @@ public class Label extends JFrame {
         panel.add(etiqueta);
 
         //IMAGEM
-        ImageIcon mario = new ImageIcon("mario.png");
+        ImageIcon mario = new ImageIcon(getClass().getResource("mario.png"));
         JLabel imagem = new JLabel(mario);
         imagem.setBounds( 100, 150, 250, 250);
         imagem.setIcon(new ImageIcon(mario.getImage().getScaledInstance(imagem.getWidth(), imagem.getHeight(), Image.SCALE_SMOOTH)));
