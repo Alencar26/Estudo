@@ -20,7 +20,7 @@ public class Label extends JFrame {
     }
 
     private void setJanela() {
-        this.setSize(200, 200);
+        this.setSize(500, 500);
         this.setTitle("Minha Janela");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); // matar processo quando fechar o programa.
         this.setResizable(true); // não deixa redimencionar a janela.
@@ -28,6 +28,7 @@ public class Label extends JFrame {
         this.setMaximumSize(new Dimension(300,300)); //Tamanoh máximo
         this.getContentPane().setBackground(Color.WHITE); // cor de fundo
         this.setLayout(null); // não deixa usar o layout padrão.
+        setLocationRelativeTo(this); //centralizar janela
     }
 
     private void iniciarComponentes() {
