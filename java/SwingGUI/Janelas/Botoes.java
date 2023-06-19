@@ -2,6 +2,10 @@ package Janelas;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -21,9 +25,12 @@ public class Botoes extends JFrame {
     private JPanel painel;
     private JButton botao;
     private Color 
-                    original    = Color.red,
-                    precionado  = Color.green,
-                    posicionado = Color.blue;
+                    original      = Color.red,
+                    precionado    = Color.green,
+                    posicionado   = Color.blue,
+                    panelOriginal = Color.green,
+                    panelAction   = Color.orange;
+
     
     public Botoes() {
         loadComponents();
@@ -37,7 +44,7 @@ public class Botoes extends JFrame {
 
     private void setPanel() {
         this.painel.setLayout(null); // não deixa usar o layout padrão.
-        this.painel.setBackground(Color.GREEN);
+        this.painel.setBackground(panelOriginal);
         this.painel.setBounds(0, 0, 1000, 1000);
         this.getContentPane().add(this.painel);
     }
@@ -72,7 +79,9 @@ public class Botoes extends JFrame {
 
         // interacaoButtonClicks();
         // interacaoBotaoMovimentos();
-        interacaoBotaoMouseScroll(); //rolagem do mouse
+        // interacaoBotaoMouseScroll(); //rolagem do mouse
+        // interacaoMouseMaisComum(); //actionListener
+        interacaoTeclado();
     }
 
     //interacao com Mouse Listener. Só lida com os clicks do mouse.
@@ -146,6 +155,50 @@ public class Botoes extends JFrame {
                     System.out.println("PARA BAIXO:" + contador);
                 }        
             }
+        });
+    }
+
+    //forma mais comundo de trabalhar com evendos de mouse
+    private void interacaoMouseMaisComum() {
+        botao.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                painel.setBackground(panelAction);
+            }
+            
+        });
+    }
+
+    private void interacaoTeclado() {
+        botao.addKeyListener(new KeyListener() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                //CLICK tecla do teclado
+                // painel.setBackground(Color.pink);
+                System.out.println("Tecla do teclado - click");
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                //PRECIONADO
+                if (e.getKeyCode() == KeyEvent.VK_A) {
+                    painel.setBackground(Color.white);
+                    System.out.println("Precionou a letra A");
+                } else {
+                    painel.setBackground(panelAction);
+                    System.out.println("teclado teclado precionado");
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                //NÃO PRECIONADO
+                painel.setBackground(panelOriginal);
+                System.out.println("Tecla do teclado não precionado");
+            }
+            
         });
     }
 
