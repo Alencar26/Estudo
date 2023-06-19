@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+</head>
+<body>
+    <h3>Vídeo com controles - com link</h3>
+    <video 
+        src="https://v4.cdnpk.net/videvo_files/video/free/video0483/large_watermarked/_import_60d962f06b3ef8.86089157_FPpreview.mp4" 
+        width="50%" 
+        controls>
+    </video>
+    
+    <h3>Vídeo com controle - local</h3>
+    <video width="320" height="240" controls>
+        <source src="./video/mov_bbb.mp4" type="video/mp4">
+    </video>
+
+    <h3>Vídeo com auto-play. Sem poder pausar</h3>
+    <video 
+        src="https://v4.cdnpk.net/videvo_files/video/free/video0483/large_watermarked/_import_60d962f06b3ef8.86089157_FPpreview.mp4" 
+        autoplay 
+        width="320" 
+        height="240"></video> 
+
+        <h3>Mais um vídeo, porém mutado</h3>
+        <video 
+        src="./video/mov_bbb.mp4" 
+        autoplay 
+        muted
+        width="320" 
+        height="240"/>    
+</body>
+</html>

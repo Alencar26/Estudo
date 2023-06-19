@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributos Personalizados</title>
+</head>
+<body>
+    <p meu_atributo="paragrafo">Meu Atributo personalizado</p>
+    <h3 estilo_prop="estreila">olá mundo</h3>
+
+    <br>
+    <p varios>Vários</p>
+    <p varios>Vários</p>
+    <p varios>Vários</p>
+    <p varios>Vários</p>
+    <p varios>Vários</p>
+    <br>
+    <form>
+        <input type="button" value="Click aqui" />
+        <input type="text" />
+    </form>
+</body>
+<style>
+
+    [type=button] {
+        width: 20%;
+        height: 30px;
+        border-radius: 4px;
+        background-color: chocolate;
+        color: #FFF;
+        font-weight: bold;
+    }
+
+    [type=text] {
+        width: 40%;
+        height: 20px;
+        border-radius: 4px;
+        font-size: 16px;
+        text-align: center;
+        color: chocolate;
+        font-weight: bold;
+    }
+    
+    [meu_atributo=paragrafo] {
+        color: red;
+    }
+
+    [estilo_prop=estreila] {
+        color: blue;
+    }
+
+    [varios] {
+        color: green;
+        font-size: 25px;
+        font-style: italic;
+        margin: 0;
+        display: inline-block;
+        margin-right: 2px;
+    }
+
+</style>
+</html>

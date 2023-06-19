@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+}
+
+.cabecalho {
+    padding: 10px;
+}
+
+.menu {
+    background: #56a3f0;
+    text-align: center;
+    padding: 20px;
+    margin-top: -20px;
+}
+
+.menu > a {
+    color: #FFF;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0 10px;
+    padding: 10px;
+    text-decoration: none;
+    border: 2px solid #56a3f0;
+    border-radius: 7px;
+}
+
+.menu > a:hover {
+    box-shadow: inset 0 0 5px #FFF;
+}
+
+.lista-servicos {
+    text-align: center;
+}
+
+.lista-servicos > ul > li {
+    display: inline-block;
+    list-style: none;
+
+    font-weight: bold;
+    margin: 30px 25px;
+    font-size: 18px;
+}
+
+.lista-servicos > ul > li > a {
+    color: #56a3f0;
+    text-decoration: none;
+}
+
+.lista-servicos > ul > li > a:hover {
+    color: #2b83dc;   
+}
+
+main {
+    width: 65%;
+    margin: 0 auto;
+    display: flex;
+}
+
+main > article {
+    width: 70%;
+}
+
+main > article > div.img-principal {
+    width: 100%;
+}
+
+main > article > div.img-principal > img {
+    width: 95%;
+    border-radius: 30px;
+}
+
+main > aside {
+    width: 30%;
+}
+
+aside {
+    text-align:justify;
+}
+
+aside h2 {
+    text-align: center;
+    font-size: 50px;
+    color: #2b83dc;
+    margin-bottom: 5px;
+}
+
+div.pacotes {
+    margin-top: 15px;
+    display:flex;
+    flex-wrap: wrap; /*quebra linha dos bocos*/
+}
+
+div.pacotes > div.pcts {
+    width: 30%;
+
+    border: 3px solid #2b83dc;
+    background-color: #56a3f0;
+    border-radius: 10px;
+    padding: 2px;
+    margin: 1%;
+}
+
+div.pacotes > div.pcts > div.card-img {
+    width: 100%;
+    text-align: center;
+}
+
+div.pacotes > div.pcts > div.card-img > img {
+    width: 100%;
+    border-radius: 10px;
+    filter: brightness(0.8);
+}
+
+div.pacotes > div.pcts > div.card-img > img:hover {
+    filter: brightness(0.5);
+}
+
+div.pacotes > div.pcts > div.card-img > h1 {
+    color: #FFF;
+    margin-top: -35px;
+    position: absolute;
+}
+
+.datalhes {
+    width: 100%;
+    text-align: justify;
+}
+
+
+
+button {
+    width: 70%;
+    height: 30px;
+    font-size: 15px;
+    font-weight:600;
+    color: #FFF;
+    background-color: #ec8237;
+    border: none !important;
+    border-radius: 8px;
+    margin-left: 15%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    filter: brightness(0.8);
+}
+
+footer {
+    margin-top: 25px;
+    text-align: center;
+}

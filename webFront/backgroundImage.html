@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG Image</title>
+</head>
+<body>
+    <div class="bg"></div>
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .bg {
+        width: 100%;
+        height: 400px;
+        background-image: url('https://images.unsplash.com/photo-1502021680532-838cfc650323?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80');
+        background-repeat: no-repeat;
+        /* background-repeat: repeat-x, repeat-y; */ /*repete a imagem tanto no eixo x quanto no y*/
+        background-position:top center; /*é possível manipular a posição via pixel, %, center, top, ...*/
+        /*background-size: 100% 100%;*/ /*cobre toda área disponível, porém a imagem distorce*/
+        background-size: cover; /*a imagem ocupa toda área, porém respeitando as suas dimenções*/
+        background-color: gray;
+    }
+</style>
+</html>

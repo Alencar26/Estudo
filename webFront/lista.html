@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas</title>
+</head>
+<body>
+    <ul class="lista">
+        <li>linha1</li>
+        <li>linha2</li>
+        <li class="linha-3">linha3</li>
+        <li>linha4</li>
+    </ul>
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #1d1d1d;
+    }
+
+    .lista {
+        margin: 0 auto;
+        text-align: center;
+
+        color: #FFF;
+        font-size: 20px;
+
+        list-style-position: inside;
+        list-style-type:lower-latin; /*estilo da lista*/
+    }
+
+    .lista > li {
+        margin-top: 5px;
+    }
+
+    .lista > li:hover {
+        font-size: 25px;
+    }
+
+    .lista > li.linha-3 {
+        font-weight: bold;
+        color: rgb(186, 79, 79);
+        list-style-type: upper-latin;
+
+        margin-left: 20px;
+    }
+</style>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fontes.css">
+    <title>Fontes</title>
+</head>
+<body>
+    <div class="artigo">
+        <h1>Minhas Fontes</h1>
+        <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, aliquam.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, aliquam.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, aliquam.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, aliquam.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, aliquam.
+        </p>
+        <p class="ola-mundo">
+            Olá Mundo!
+        </p>
+    </div>
+</body>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /*por padrão o height não é 100% do tamanho da tela*/
+    /*por isso precisamos definir essa informação caso necessário*/
+}
+
+.artigo {
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    max-height: 800px;
+
+    margin: 0 auto; /*para centralizar o conteudo*/
+    text-align: center;
+    background: #ca344c;
+}
+
+.artigo > h1 {
+    color: rgb(36, 104, 223);
+    font-size: 23px;
+    font-family: 'Pacifico', cursive;
+    font-variant: small-caps; /*muda a primeira letra do titulo */
+}
+
+.artigo > p {
+    font-style: italic;
+    font-weight: bold;
+    line-height: 40px; /*espaçamento entre linhas */
+}
+
+.artigo > p.ola-mundo {
+    color: red;
+    font-family: tahoma;
+    font-size: 20px;
+    font-weight: bold;
+    word-spacing: 30px; /*espaçamento entre palavras */
+    letter-spacing: 10px; /*espaçamento entre letras */
+}
+</style>
+</html>

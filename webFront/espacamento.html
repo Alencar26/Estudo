@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaçamento</title>
+</head>
+<body>
+    <div class="center">
+        <div class="artigo">
+            <h1 class="texto">Meu artigo</h1>
+            <p class="texto">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat volutpat. Donec auctor vehicula dolor sit amet convallis. Fusce vel malesuada nulla. Nulla facilisi. Donec semper sodales magna, ac egestas sem. Sed eget lorem sed velit blandit pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis dapibus metus vel velit pulvinar, quis varius lectus suscipit. Sed egestas, neque eget varius molestie, turpis arcu eleifend augue, non faucibus turpis ex vel lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam eget condimentum ex, sed euismod ex. Sed id suscipit urna. Vivamus id gravida turpis. Sed non sapien porttitor, volutpat nisi nec, efficitur ante. Suspendisse potenti.
+            </p>
+        </div>
+        <div class="artigo">
+            <h1 class="texto">Meu artigo</h1>
+            <p class="texto">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat volutpat. Donec auctor vehicula dolor sit amet convallis. Fusce vel malesuada nulla. Nulla facilisi. Donec semper sodales magna, ac egestas sem. Sed eget lorem sed velit blandit pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis dapibus metus vel velit pulvinar, quis varius lectus suscipit. Sed egestas, neque eget varius molestie, turpis arcu eleifend augue, non faucibus turpis ex vel lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam eget condimentum ex, sed euismod ex. Sed id suscipit urna. Vivamus id gravida turpis. Sed non sapien porttitor, volutpat nisi nec, efficitur ante. Suspendisse potenti.
+            </p>
+        </div>
+        <div class="artigo">
+            <h1 class="texto">Meu artigo</h1>
+            <p class="texto">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat volutpat. Donec auctor vehicula dolor sit amet convallis. Fusce vel malesuada nulla. Nulla facilisi. Donec semper sodales magna, ac egestas sem. Sed eget lorem sed velit blandit pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis dapibus metus vel velit pulvinar, quis varius lectus suscipit. Sed egestas, neque eget varius molestie, turpis arcu eleifend augue, non faucibus turpis ex vel lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam eget condimentum ex, sed euismod ex. Sed id suscipit urna. Vivamus id gravida turpis. Sed non sapien porttitor, volutpat nisi nec, efficitur ante. Suspendisse potenti.
+            </p>
+        </div>
+        <div class="artigo">
+            <h1 class="texto">Meu artigo</h1>
+            <p class="texto">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat volutpat. Donec auctor vehicula dolor sit amet convallis. Fusce vel malesuada nulla. Nulla facilisi. Donec semper sodales magna, ac egestas sem. Sed eget lorem sed velit blandit pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis dapibus metus vel velit pulvinar, quis varius lectus suscipit. Sed egestas, neque eget varius molestie, turpis arcu eleifend augue, non faucibus turpis ex vel lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam eget condimentum ex, sed euismod ex. Sed id suscipit urna. Vivamus id gravida turpis. Sed non sapien porttitor, volutpat nisi nec, efficitur ante. Suspendisse potenti.
+            </p>
+        </div>
+    </div>
+</body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; /*não cria espaços extras*/
+    }
+
+    body{
+        background: #1d1d1d;
+    }
+
+    .texto {
+        color: #cccccc;
+    }
+
+    .center {
+        box-sizing: border-box; /*não cria espaços extras*/
+        background: #153fa9;
+        width: 85%;
+        margin: 0 auto; /*centralize*/
+        padding: 30px 5px 10px 80px; /*cima, direira, baixo, esquerda*/
+    }
+
+    .artigo {
+        margin-bottom: 20px;
+        width: 50%;
+        /* display: block; default de todas as divs, sempre elemento na linha de baixo */
+        display: inline-block; /*elementos na mesma linha se tiver espaço*/
+        margin-right: -4px; /*inline-block sempre adiciona 4px e precisamos tirar*/
+        padding: 10px;
+        outline: 5px solid rgba(0, 0, 0, 0.5); /*parecido o border, porém ele cresce para fora*/
+    }
+    
+</style>
+</html>
