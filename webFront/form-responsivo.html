@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Responsivo</title>
+</head>
+<body>
+    <div class="form">
+        <img src="assets/bg-alencar.png" alt="bg-alencar">
+        <input type="text" name="nome" placeholder="Seu nome...">
+        <input type="email">
+        <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Sua mensagem..."></textarea>
+        <input type="submit" value="Enviar!">
+    </div>
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #F0EADD;
+    }
+
+    .form {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .form img {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .form input[type="text"],
+    .form input[type="email"],
+    .form input[type="submit"]{
+        display: block;
+        margin: 10px auto;
+        width: 100%;
+        max-width: 500px;
+        height: 30px;
+        border: solid 1px #ccc;
+        border-radius: 7px;
+        padding-left: 10px;
+        font-size: 16px;
+    }
+
+    .form input[type="submit"] {
+        height: 50px;
+        background-color: #31302A;
+        color: #F0EADD;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .form textarea {
+        display: block;
+        resize: vertical;
+        margin: 10px auto;
+        width: 100%;
+        max-width: 500px;
+        border: solid 1px #ccc;
+        border-radius: 7px;
+        padding-left: 10px;
+        padding-top: 15px;
+        font-size: 16px;
+    }
+</style>
+</html>
