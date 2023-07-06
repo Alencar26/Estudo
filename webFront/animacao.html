@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animação</title>
+</head>
+<body>
+    <div class="teste"></div>
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    @keyframes animacao {
+        from {
+            background-color: red;
+            width: 400px;
+        }
+        to {
+            background-color: blue;
+            width: 0px;
+        }
+    }
+
+    .teste {
+        width: 400px;
+        height: 400px;
+        background-color: red;
+        /* animation: animacao 2s linear infinite; */
+        animation-name: animacao;
+        animation-duration: 3s;
+        animation-iteration-count: 2;
+        animation-delay: 2s;
+        animation-fill-mode: both;
+    }
+</style>
+</html>
