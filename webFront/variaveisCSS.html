@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Aplicando estilos com variáveis CSS</h2>
+        <button>Olá sou um botao</button>
+    </div>
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --corPadrao: #522bc3;
+        --tamnhoFontePadrao: 24px;
+        --familiaFontePadrao: sans-serif;
+        --corFontePadrao: #FFF;
+        --marinPadrao: 30px;
+        --corBotao: red;
+    }
+    body {
+        background-color: var(--corPadrao);
+    }
+
+    .container {
+        margin: var(--marinPadrao);
+    }
+
+    .container h2 {
+        font-size: var(--tamnhoFontePadrao);
+        font-family: var(--familiaFontePadrao);
+        color: var(--corFontePadrao);
+    }
+
+    .container button {
+        background-color: var(--corBotao);
+        color: var(--corFontePadrao);
+    }
+</style>
+</html>
