@@ -1,3 +1,5 @@
+import sys
+sys.set_int_max_str_digits(100000)
 
 print(f"{15 * '-'} Fatorial {15 * '-'}")
 number = int(input("Informe um número: "))
