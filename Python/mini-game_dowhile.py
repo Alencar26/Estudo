@@ -18,6 +18,7 @@ while bool(palpite) is True:
 #--------------------------------------------------------
 
 while True:
+    print(30 * "-")
     print("Qual o número correto?")
     palpite = int(input("Seu palpite: "))
     if palpite == numero:
