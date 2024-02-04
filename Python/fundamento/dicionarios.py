@@ -74,3 +74,51 @@ for k in person.keys():
     
 for k, v in person.items():
     print(k, v)
+
+
+#--- CÓPIA
+
+person2 = person.copy()
+print(person2)
+
+person3 = dict(person)
+print(person3)
+
+person["alteracao"] = "Esse dicionário foi alterado"
+print(person)
+print(person2)
+print(person3)
+
+#--- CONERTER LISTA/TUPLA ---> DICIONARIO
+
+chaves = ("fruta1", "fruta2", "fruta3")
+valores = "Melancia"
+sacola_frutas = dict.fromkeys(chaves, valores)
+print(sacola_frutas)
+
+#--- OBJETO
+
+escola = {
+    "professores": {
+        "Prof 5 ano": "João",
+        "Prof 4 ano": "Pedro",
+        "Prof 6 ano": "Marta"
+    },
+    "Matérias": {
+        "Física": {
+            "Professor": "Rosa",
+            "Período": 5,
+            "Férias": {
+                "Inicio": "2024-01-02",
+                "Fim": "2024-02-01"
+            }
+        },
+        "Química": None,
+        "Matemática": {
+            "Professor": "Rosa",
+            "Período": 5
+        }
+    }
+}
+
+print(escola)
