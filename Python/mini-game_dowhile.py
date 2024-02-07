@@ -3,9 +3,10 @@ Mini game improvisando Do While
 
 'Advinhar um número'    
 """
+from random import randint
 
 palpite = 7
-numero = 9
+numero = randint(1, 10)
 
 while bool(palpite) is True:
     print("Qual o número correto?")
