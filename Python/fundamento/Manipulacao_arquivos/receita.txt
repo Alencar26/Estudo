@@ -1,0 +1,28 @@
+
+15min ao forno em 220 ºc - pré aquecido
+15min ao forno em 220 ºc - pré aquecido
+15min ao forno em 220 ºc - pré aquecido
+15min ao forno em 220 ºc - pré aquecido
+15min ao forno em 220 ºc - pré aquecido
+15min ao forno em 220 ºc - pré aquecido
+15min ao forno em 220 ºc - pré aquecido
+15min ao forno em 220 ºc - pré aquecido
+15min ao forno em 220 ºc - pré aquecido
+15min ao forno em 220 ºc - pré aquecido
+15min ao forno em 220 ºc - pré aquecido
+15min ao forno em 220 ºc - pré aquecido
+15min ao forno em 220 ºc - pré aquecido
+15min ao forno em 220 ºc - pré aquecido
+15min ao forno em 220 ºc - pré aquecido
+Passando uma variável que recebeu aspas triplas é possível 
+haver quebra de linha no texto.
+
+Sem se preaocupar os \n para que o texto fiue mais orgânico.
+Massa né?! 
+
+15min ao forno em 220 ºc - pré aquecido
+Passando uma variável que recebeu aspas triplas é possível 
+haver quebra de linha no texto.
+
+Sem se preaocupar os \n para que o texto fiue mais orgânico.
+Massa né?! 
