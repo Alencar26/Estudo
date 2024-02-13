@@ -30,7 +30,18 @@ print(paciente2.__dict__)
 class Conta:
 
     taxa = 0.5
+    
+    #método de classe
+    @classmethod
+    def retornarCodigo(cls):
+        print('Código: 555')
+    
+    #método estático    
+    @staticmethod
+    def retornarCodigoBanco():
+        return '5598'
 
+    #métoodos de instância
     def __init__(self, agencia, numero, saldo):
         self.agencia = agencia
         self.numero = numero
@@ -56,3 +67,7 @@ print(cliente.__dict__)
 
 del cliente.bonus #deletando atributo dinâmico (deletado em tempo de execução)
 print(cliente.__dict__)
+
+#métodos estático e metodo de classe
+Conta.retornarCodigo() #chamando método de classe
+print(Conta.retornarCodigoBanco()) #chamando método estático
