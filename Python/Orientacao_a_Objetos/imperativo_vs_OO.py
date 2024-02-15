@@ -54,7 +54,7 @@ class Conta:
                             }]
     
     def trasacao(self, saldo):
-        operacao = __consultaOperacao(saldo)
+        operacao = self.__consultaOperacao(saldo)
         
         registro = {
             'operacao': operacao,
