@@ -7,6 +7,9 @@ class Pessoa:
 
     def falar(self):
         print(f'{self.nomeclasse} falando...')
+        
+    def trabalha(self):
+        print(f'{self.nomeclasse} trabalhando...')
 
 class Aluno(Pessoa):
     
@@ -40,16 +43,32 @@ class Aluno(Pessoa):
         
 class Professor(Pessoa):
     
-    def dizer_aula(self):
-        print(f'{self.nomeclasse} dando aula...')
+    def trabalha(self):
+        print(f'{self.nomeclasse} Ensinando...')
+
+class Administrativo(Pessoa):
+    
+    def trabalha(self):
+        print(f'{self.nomeclasse} Organizando planilhas...')
+
+class Zelado(Pessoa):
+
+    def varrer(self):
+        print(f'{self.nomeclasse} Varrendo...')
+        
         
 aluno1 = Aluno('João', 20)
 aluno1.falar()
+aluno1.estudar()
+print(aluno1)
+
 
 professor1 = Professor('Maria', 30)
 professor1.falar()
 
-aluno1.estudar()
-professor1.dizer_aula()
+admin = Administrativo('Pedro', 40)
+zelador = Zelado('Joana', 50)
 
-print(aluno1)
+professor1.trabalha()
+admin.trabalha()
+zelador.trabalha()
