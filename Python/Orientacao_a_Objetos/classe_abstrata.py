@@ -14,9 +14,18 @@ class Pessoa(ABC):
                 
 class Cliente(Pessoa):
     
+    def comprar(self):
+        print("Implemente essa function")
+    
     def falar(self) -> str:
         print(f'{self.nomeclasse} falando...')
         return f'{self.nomeclasse} falando...'
+
+class ClienteVIP(Cliente):
+    
+    def comprar(self) -> float:
+        print(f'{self.nomeclasse} comprando...')
+        return 0.0
 
 class Aluno(Pessoa):
     
@@ -30,3 +39,7 @@ cliente.falar()
 
 aluno = Aluno('Maria', 18)
 aluno.falar()
+
+vip = ClienteVIP('Pedro', 35)
+vip.falar()
+vip.comprar()
