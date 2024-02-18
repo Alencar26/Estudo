@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário com Flask</title>
+</head>
+<body>
+    <h1>Conteúdo pré-definido</h1>
+    <p>
+        Exemplo de como alterar o comportamento da página dependendo do método da chamada nesse endpoint.
+        GET: Exibe essa página
+        POST: exibe a página HTML que é informanda no textarea
+    </p>
+    <form action="" method="post">
+        <textarea type="text"  rows="35" cols="100" name="conteudo" placeholder="Escreva um html que será renderizado">{{content}}</textarea>
+        <input type="submit" name="acao" value="Enviar!">
+    </form>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        form {
+            margin: 0 20%;
+            display: flex;
+            flex-wrap: wrap;
+            /* flex-direction: column; */
+            /* flex-direction: row-reverse; */
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+
+            
+        }
+
+        [type=submit] {
+            width: 500px;
+            height: 50px;
+            margin-top: 50px;
+        }
+
+    </style>
+</body>
+</html>
