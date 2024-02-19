@@ -1,7 +1,14 @@
+import pymysql
 from flask import Flask, render_template, request, redirect, url_for, session, make_response
+
 
 app = Flask(__name__)
 
+db = pymysql.connect(
+    host='172.17.0.2',
+    user='root',
+    password='root',
+    database='flask_python')
 
 pessoa_var: dict = {
     'nome': 'João',
@@ -46,8 +53,17 @@ conteudo_pre_definido: str = """"
 app.secret_key = 'nfnfo32i208hgindepi2301fjpf13-3'
 
 @app.route('/')
-def index():
-    return render_template('index.html', content = ['banana', 'maça', 'pera'])
+def index(): 
+    cursor = db.cursor()
+    sql = "SELECT * FROM clientes"
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    
+    for i in range(len(result)):
+        (id, nome, idade) = result[i]
+        print(f'{id} - {nome} - {idade}')
+        
+    return render_template('index.html', content = result)
 
 @app.route('/pessoa')
 def pessoa():
@@ -58,6 +74,7 @@ def pessoa():
             resp = make_response(render_template('pessoa.html', content = pessoa_var.items()))
             resp.set_cookie('nome', 'Andre')
         return resp
+        
     else: 
         return '404 - NOT FOUND'
 @app.route('/form', methods=['GET', 'POST'])

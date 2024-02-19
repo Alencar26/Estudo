@@ -8,8 +8,11 @@
 </head>
 <body>
     <h1>Olá pessoal</h1>
-    {% for fruta in content %}
-        <p>{{fruta}}</p>
+    {% for cliente in content %}
+        <p>ID: {{cliente[0]}}</p>
+        <p>Nome: {{cliente[1]}}</p>
+        <p>Idade: {{cliente[2]}}</p>
+        <hr/>
     {% endfor %}
     <script src="{{ url_for('static', filename = 'script.js') }}"></script>
 </body>
