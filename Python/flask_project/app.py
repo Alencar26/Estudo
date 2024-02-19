@@ -1,4 +1,5 @@
 import pymysql
+from typing import Callable, Final
 from flask import Flask, render_template, request, redirect, url_for, session, make_response
 
 
@@ -64,6 +65,15 @@ def index():
         print(f'{id} - {nome} - {idade}')
         
     return render_template('index.html', content = result)
+
+@app.route('/deletar', methods=['POST', 'GET'])
+def deletar() -> Callable:
+    id = request.args.get('id')
+    cursor = db.cursor()
+    SQL: Final = "DELETE FROM clientes WHERE id = %s"
+    cursor.execute(SQL, id)
+    db.commit()
+    return redirect(url_for('index'))
 
 @app.route('/pessoa')
 def pessoa():
