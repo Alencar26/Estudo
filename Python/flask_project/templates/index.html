@@ -9,6 +9,12 @@
 <body>
     <h1>Olá pessoal</h1>
     {% for cliente in content %}
+        <form action="" method="post">
+            <input type="text" name="nome" id="nome" value="{{cliente[1]}}" />
+            <input type="text" name="idade" id="idade" value="{{cliente[2]}}" />
+            <input type="hidden" name="id"  value="{{cliente[0]}}" />
+            <input type="submit" name="update" value="Update" />
+        </form>
         <div class="teste">
             <p>Nome: {{cliente[1]}}</p>
             <p>Idade: {{cliente[2]}}</p>

@@ -51,6 +51,7 @@ conteudo_pre_definido: str = """"
 </html>
 """
 
+#session
 app.secret_key = 'nfnfo32i208hgindepi2301fjpf13-3'
 
 @app.route('/')
@@ -73,6 +74,19 @@ def deletar() -> Callable:
     SQL: Final = "DELETE FROM clientes WHERE id = %s"
     cursor.execute(SQL, id)
     db.commit()
+    return redirect(url_for('index'))
+
+@app.route('/', methods=['POST', 'GET'])
+def update() -> Callable:
+    if request.method == 'POST':
+        id = request.form.get('id')
+        nome = request.form.get('nome')
+        idade = request.form.get('idade')
+        print(id, nome, idade)
+        cursor = db.cursor()
+        SQL: Final = "UPDATE clientes SET nome = %s, idade = %s WHERE id = %s"
+        cursor.execute(SQL, (nome, idade, id))
+        db.commit()
     return redirect(url_for('index'))
 
 @app.route('/pessoa')
