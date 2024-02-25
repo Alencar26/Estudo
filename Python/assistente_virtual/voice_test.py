@@ -5,6 +5,6 @@ engine = pyttsx3.init()
 engine.setProperty('voice', "brazil")
 engine.setProperty('rate', 200)
 engine.setProperty('valume', 1)
-engine.say("Olá, meu nome é robo com voz estranha")
+engine.say("Olá Ana paula... Minha voz é muito ruim. Nem parece português")
 
 engine.runAndWait()
