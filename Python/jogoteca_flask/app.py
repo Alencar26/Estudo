@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 from flask import flash
+from flask_sqlalchemy import SQLAlchemy
 
 class Jogo:
     def __init__(self, nome, categoria, console):
@@ -30,6 +31,36 @@ usuarios = {
 
 app = Flask(__name__)
 app.secret_key = 'fanpsf39-11-fjefjewefnwpfweEF#%!#%!1'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = \
+    '{SGBD}://{USER}:{PASSWORD}@{SERVER}:{PORT}/{DATABASE}'.format(
+        SGBD='mysql+mysqlconnector',
+        USER='root',
+        PASSWORD='mysql',
+        SERVER='localhost',
+        PORT='3307',
+        DATABASE='jogoteca'
+    )
+
+#instância banco de dados
+db = SQLAlchemy(app)
+
+class Jogos(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nome = db.Column(db.String(50), nullable=False)
+    categoria = db.Column(db.String(40), nullable=False)
+    console = db.Column(db.String(20), nullable=False)
+    
+    def __repr__(self):
+        return '<Name %r>' % self.name
+    
+class Usuarios(db.Model):
+    nickname = db.Column(db.String(8), primary_key=True)
+    nome = db.Column(db.String(20), nullable=False)
+    senha = db.Column(db.String(100), nullable=False)
+    
+    def __repr__(self):
+        return '<Name %r>' % self.name
 
 @app.route('/')
 def index():
