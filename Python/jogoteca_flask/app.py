@@ -101,7 +101,7 @@ def auth():
             return redirect(proxima_pagina)
     else:
         flash('Usuario ou senha invalidos!')
-        return redirect(url_for('login'))
+        return redirect(url_for('login', proxima=request.form['redirect']))
     
 @app.route('/logout')
 def logout():
