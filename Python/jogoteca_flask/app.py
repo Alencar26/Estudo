@@ -2,33 +2,6 @@ from flask import Flask, render_template, request, redirect, session, url_for
 from flask import flash
 from flask_sqlalchemy import SQLAlchemy
 
-class Jogo:
-    def __init__(self, nome, categoria, console):
-        self.nome = nome
-        self.categoria = categoria
-        self.console = console
-
-jogo1 = Jogo('Super Mario', 'Ação', 'SNES')
-jogo2 = Jogo('Pokemon Gold', 'RPG', 'GBA')
-jogo3 = Jogo('Mortal Kombat', 'Luta', 'SNES')
-lista_jogos = [jogo1,jogo2,jogo3]
-
-class Usuario:
-    def __init__(self, nome, nickname, senha):
-        self.nome = nome
-        self.nickname = nickname
-        self.senha = senha
-
-usuario1 = Usuario('Fernando', 'fernando', '123456')
-usuario2 = Usuario('Maria', 'maria', 'abcdef')
-usuario3 = Usuario('João', 'joao', 'qwerty')
-
-usuarios = {
-            usuario1.nickname: usuario1,
-            usuario2.nickname: usuario2,
-            usuario3.nickname: usuario3
-            }
-
 app = Flask(__name__)
 app.secret_key = 'fanpsf39-11-fjefjewefnwpfweEF#%!#%!1'
 
@@ -64,6 +37,7 @@ class Usuarios(db.Model):
 
 @app.route('/')
 def index():
+    lista_jogos = Jogos.query.order_by(Jogos.id).all()
     return render_template('lista.html', titulo='Jogos', jogos=lista_jogos)
 
 @app.route('/novo-jogo')
@@ -77,9 +51,15 @@ def criar():
     nome = request.form['nome']
     categoria = request.form['categoria']
     console = request.form['console']
-    jogo = Jogo(nome, categoria, console)
     
-    lista_jogos.append(jogo)
+    jogo = Jogos.query.filter_by(nome=nome).first()
+    if jogo:
+        flash('Jogo já existente!')
+        return redirect(url_for('novo_jogo'))
+    novo_jogo = Jogos(nome=nome, categoria=categoria, console=console)
+    db.session.add(novo_jogo)
+    db.session.commit()
+    
     return redirect(url_for('index'))
 
 @app.route('/login')
@@ -91,14 +71,16 @@ def login():
 
 @app.route('/autenticar', methods=['POST', ])
 def auth():
-    
-    if request.form['usuario'] in usuarios:
-        usuario = usuarios[request.form['usuario']]
+    usuario = Usuarios.query.filter_by(nickname=request.form['usuario']).first() 
+    if usuario:
         if request.form['senha'] == usuario.senha:
             session['usuario_logado'] = usuario.nickname
             flash(usuario.nickname + ' logado com sucesso!')
             proxima_pagina = request.form['redirect']
             return redirect(proxima_pagina)
+        else:
+            flash('Usuario ou senha invalidos!')
+            return redirect(url_for('login', proxima=request.form['redirect']))
     else:
         flash('Usuario ou senha invalidos!')
         return redirect(url_for('login', proxima=request.form['redirect']))
