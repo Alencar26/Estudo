@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, session, url_for
+from flask import render_template, request, redirect, session, url_for, send_from_directory
 from flask import flash
 
 from app import app, db
@@ -72,6 +72,10 @@ def criar():
     db.session.add(novo_jogo)
     db.session.commit()
     
+    arquivo = request.files['arquivo']
+    img_path = app.config['UPLOAD_PATH']
+    arquivo.save(f'{img_path}/{nome}.jpg')
+    
     return redirect(url_for('index'))
 
 @app.route('/login')
@@ -102,3 +106,7 @@ def logout():
     session['usuario_logado'] = None
     flash('Logout efetuado com sucesso!')
     return redirect(url_for('login'))
+
+@app.route('/static/img/<nome_arquivo>')
+def imagem(nome_arquivo):
+    return send_from_directory('static/img', nome_arquivo)
