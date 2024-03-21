@@ -1,11 +1,20 @@
 {%extends "template.html"%}
 {%block conteudo%}
       <a style="margin: 15px 0 ;" class="btn btn-primary btn-salvar" href="http://localhost:5000">Voltar</a>
-      <form action="{{ url_for('atualizar') }}" method="post">
+      <form action="{{ url_for('atualizar') }}" method="post" enctype="multipart/form-data">
         <fieldset>
             <legend>Novo Jogo</legend>
+            <figure class="img thumbnail col-md-4">
+                <img class="img-fluid" src="{{ url_for('imagem', nome_arquivo=capa_jogo) }}">
+                <figcaption>
+                    <label class="fileContainer">
+                        Mudar Capa
+                        <input type="file" name="arquivo" id="arquivo" accept="image/*">
+                    </label>
+                </figcaption>
+            </figure>
             <input type="hidden" name="id" id="id" value="{{ jogo.id }}">
-            <div class="form-group">
+            <div class="form-group"> 
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" name="nome" value="{{jogo.nome}}" class="form-control">
             </div>

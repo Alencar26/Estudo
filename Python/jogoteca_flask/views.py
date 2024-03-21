@@ -3,6 +3,7 @@ from flask import flash
 
 from app import app, db
 from models import Jogos, Usuarios
+from helpers import recuperar_imagem
 
 @app.route('/')
 def index():
@@ -21,8 +22,11 @@ def editar_jogo(id):
         return redirect(url_for('login', proxima=url_for('editar_jogo', id=id)))
     
     jogo = Jogos.query.filter_by(id=id).first()
+    
+    capa_jogo = recuperar_imagem(jogo.nome)
+    
     if jogo:
-        return render_template('editar-jogo.html', titulo='Editar Jogo', jogo=jogo)
+        return render_template('editar-jogo.html', titulo='Editar Jogo', jogo=jogo, capa_jogo=capa_jogo)
     else:
         return redirect(url_for('index'))
 
@@ -36,6 +40,10 @@ def atualizar():
 
     db.session.add(jogo)
     db.session.commit()
+    
+    arquivo = request.files['arquivo']
+    img_path = app.config['UPLOAD_PATH']
+    arquivo.save(f'{img_path}/{jogo.nome}.jpg')
 
     return redirect(url_for('index'))   
 
