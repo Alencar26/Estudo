@@ -7,8 +7,11 @@ from helpers import recuperar_imagem, salva_imagem
 
 @app.route('/')
 def index():
+    logado = False
+    if session['usuario_logado'] is not None:
+        logado = True
     lista_jogos = Jogos.query.order_by(Jogos.id).all()
-    return render_template('lista.html', titulo='Jogos', jogos=lista_jogos)
+    return render_template('lista.html', titulo='Jogos', jogos=lista_jogos, logado=logado)
 
 @app.route('/jogo/novo')
 def novo_jogo():

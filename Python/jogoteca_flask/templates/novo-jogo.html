@@ -1,6 +1,5 @@
 {%extends "template.html"%}
 {%block conteudo%}
-    <a style="margin: 15px 0 ;" class="btn btn-primary btn-salvar" href="http://localhost:5000">Voltar</a>
       <form action="{{ url_for('criar') }}" method="post" enctype="multipart/form-data">
         <fieldset>
             <legend>Novo Jogo</legend>
@@ -25,7 +24,10 @@
                 <label for="console">Console</label>
                 <input type="text" id="console" name="console" class="form-control">
             </div>
-            <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+            <div style="margin: 10px 5px 0 0;">
+                <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+                <a class="btn btn-secondary" href="{{ url_for('index')}}">Voltar</a>
+            </div>
         </fieldset>
       </form>
 {%endblock%}

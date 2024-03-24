@@ -5,7 +5,10 @@
             <input type="hidden" name="redirect" value="{{ proxima }}">
             <p><label>Nome de usuário:</label> <input class="form-control" type="text" name="usuario" required></p>
             <p><label>Senha:</label> <input class="form-control" type="password" name="senha" required></p>
-            <p><button class="btn btn-primary" type="submit">Entrar</button></p>
+            <p>
+                <button class="btn btn-primary" type="submit">Entrar</button>
+                <a style="margin-left: 80%;" class="btn btn-secondary" href="{{ url_for('index')}}">Voltar para Home</a>
+            </p>
         </form>
 {% endblock %}
 
