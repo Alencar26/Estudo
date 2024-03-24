@@ -1,7 +1,8 @@
 from flask import render_template, request, redirect, session, url_for, send_from_directory
 from flask import flash
 
-from app import app, db
+from app import app 
+from ext.database import db
 from models import Jogos, Usuarios
 from helpers import recuperar_imagem, salva_imagem
 from ext.forms import FormularioJogo

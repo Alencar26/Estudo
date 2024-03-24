@@ -1,4 +1,4 @@
-from app import db
+from ext.database import db
 
 class Jogos(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
