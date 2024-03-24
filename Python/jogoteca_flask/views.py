@@ -5,7 +5,7 @@ from app import app
 from ext.database import db
 from models import Jogos, Usuarios
 from helpers import recuperar_imagem, salva_imagem
-from ext.forms import FormularioJogo
+from ext.forms import FormularioJogo, FormularioLogin
 
 @app.route('/')
 def index():
@@ -105,16 +105,18 @@ def criar():
 
 @app.route('/login')
 def login():
+    form = FormularioLogin()
     proxima = request.args.get('proxima')
     if proxima is None:
         proxima = url_for('index')
-    return render_template('login.html', proxima=proxima)
+    return render_template('login.html', proxima=proxima, form=form)
 
 @app.route('/autenticar', methods=['POST', ])
 def auth():
-    usuario = Usuarios.query.filter_by(nickname=request.form['usuario']).first() 
+    form = FormularioLogin(request.form)
+    usuario = Usuarios.query.filter_by(nickname=form.nickname.data).first() 
     if usuario:
-        if request.form['senha'] == usuario.senha:
+        if form.senha.data == usuario.senha:
             session['usuario_logado'] = usuario.nickname
             flash(usuario.nickname + ' logado com sucesso!')
             proxima_pagina = request.form['redirect']
