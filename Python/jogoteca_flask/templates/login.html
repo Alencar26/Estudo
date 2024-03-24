@@ -4,18 +4,18 @@
         <form method="POST" action="{{ url_for('auth') }}">
             {{ form.csrf_token() }}
             <input type="hidden" name="redirect" value="{{ proxima }}">
-            <div class="form-group">
+            <div class="form-group inputBox">
                 {{ form.nickname.label(class="form-label") }}
                 {{ form.nickname(class="form-control") }}
             </div>
-            <div class="form-group">
+            <div class="form-group inputBox">
                 {{ form.senha.label(class="form-label") }}
                 {{ form.senha(class="form-control") }}
             </div>
-            <div class="form-group" style="margin: 10px 5px 0 0 ;">
+            <div class="form-group buttons" style="margin: 10px 5px 0 0 ;">
                 <p>
                     {{ form.btn_login(class="btn btn-primary") }}
-                    <a style="margin-left: 80%;" class="btn btn-secondary" href="{{ url_for('index')}}">Voltar para Home</a>
+                    <a style="margin-left: 5px;" class="btn btn-secondary" href="{{ url_for('index')}}">Voltar para Home</a>
                 </p>
             </div>
         </form>

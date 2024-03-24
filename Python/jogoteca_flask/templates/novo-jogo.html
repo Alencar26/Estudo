@@ -1,10 +1,10 @@
 {%extends "template.html"%}
 {%block conteudo%}
-      <form action="{{ url_for('criar') }}" method="post" enctype="multipart/form-data">
+      <form class="formularioJogo" action="{{ url_for('criar') }}" method="post" enctype="multipart/form-data">
         <fieldset>
             <legend>Novo Jogo</legend>
-            <figure class="img thumbnail col-md-4">
-                <img class="img-fluid" src="{{ url_for('imagem', nome_arquivo= 'default.png') }}">
+            <figure class="img thumbnail col-md-4 formularioImagem">
+                <img class="img-fluid formularioImagem" src="{{ url_for('imagem', nome_arquivo= 'default.png') }}">
                 <figcaption>
                     <label class="fileContainer">
                         Mudar Capa
@@ -13,19 +13,19 @@
                 </figcaption>
             </figure>
             {{ form.csrf_token() }}
-            <div class="form-group">
+            <div class="form-group inputBox">
                 {{ form.nome.label() }}
                 {{ form.nome(class="form-control") }}
             </div>
-            <div class="form-group">
+            <div class="form-group inputBox">
                 {{ form.categoria.label() }}
                 {{ form.categoria(class="form-control") }}
             </div>
-            <div class="form-group">
+            <div class="form-group inputBox">
                 {{ form.console.label() }}
                 {{ form.console(class="form-control") }}
             </div>
-            <div style="margin: 10px 5px 0 0;" class="form-group">
+            <div style="margin: 10px 5px 0 0;" class="form-group buttons">
                 {{ form.salvar(class="btn btn-primary") }}
                 <a class="btn btn-secondary" href="{{ url_for('index')}}">Voltar</a>
             </div>
