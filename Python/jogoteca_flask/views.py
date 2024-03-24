@@ -40,9 +40,7 @@ def atualizar():
     db.session.add(jogo)
     db.session.commit()
     
-    arquivo = request.files['arquivo']
-    img_path = app.config['UPLOAD_PATH']
-    arquivo.save(f'{img_path}/{jogo.nome}.jpg')
+    salva_imagem(jogo=jogo, img=request.files['arquivo'])
 
     return redirect(url_for('index'))   
 
