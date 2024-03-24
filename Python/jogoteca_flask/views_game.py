@@ -3,9 +3,9 @@ from flask import flash
 
 from app import app 
 from ext.database import db
-from models import Jogos, Usuarios
+from models import Jogos
 from helpers import recuperar_imagem, salva_imagem
-from ext.forms import FormularioJogo, FormularioLogin
+from ext.forms import FormularioJogo
 
 @app.route('/')
 def index():
@@ -102,37 +102,6 @@ def criar():
     salva_imagem(jogo=jogo, img=request.files['arquivo'])
     
     return redirect(url_for('index'))
-
-@app.route('/login')
-def login():
-    form = FormularioLogin()
-    proxima = request.args.get('proxima')
-    if proxima is None:
-        proxima = url_for('index')
-    return render_template('login.html', proxima=proxima, form=form)
-
-@app.route('/autenticar', methods=['POST', ])
-def auth():
-    form = FormularioLogin(request.form)
-    usuario = Usuarios.query.filter_by(nickname=form.nickname.data).first() 
-    if usuario:
-        if form.senha.data == usuario.senha:
-            session['usuario_logado'] = usuario.nickname
-            flash(usuario.nickname + ' logado com sucesso!')
-            proxima_pagina = request.form['redirect']
-            return redirect(proxima_pagina)
-        else:
-            flash('Usuario ou senha invalidos!')
-            return redirect(url_for('login', proxima=request.form['redirect']))
-    else:
-        flash('Usuario ou senha invalidos!')
-        return redirect(url_for('login', proxima=request.form['redirect']))
-    
-@app.route('/logout')
-def logout():
-    session['usuario_logado'] = None
-    flash('Logout efetuado com sucesso!')
-    return redirect(url_for('login'))
 
 @app.route('/static/img/<nome_arquivo>')
 def imagem(nome_arquivo):
