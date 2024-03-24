@@ -4,6 +4,7 @@ from flask import flash
 from app import app, db
 from models import Jogos, Usuarios
 from helpers import recuperar_imagem, salva_imagem
+from ext.forms import FormularioJogo
 
 @app.route('/')
 def index():
@@ -17,7 +18,8 @@ def index():
 def novo_jogo():
     if 'usuario_logado' not in session or session['usuario_logado'] is None:
         return redirect(url_for('login', proxima=url_for('novo_jogo')))
-    return render_template('novo-jogo.html', titulo='Novo Jogo')
+    form = FormularioJogo()
+    return render_template('novo-jogo.html', titulo='Novo Jogo', form=form)
 
 @app.route('/jogo/editar/<int:id>')
 def editar_jogo(id):
@@ -27,23 +29,32 @@ def editar_jogo(id):
     jogo = Jogos.query.filter_by(id=id).first()
     capa_jogo = recuperar_imagem(id=jogo.id)
     
+    form = FormularioJogo()
+    form.nome.data = jogo.nome
+    form.categoria.data = jogo.categoria
+    form.console.data = jogo.console
+    
     if jogo:
-        return render_template('editar-jogo.html', titulo='Editar Jogo', jogo=jogo, capa_jogo=capa_jogo)
+        return render_template('editar-jogo.html', titulo='Editar Jogo', jogo=jogo, capa_jogo=capa_jogo, form=form)
     else:
         return redirect(url_for('index'))
 
 @app.route('/jogo/atualizar', methods=['POST',])
 def atualizar():
-    id = request.form['id']
-    jogo = Jogos.query.filter_by(id=id).first()
-    jogo.nome = request.form['nome']
-    jogo.categoria = request.form['categoria']
-    jogo.console = request.form['console']
-
-    db.session.add(jogo)
-    db.session.commit()
     
-    salva_imagem(jogo=jogo, img=request.files['arquivo'])
+    form = FormularioJogo()
+    
+    if form.validate_on_submit(): 
+        id = request.form['id']
+        jogo = Jogos.query.filter_by(id=id).first()
+        jogo.nome = form.nome.data
+        jogo.categoria = form.categoria.data
+        jogo.console = form.console.data
+
+        db.session.add(jogo)
+        db.session.commit()
+        
+        salva_imagem(jogo=jogo, img=request.files['arquivo'])
 
     return redirect(url_for('index'))   
 
@@ -68,9 +79,15 @@ def deletar_jogo(id):
 
 @app.route('/jogo/criar', methods=['POST',])
 def criar():
-    nome = request.form['nome']
-    categoria = request.form['categoria']
-    console = request.form['console']
+    
+    form = FormularioJogo(request.form)
+    
+    if not form.validate_on_submit():
+        return redirect(url_for('novo_jogo'))
+    
+    nome = form.nome.data
+    categoria = form.categoria.data
+    console = form.console.data
     
     jogo = Jogos.query.filter_by(nome=nome).first()
     if jogo:
