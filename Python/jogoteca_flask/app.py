@@ -1,12 +1,15 @@
 from flask import Flask
+
 from ext import database
 from ext import forms
+from ext import authentication
 
 app: Flask = Flask(__name__)
 app.config.from_pyfile('config.py')
 
 database.init_app(app)
 forms.init_app(app)
+authentication.init_app(app)
 
 from views_game import *
 from views_user import *

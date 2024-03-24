@@ -1,5 +1,6 @@
 from flask import render_template, request, redirect, session, url_for
 from flask import flash
+from flask_bcrypt import check_password_hash
 
 from app import app 
 from models import Usuarios
@@ -17,15 +18,12 @@ def login():
 def auth():
     form = FormularioLogin(request.form)
     usuario = Usuarios.query.filter_by(nickname=form.nickname.data).first() 
-    if usuario:
-        if form.senha.data == usuario.senha:
+    __senha = check_password_hash(usuario.senha, form.senha.data)
+    if usuario and __senha:
             session['usuario_logado'] = usuario.nickname
             flash(usuario.nickname + ' logado com sucesso!')
             proxima_pagina = request.form['redirect']
             return redirect(proxima_pagina)
-        else:
-            flash('Usuario ou senha invalidos!')
-            return redirect(url_for('login', proxima=request.form['redirect']))
     else:
         flash('Usuario ou senha invalidos!')
         return redirect(url_for('login', proxima=request.form['redirect']))
