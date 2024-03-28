@@ -76,7 +76,7 @@ def twoSum_v3(nums: List[int], target: int) -> List[int]:
 print(twoSum_v3([11, 3, 7, 2, 5], 9))
 
 
-def twoSum_v4(nums: List[int], target: int) -> List[int] | None:
+def twoSum_v4(nums: List[int], target: int) -> List[int]:
     hashmap: dict = dict()
     position: int = 0
     while position < len(nums):
@@ -85,6 +85,6 @@ def twoSum_v4(nums: List[int], target: int) -> List[int] | None:
             position += 1
         else:
             return [hashmap[target - nums[position]], position]
-    return None
+    return []
 
 print(twoSum_v4([11, 3, 7, 2, 5], 9))
