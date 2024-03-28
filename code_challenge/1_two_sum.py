@@ -61,7 +61,7 @@ print(twoSum_v2([3,2,3], 6))
 
 # O(n)
 def twoSum_v3(nums: List[int], target: int) -> List[int]:
-        num_dict: dict = {}  # Dicionário para armazenar os valores e seus índices correspondentes
+        num_dict: dict = {}
         for i, num in enumerate(nums):
             diff = target - num
             if diff in num_dict:
