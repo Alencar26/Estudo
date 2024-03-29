@@ -37,29 +37,14 @@ from typing import List
 
 # O(n²)
 def twoSum_v1(nums: List[int], target: int) -> List[int]:
-    result: List[int] = []
     for i in range(0, len(nums)):
         for j in range(i + 1, len(nums)):
             if target == (nums[i] + nums[j]):
-                result.append(i)
-                result.append(j)
-    return result
+                return [i, j]
+    return []
 
 
 print(twoSum_v1([3, 2, 3], 6))
-
-
-# O(n) - falho
-def twoSum_v2(nums: List[int], target: int) -> List[int]:
-    result: List[int] = []
-    for i in range(0, len(nums)):
-        if i + 1 < len(nums) and target == (nums[i] + nums[i + 1]):
-            result.append(i)
-            result.append(i + 1)
-    return result
-
-
-print(twoSum_v2([3, 2, 3], 6))
 
 
 # O(n)
