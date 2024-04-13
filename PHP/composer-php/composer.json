@@ -1,0 +1,26 @@
+{
+    "name": "al3ncar/buscador-cursos",
+    "description": "Projet de estudo",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Al3ncar\\BuscadorCursos\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Andre Alencar",
+            "email": "aaugusto310@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.8",
+        "symfony/dom-crawler": "^7.0",
+        "symfony/css-selector": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alura\\BuscadorDeCursos\\": "src/"
+        }
+    }
+}
