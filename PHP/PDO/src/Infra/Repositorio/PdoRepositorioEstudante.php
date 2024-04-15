@@ -8,6 +8,17 @@ use \PDO;
 
 class PdoRepositorioEstudante implements RepositorioEstudante {
 
+    /*
+        DAO VS REPOSITORY
+
+        DAO:
+        get; create; update e delete;
+
+        REPOSITORY:
+        all, findById, add, remove, etc;
+    */
+
+
     private PDO $conexaoDB;
 
     public function __construct() {
@@ -21,7 +32,6 @@ class PdoRepositorioEstudante implements RepositorioEstudante {
         } else {
             $querySQL = "SELECT * FROM stadents WHERE".$where.";";
         }
-        $querySQL = "SELECT * FROM stadents;";
         $queryPrepareda = $this->conexaoDB->prepare($querySQL);
         $queryPrepareda->setFetchMode(PDO::FETCH_ASSOC);
         $queryPrepareda->execute();
@@ -44,18 +54,47 @@ class PdoRepositorioEstudante implements RepositorioEstudante {
 
     public function obtemEstudatePorId(int $id): Student {
         $AlunoArray = $this->todosEstudantes("id =".$id);
-        return new Student($AlunoArray["id"], $AlunoArray["name"], $AlunoArray["birthDate"]);
+        //return new Student($AlunoArray["id"], $AlunoArray["name"], $AlunoArray["birthDate"]);
+        return $AlunoArray();
     }
     
-    public function salvar(Student $estudante): bool { 
+    public function salvar(Student $estudante): bool {
+        
+        if($estudante->id() === null) {
+            return $this->inserir($estudante);
+        }
+        
+        return $this->atualizar($estudante);
+    }
+
+    public function inserir(Student $estudante): bool {
         $querySQL = "INSERT INTO students (name, birth_date) VALUES (:name,:birth_date);";
         $queryPreparada = $this->conexaoDB->prepare($querySQL);
 
-        $queryPreparada->bindValue(':name', $estudante->name());
-        $queryPreparada->bindValue(':birth_date', $estudante->birthDate()->format('Y-m-d'));
+        $sucesso = $queryPreparada->execute([
+            ":name" => $estudante->name(),
+            ":birth_date" => $estudante->birthDate()->format('Y-m-d')
+        ]);
 
-        return $queryPreparada->execute();
+        if($sucesso) {
+            $estudante->defineId($this->conexaoDB->lastInsertId());
+        }
+
+        return $sucesso;
     }
+
+    public function atualizar(Student $estudante): bool {
+        $querySQL = "UPDATE students SET name = :name, birth_date = :birth_date WHERE id = :id;";
+        $queryPreparada = $this->conexaoDB->prepare($querySQL);
+        $sucesso = $queryPreparada->execute([
+            ":name" => $estudante->name(),
+            ":birth_date" => $estudante->birthDate()->format("Y-m-d"),
+            ":id" => $estudante->id()
+        ]);
+
+        return $sucesso;
+    }
+
     public function remover(Student $estudante): bool { 
         $querySQL = 'DELETE FROM students WHERE id = :id;';
         $queryPreparada = $this->conexaoDB->prepare($querySQL);
