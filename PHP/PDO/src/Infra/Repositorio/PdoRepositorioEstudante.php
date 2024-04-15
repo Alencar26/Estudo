@@ -21,8 +21,8 @@ class PdoRepositorioEstudante implements RepositorioEstudante {
 
     private PDO $conexaoDB;
 
-    public function __construct() {
-        $this->conexaoDB = FabricaDeConexaoDB::criarConexao();
+    public function __construct(PDO $connection) {
+        $this->conexaoDB = $connection;
     }
 
     public function todosEstudantes(?string $where = null): array {
