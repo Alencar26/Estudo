@@ -72,7 +72,7 @@ class PdoRepositorioEstudante implements RepositorioEstudante {
         $queryPreparada = $this->conexaoDB->prepare($querySQL);
 
         if($queryPreparada == false) {
-            throw new \RuntimeException("Erro na query do banco");
+            throw new \RuntimeException($this->conexaoDB->errorInfo());
         }
 
         $sucesso = $queryPreparada->execute([
