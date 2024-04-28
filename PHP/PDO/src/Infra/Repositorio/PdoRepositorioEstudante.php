@@ -71,6 +71,10 @@ class PdoRepositorioEstudante implements RepositorioEstudante {
         $querySQL = "INSERT INTO students (name, birth_date) VALUES (:name,:birth_date);";
         $queryPreparada = $this->conexaoDB->prepare($querySQL);
 
+        if($queryPreparada == false) {
+            throw new \RuntimeException("Erro na query do banco");
+        }
+
         $sucesso = $queryPreparada->execute([
             ":name" => $estudante->name(),
             ":birth_date" => $estudante->birthDate()->format('Y-m-d')
