@@ -7,7 +7,6 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class Buscador
 {
-
     private $httpClient;
     private $crawler;
 
@@ -27,8 +26,7 @@ class Buscador
         $elementos = $this->crawler->filter('span.card-curso__nome');
         $ementosCursos = [];
 
-        foreach ($elementos as $elemento)
-        {
+        foreach ($elementos as $elemento) {
             $ementosCursos[] = $elemento->textContent;
         }
 
