@@ -6,6 +6,3 @@ const regex = /Anna/
 
 const matchRegex = banco.match(regex)
 console.log(matchRegex)
-
-
-/<(h[1-6])[^>]*>(.*?)<\/(h[1-6])>/g
