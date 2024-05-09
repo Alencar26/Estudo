@@ -1,0 +1,67 @@
+[
+    {
+        "nome": "Vik",
+        "email": "vik@vik.com",
+        "senha": "098f6bcd4621d373cade4e832627b4f6"
+    },
+    {
+        "nome": "Nan",
+        "email": "nan@email.com",
+        "senha": "c49b6db491bc3a7f5625914e2b6d8972"
+    },
+    {
+        "nome": "biro",
+        "email": "biro@biro.com",
+        "senha": "42442b1831c03b0e2bfc34a21e71f563"
+    },
+    {
+        "nome": "SenhaForte",
+        "email": "forte@tenha",
+        "senha": "603da752f1e060d83397c55aa20852b0"
+    },
+    {
+        "nome": "Claudio",
+        "email": "cla@cla.com",
+        "senha": "9302679feea8a8af58dfe9fae587e86b"
+    },
+    {
+        "nome": "Andre",
+        "email": "andre@email.com",
+        "senha": "ec6a6536ca304edf844d1d248a4f08dc"
+    },
+    {
+        "nome": "bibi",
+        "email": "bibi@email.com",
+        "senha": "4e3da2ae832730d1abbf10611df36ea6"
+    },
+    {
+        "nome": "lala",
+        "email": "lala@email.com",
+        "senha": "2f7b52aacfbf6f44e13d27656ecb1f59"
+    },
+    {
+        "nome": "caca",
+        "email": "caca@email.com",
+        "senha": "b59c67bf196a4758191e42f76670ceba"
+    },
+    {
+        "nome": "Rebeca",
+        "email": "reb@gmail.com",
+        "senha": "962012d09b8170d912f0669f6d7d9d07"
+    },
+    {
+        "nome": "ninha",
+        "email": "bibibibi@bibibi.com",
+        "senha": "c1fea270c48e8079d8ddf7d06d26ab52"
+    },
+    {
+        "nome": "Lupita",
+        "email": "lulu@gmail.com",
+        "senha": "77b93320bc3ea49ae6150ec0871aee22"
+    },
+    {
+        "nome": "SenhaForte",
+        "email": "forte@tenha",
+        "senha": "603da752f1e060d83397c55aa20852b0"
+    }
+]
