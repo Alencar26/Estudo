@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Formulário com Máscara</title>
+    <!-- Importando arquivo CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Formulário de Contato</h2>
+    <form action="/submit" method="POST">
+        <fieldset>
+            <legend>Informações de Contato</legend>
+            <div>
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" required>
+            </div>
+            <div>
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" required>
+            </div>
+        </fieldset>
+        <button type="submit">Enviar</button>
+        <button type="reset">Limpar</button>
+    </form>
+
+    <!-- Script para aplicar máscara -->
+    <script>
+        // Função para aplicar máscara de telefone
+        function aplicarMascaraTelefone(input) {
+            input.addEventListener('input', function (event) {
+                let telefone = event.target.value.replace(/\D/g, '');
+                if (telefone.length > 10) {
+                    input.value = telefone.slice(0, -1);
+                    return;
+                }
+                telefone = telefone.replace(/^(\d{2})(\d)/g, '($1) $2');
+                telefone = telefone.replace(/(\d)(\d{4})$/, '$1-$2');
+                event.target.value = telefone;
+            });
+        }
+
+        // Função para aplicar máscara de CPF
+        function aplicarMascaraCPF(input) {
+            input.addEventListener('input', function (event) {
+                let cpf = event.target.value.replace(/\D/g, '');
+                cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+                cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+                cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                event.target.value = cpf;
+            });
+        }
+
+        // Selecionando os campos de telefone e CPF
+        const telefoneInput = document.getElementById('telefone');
+        const cpfInput = document.getElementById('cpf');
+
+        // Aplicando máscara nos campos de telefone e CPF
+        aplicarMascaraTelefone(telefoneInput);
+        aplicarMascaraCPF(cpfInput);
+    </script>
+</body>
+</html>
