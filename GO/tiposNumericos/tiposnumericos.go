@@ -38,7 +38,7 @@ func main() {
 	fmt.Println(y)
 
 	a := "h"
-	b := "f"
+	b := "é"
 	c := "a"
 	fmt.Printf("%v, %v, %v\n", a, b, c)
 
