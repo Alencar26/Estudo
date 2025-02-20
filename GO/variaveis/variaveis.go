@@ -5,7 +5,19 @@ import "fmt"
 // declaração variáveis global
 var moto = "Honda CG"
 
+var (
+	a string
+	b int
+	c bool = false
+	d float64
+)
+
 func main() {
+
+	a = "Oi"
+	b = 3
+	c = true
+	d = 5.5
 
 	fmt.Println("Olá mundo!")
 
