@@ -18,6 +18,9 @@ func main() {
 		println(err.Error())
 	}
 	println(valor)
+
+	//função variádica
+	println(somaNumeros(1, 2, 3, 4, 5, 6, 7, 8, 8, 7, 5, 4, 3, 2, 2))
 }
 
 func soma(a int, b int) int {
@@ -41,4 +44,12 @@ func somaAte50(a, b int) (int, error) {
 		return 0, errors.New("A soma pasosu de 50")
 	}
 	return a + b, nil
+}
+
+func somaNumeros(numeros ...int) int {
+	total := 0
+	for _, n := range numeros {
+		total += n
+	}
+	return total
 }
