@@ -21,6 +21,18 @@ func main() {
 
 	//função variádica
 	println(somaNumeros(1, 2, 3, 4, 5, 6, 7, 8, 8, 7, 5, 4, 3, 2, 2))
+
+	//função anônima
+	somaMultiplicadoPor2 := func() int {
+		return somaNumeros(1, 2, 3, 4, 5, 6, 7, 8, 8, 7, 5, 4, 3, 2, 2) * 2
+	}()
+
+	//funções anônimas
+	func() {
+		//rodar webserver
+	}()
+
+	println(somaMultiplicadoPor2, "X2")
 }
 
 func soma(a int, b int) int {
