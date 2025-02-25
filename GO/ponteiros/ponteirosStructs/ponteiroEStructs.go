@@ -4,6 +4,11 @@ type Conta struct {
 	saldo int
 }
 
+// "contrutor em GO"
+func NewConta() *Conta {
+	return &Conta{saldo: 0}
+}
+
 // sem uso de ponteiro
 func (c Conta) simularEmprestimo(valor int) int {
 	c.saldo += valor
