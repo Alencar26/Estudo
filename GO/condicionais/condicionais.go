@@ -4,6 +4,8 @@ import (
 	"math/rand"
 )
 
+var indefinido interface{}
+
 func main() {
 	a := 1
 	b := 2
@@ -39,5 +41,19 @@ func main() {
 		println("Resta 4", x)
 	default:
 		println("Valor default")
+	}
+
+	//Switch Case com variável de tipo indefinido
+	indefinido = false
+
+	switch indefinido.(type) {
+	case int:
+		println("É um inteiro")
+	case bool:
+		println("É um bool")
+	case string:
+		println("É uma string")
+	case float64:
+		println("É um float64")
 	}
 }
