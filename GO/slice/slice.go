@@ -63,4 +63,21 @@ func main() {
 	x = append(x, 6)                             //posso adicionar + 5 elementos que que o array que esta por baixo mude para outro.
 	fmt.Println(x[:])
 
+	//------------------------------------PEGADINHA DO GO
+	fmt.Println("\n-------------------------- PEGADINHA DO SLICE")
+	s1 := []int{1, 2, 3, 4, 5}
+	fmt.Println(s1[:], "Slice 1")
+
+	s2 := append(s1[:2], s1[4:]...)
+	fmt.Println(s2[:], "Slice 2")
+
+	fmt.Println(s1[:], "Slice 1")
+
+	fmt.Println("O Array subjacente da Slice1 teve seu valor alterado indevidamente\npois o Slice2 faz o uso do mesmo array.")
+
+	//Evite usar vários slices efetuando recortes de um slice para usar em outro
+	//O GO pode acabar usando o mesmo array e modificando valores que não deveria
+	//Nesse nosso caso a variável s1 teve seu valor alterado indevidamente.
+	//Ou utilizae o mesmo slice e vátrabalhando com ele ou faça um for loop para
+	//efetuar passagem dos valores para outro slice.
 }
