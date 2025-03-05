@@ -35,4 +35,21 @@ func main() {
 	for cor, fruta := range frutas {
 		fmt.Println(cor+":", fruta)
 	}
+
+	//-------------------------
+
+	//validando se valores existem no map
+	fruta, ok := frutas["Azul"]
+	if !ok {
+		println("Fruta não existe.")
+	} else {
+		println(fruta)
+	}
+
+	//forma alternativa
+	if fruta, ok = frutas["Laranja"]; !ok {
+		println("Fruta não existe.")
+	} else {
+		println(fruta)
+	}
 }
