@@ -40,6 +40,8 @@ func main() {
 		println(nome)
 	}
 
+	//juntando dois slices
+
 	slice1 := []int{1, 2, 3, 4, 5}
 	fmt.Println(slice1[:])
 	slice2 := []int{6, 7, 8, 9, 10}
@@ -47,5 +49,18 @@ func main() {
 
 	slice1 = append(slice1, slice2...)
 	fmt.Println(slice1[:])
+
+	//------------------------------------------------------
+
+	//usando make para criar os slices.
+	//vantagem é que podemos já definir um tamanha maior no array por baixo dos panos
+	//melhora a performance do software
+	//exemplo: make([]T, len, cap) - len = tamanho inicial, cap = capacidade total do array por baixo.
+	// se o len superar o cap então do GO vai criar outro array com 2x cap.
+
+	x := make([]int, 5, 10)
+	x[0], x[1], x[2], x[3], x[4] = 1, 2, 3, 4, 5 //len inicial 5
+	x = append(x, 6)                             //posso adicionar + 5 elementos que que o array que esta por baixo mude para outro.
+	fmt.Println(x[:])
 
 }
