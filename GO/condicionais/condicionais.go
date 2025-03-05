@@ -30,7 +30,9 @@ func main() {
 	case 1:
 		println("Resta 1", x)
 	case 2:
-		println("Resta 2", x)
+		println("Resta 2", x, "Caiu no fallthrough, vai executar o código abaixo tbm. (sem validar a condição)")
+		fallthrough //signific)a que quando cair nessa condição ele tbm vai executar o código abaixo.
+		//com o fallthrough ele não valida a condição, só executa.
 	case 3:
 		println("Resta 3", x)
 	case 4:
