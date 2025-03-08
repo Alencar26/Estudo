@@ -1,0 +1,26 @@
+    {{template "header.html"}}
+    <h1>Cursos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Horas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{ range . }}
+            {{ if le .CargaHoraria 40 }}
+            <tr>
+                <td>{{ .Nome }}</td>
+                <td>{{ .CargaHoraria }}</td>
+            </tr>
+            {{else if ge .CargaHoraria 50}}
+            <tr>
+                <td>Maior que 40 - {{.Nome|TudoMaiusculo}}</td>
+                <td>Maior que 40 - {{.CargaHoraria}}</td>
+            </tr>
+            {{end}}
+            {{ end }}
+        </tbody>
+    </table>
+    {{template "footer.html"}}
