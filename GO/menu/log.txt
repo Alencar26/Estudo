@@ -1,0 +1,4 @@
+[17/03/2025 23:33:43] www.google.com - online: true
+[17/03/2025 23:33:56] www.spread.com.br - online: true
+[17/03/2025 23:34:06] www.vivo.com.br - online: false
+[17/03/2025 23:34:17] www.youtube.com - online: true
