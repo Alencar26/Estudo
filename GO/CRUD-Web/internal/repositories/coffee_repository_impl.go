@@ -12,13 +12,42 @@ type CoffeeRepositoryImpl struct {
 	db *sql.DB
 }
 
-// injeção de dependência
+// injeção de dependência - ""construtor""
 func NewCoffeeRepository(db *sql.DB) *CoffeeRepositoryImpl {
 	return &CoffeeRepositoryImpl{db: db}
 }
 
 func (r *CoffeeRepositoryImpl) Create(coffee *entities.Coffee) error {
-	//TODO
+
+	query := "INSERT INTO coffee(title, description, price, ingredients, image) VALUES($1, $2, $3, $4, $5)"
+	insert, err := r.db.Prepare(query)
+	if err != nil {
+		log.Printf("Erro ao preparar query para insert: v%\n", err)
+		return err
+	}
+
+	jsonIngredients, err := json.Marshal(coffee.Ingredients)
+	if err != nil {
+		log.Printf("Erro ao converter slice de String em JSON: v%\n", err)
+		return err
+	}
+
+	result, err := insert.Exec(
+		coffee.Title,
+		coffee.Description,
+		coffee.Price,
+		jsonIngredients,
+		coffee.Image,
+	)
+	defer r.db.Close()
+
+	if err != nil {
+		log.Printf("Erro ao executar query de insert: v%\n", err)
+		return err
+	} else {
+		log.Printf("Insert realizado com sucesso: %v", result)
+	}
+
 	return nil
 }
 

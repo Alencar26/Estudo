@@ -54,3 +54,11 @@ func getCoffeesAPI() ([]entities.Coffee, error) {
 
 	return coffees, nil
 }
+
+func (service *CoffeeService) CreateCoffee(coffee *entities.Coffee) error {
+	if err := service.Repo.Create(coffee); err != nil {
+		log.Printf("Erro ao criar um Coffee na base de dados: %v\n", err)
+		return err
+	}
+	return nil
+}
