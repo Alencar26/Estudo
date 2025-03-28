@@ -22,7 +22,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
 	coffees, err := service.GetAllCoffees()
 	if err != nil {
-		log.Printf("Handler Index: Falha ao chamar GetAllCoffees(): %v\n", err)
+		log.Printf("Handler Index: Falha ao chamar GetAllCoffees(): %V\n", err)
 		panic(err.Error())
 	}
 
@@ -42,7 +42,7 @@ func Insert(w http.ResponseWriter, r *http.Request) {
 
 		precoToFloat64, err := strconv.ParseFloat(preco, 64)
 		if err != nil {
-			log.Printf("Falha na conversão do preco (string) para float64: %v\n", err)
+			log.Printf("Falha na conversão do preco (string) para float64: %V\n", err)
 			panic(err.Error())
 		}
 
@@ -64,5 +64,23 @@ func Insert(w http.ResponseWriter, r *http.Request) {
 		}
 		service.CreateCoffee(&coffee)
 	}
+	http.Redirect(w, r, "/", http.StatusMovedPermanently)
+}
+
+func Delete(w http.ResponseWriter, r *http.Request) {
+
+	id := r.URL.Query().Get("id")
+	idToInt, err := strconv.Atoi(id)
+	if err != nil {
+		log.Printf("Erro ao converter id (string) para inteiro: %V\n", err)
+	}
+
+	db := db.ConnectDB()
+	defer db.Close()
+
+	repo := repositories.NewCoffeeRepository(db)
+	service := services.NewCoffeeService(repo)
+
+	service.DeleteCoffee(idToInt)
 	http.Redirect(w, r, "/", http.StatusMovedPermanently)
 }

@@ -4,7 +4,6 @@ import (
 	"CRUD-Web/internal/entities"
 	"database/sql"
 	"encoding/json"
-	"fmt"
 	"log"
 )
 
@@ -22,13 +21,13 @@ func (r *CoffeeRepositoryImpl) Create(coffee *entities.Coffee) error {
 	query := "INSERT INTO coffee(title, description, price, ingredients, image) VALUES($1, $2, $3, $4, $5)"
 	insert, err := r.db.Prepare(query)
 	if err != nil {
-		log.Printf("Erro ao preparar query para insert: v%\n", err)
+		log.Printf("Erro ao preparar query para insert: %V\n", err)
 		return err
 	}
 
 	jsonIngredients, err := json.Marshal(coffee.Ingredients)
 	if err != nil {
-		log.Printf("Erro ao converter slice de String em JSON: v%\n", err)
+		log.Printf("Erro ao converter slice de String em JSON: %V\n", err)
 		return err
 	}
 
@@ -42,10 +41,10 @@ func (r *CoffeeRepositoryImpl) Create(coffee *entities.Coffee) error {
 	defer r.db.Close()
 
 	if err != nil {
-		log.Printf("Erro ao executar query de insert: v%\n", err)
+		log.Printf("Erro ao executar query de insert: %V\n", err)
 		return err
 	} else {
-		log.Printf("Insert realizado com sucesso: %v", result)
+		log.Printf("Insert realizado com sucesso: %v\n", result)
 	}
 
 	return nil
@@ -95,13 +94,29 @@ func (r *CoffeeRepositoryImpl) FindAll() ([]entities.Coffee, error) {
 		}
 
 		coffees = append(coffees, coffee)
-		fmt.Println(coffee)
 	}
 
 	return coffees, nil
 }
 
 func (r *CoffeeRepositoryImpl) Delete(id int) error {
-	//TODO
+
+	query := "DELETE FROM coffee WHERE id = $1"
+	stmt, err := r.db.Prepare(query)
+	if err != nil {
+		log.Printf("Erro ao preparar query para delete: %V\n", err)
+		return err
+	}
+
+	result, err := stmt.Exec(id)
+	defer r.db.Close()
+
+	if err != nil {
+		log.Printf("Erro ao executar query de delete: %V\n", err)
+		return err
+	} else {
+		log.Printf("Delete realizado com sucesso: %V\n", result)
+	}
+
 	return nil
 }
