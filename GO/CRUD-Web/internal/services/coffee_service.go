@@ -70,3 +70,20 @@ func (service *CoffeeService) DeleteCoffee(id int) error {
 	}
 	return nil
 }
+
+func (service *CoffeeService) GetCoffeeById(id int) (*entities.Coffee, error) {
+	coffee, err := service.repo.FindById(id)
+	if err != nil {
+		log.Printf("Erro ao obter um caté pelo ID: %V", err)
+		return nil, err
+	}
+	return coffee, nil
+}
+
+func (service *CoffeeService) UpdateCoffee(coffee *entities.Coffee) error {
+	if err := service.repo.Update(coffee); err != nil {
+		log.Printf("Erro ao atualizar um Coffee na base de dados: %V\n", err)
+		return err
+	}
+	return nil
+}

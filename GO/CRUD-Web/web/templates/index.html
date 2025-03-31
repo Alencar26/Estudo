@@ -27,6 +27,7 @@
                                 <p>{{ . }}</p>
                                 {{ end }}
                             </td>
+                            <td><a href="/edit?id={{.Id}}" class="btn btn-info">Editar</a></td>
                             <!--td><a href="/delete?id={{.Id}}" class="btn btn-danger">Deletar</a></td-->
                             <td><button onclick="onDelete('{{.Id}}')" class="btn btn-danger">Deletar</button></td>
                         </tr>

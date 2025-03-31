@@ -44,22 +44,48 @@ func (r *CoffeeRepositoryImpl) Create(coffee *entities.Coffee) error {
 		log.Printf("Erro ao executar query de insert: %V\n", err)
 		return err
 	} else {
-		log.Printf("Insert realizado com sucesso: %v\n", result)
+		log.Printf("Insert realizado com sucesso: %V\n", result)
 	}
 
 	return nil
 }
 
 func (r *CoffeeRepositoryImpl) FindById(id int) (*entities.Coffee, error) {
-	//TODO
-	return nil, nil
+
+	coffee := entities.Coffee{}
+	ingredientsJSON := []byte{} //json
+
+	query := "SELECT * FROM coffee WHERE id = $1;"
+	row := r.db.QueryRow(query, id)
+
+	err := row.Scan(
+		&coffee.Id,
+		&coffee.Title,
+		&coffee.Description,
+		&coffee.Price,
+		&ingredientsJSON,
+		&coffee.Image,
+	)
+	if err != nil {
+		log.Printf("Erro fazer scan para obter um café pelo ID: %V", err)
+		return nil, err
+	}
+
+	err = json.Unmarshal(ingredientsJSON, &coffee.Ingredients)
+	if err != nil {
+		log.Printf("Falha no unmarshal dos ingredientes do banco de dados (JSON) para struct  coffee.Ingredients: %V\n", err)
+		return nil, err
+	}
+
+	return &coffee, nil
 }
+
 func (r *CoffeeRepositoryImpl) FindAll() ([]entities.Coffee, error) {
 
 	query := "SELECT * FROM coffee;"
 	rows, err := r.db.Query(query)
 	if err != nil {
-		log.Printf("Falha ao efetuar query SELECT no banco de dados: %v\n", err)
+		log.Printf("Falha ao efetuar query SELECT no banco de dados: %V\n", err)
 		return nil, err
 	}
 	defer rows.Close()
@@ -83,13 +109,13 @@ func (r *CoffeeRepositoryImpl) FindAll() ([]entities.Coffee, error) {
 			&coffee.Image,
 		)
 		if err != nil {
-			log.Printf("Falha ao ler registros no banco de dados: %v\n", err)
+			log.Printf("Falha ao ler registros no banco de dados: %V\n", err)
 			return nil, err
 		}
 
 		err = json.Unmarshal(ingredientsJSON, &coffee.Ingredients)
 		if err != nil {
-			log.Printf("Falha no unmarshal dos ingredientes do banco de dados (JSON) para struct  coffee.Ingredients: %v\n", err)
+			log.Printf("Falha no unmarshal dos ingredientes do banco de dados (JSON) para struct  coffee.Ingredients: %V\n", err)
 			return nil, err
 		}
 
@@ -97,6 +123,27 @@ func (r *CoffeeRepositoryImpl) FindAll() ([]entities.Coffee, error) {
 	}
 
 	return coffees, nil
+}
+
+func (r *CoffeeRepositoryImpl) Update(coffee *entities.Coffee) error {
+
+	query := "UPDATE coffee SET title=$1, description=$2, price=$3 WHERE id = $4;"
+	stmt, err := r.db.Prepare(query)
+	if err != nil {
+		log.Printf("Erro ao preparar query para update: %V\n", err)
+		return err
+	}
+
+	result, err := stmt.Exec(coffee.Title, coffee.Description, coffee.Price, coffee.Id)
+	defer r.db.Close()
+
+	if err != nil {
+		log.Printf("Erro ao executar query de update: %V\n", err)
+		return err
+	} else {
+		log.Printf("Update realizado com sucesso: %V\n", result)
+	}
+	return nil
 }
 
 func (r *CoffeeRepositoryImpl) Delete(id int) error {
