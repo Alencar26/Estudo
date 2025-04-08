@@ -111,3 +111,20 @@ func UpdateAluno(c *gin.Context) {
 		"code":    200,
 	})
 }
+
+func GetAlunoByCPF(c *gin.Context) {
+	cpf := c.Param("cpf")
+	var aluno models.Aluno
+
+	database.DB.Where(&models.Aluno{CPF: cpf}).First(&aluno)
+	if aluno.ID == 0 {
+		c.JSON(http.StatusNotFound, gin.H{
+			"message": "Aluno não encontrado",
+			"status":  "error",
+			"code":    404,
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, aluno)
+}

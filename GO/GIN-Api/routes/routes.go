@@ -15,6 +15,7 @@ func HandleRequests() {
 	r.GET("/alunos/:id", handles.GetAluno)
 	r.DELETE("/alunos/:id", handles.DeleteAluno)
 	r.PUT("/alunos/:id", handles.UpdateAluno)
+	r.GET("/alunos/cpf/:cpf", handles.GetAlunoByCPF)
 
 	r.Run(":5000")
 }
