@@ -30,9 +30,18 @@ func CreateAluno(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
-		log.Fatalf("Erro ao criar aluno: %v\n", err)
+		log.Printf("Erro ao criar aluno: %v\n", err)
 		return
 	}
+
+	if err := aluno.Validate(); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+		log.Printf("Erro na validação do Aluno: %v\n", err)
+		return
+	}
+
 	database.DB.Create(&aluno)
 	c.JSON(http.StatusCreated, gin.H{
 		"message": "Aluno criado com sucesso!",
@@ -101,6 +110,14 @@ func UpdateAluno(c *gin.Context) {
 			"error": err.Error(),
 		})
 		log.Fatalf("Erro ao atualizar aluno: %v\n", err)
+		return
+	}
+
+	if err := aluno.Validate(); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+		log.Printf("Erro na validação do Aluno: %v\n", err)
 		return
 	}
 
