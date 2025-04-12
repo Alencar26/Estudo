@@ -4,6 +4,7 @@ import (
 	"GIN-Api/database"
 	"GIN-Api/handles"
 	"GIN-Api/models"
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -93,4 +94,31 @@ func TestGetAlunoById(t *testing.T) {
 
 	assert.Equal(t, http.StatusOK, response.Code)
 	assert.Equal(t, idAluno, int(aluno.ID), "Id deve ser igual ao id do aluno criado")
+}
+
+func TestUpdateAluno(t *testing.T) {
+	database.ConnectDB()
+	criarAlunoMock()
+	defer deletaAlunoMock()
+
+	r := SetupRoutesTest()
+	r.PUT("/alunos/:id", handles.UpdateAluno)
+
+	aluno := models.Aluno{
+		Nome: "Caio Castro",
+		CPF:  "00987654321",
+		RG:   "987654321",
+	}
+
+	alunoJSON, err := json.Marshal(aluno)
+	if err != nil {
+		t.Errorf("Error: Falhou ao converter struct aluno para JSON: %v", err)
+	}
+
+	request, _ := http.NewRequest(http.MethodPut, fmt.Sprintf("/alunos/%d", idAluno), bytes.NewBuffer(alunoJSON))
+	response := httptest.NewRecorder()
+
+	r.ServeHTTP(response, request)
+	//terminar
+	assert.Equal(t, int(aluno.ID), response.Body, msgAndArgs ...interface{})
 }
