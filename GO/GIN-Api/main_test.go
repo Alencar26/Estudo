@@ -119,6 +119,13 @@ func TestUpdateAluno(t *testing.T) {
 	response := httptest.NewRecorder()
 
 	r.ServeHTTP(response, request)
-	//terminar
-	assert.Equal(t, int(aluno.ID), response.Body, msgAndArgs ...interface{})
+
+	resp := make(map[string]any)
+
+	if err := json.Unmarshal(response.Body.Bytes(), &resp); err != nil {
+		t.Errorf("Error: Falha ao converter JSON para map: %v", err)
+	}
+
+	assert.Equal(t, 200, int(resp["code"].(float64)), "Retorno de status code deve ser 200;")
+	assert.Equal(t, "Aluno atualizado com sucesso!", resp["message"], "A mensagem deve ser a mesma do esperado.")
 }
