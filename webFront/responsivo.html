@@ -1,34 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Responsivo</title>
-</head>
-<body>
-    <div class="container">
-        <div class="box"></div>
-    </div>
-</body>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    .box {
-        width: 500px;
-        height: 500px;
-        background-color: aqua;
-    }
-
-    @media screen and (max-width: 768px) {
-        .box {
-            width: 100%;
-            background-color: coral;
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+        />
+        <title>Responsivo</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="box">
+                <ul class="card">
+                    <li>
+                        <p>IMG</p>
+                        <div>
+                            <h3>TÍTULO DO CARD</h3>
+                            <p>Aqui vai o conteúdo do card.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <p>IMG</p>
+                        <div>
+                            <h3>TÍTULO DO CARD</h3>
+                            <p>Aqui vai o conteúdo do card.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <p>IMG</p>
+                        <div>
+                            <h3>TÍTULO DO CARD</h3>
+                            <p>Aqui vai o conteúdo do card.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-    }
-</style>
+
+        .box {
+            width: 600px;
+            height: 600px;
+            background-color: aqua;
+        }
+
+        .card {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+
+        .card li {
+            background-color: #fefefe;
+            padding: 1em;
+            border-radius: 1em;
+            margin: 1em 1em 0 1em;
+        }
+
+        @media screen and (min-width: 550px) {
+            .box {
+                width: 100%;
+                background-color: coral;
+            }
+
+            .card {
+                flex-direction: row;
+            }
+
+            .card li {
+                height: 300px;
+                flex: 1;
+            }
+        }
+    </style>
 </html>

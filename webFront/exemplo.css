@@ -1,0 +1,60 @@
+:root {
+    --nome-da-minha-cor: #fff;
+    --outro-nome: #000;
+    --fonte-principal: "Poppins", sans-serif;
+    --fonte-secundaria: "Roboto", sans-serif;
+}
+
+/*ABORDAGEM MOBILE FIRST - TODAS AS MEDIDAS ABAIXO SÃO PARA MOBILE*/
+
+body {
+    font-family: var(--fonte-principal);
+}
+
+.minha-classe img {
+    width: 100vw; /* vw considera o tamanho da tela */
+}
+
+.navbar {
+    display: none;
+}
+
+.projto-lista {
+    display: grid;
+    grid-template-columns: repeat(
+        12,
+        1fr
+    ); /*definindo que esse elemento será dividido em 12 colunas e 1 fração cada*/
+}
+
+/*isso na visão mobile - veja na visão web abaixo*/
+.projto-lista li {
+    grid-column: span 12; /*definindo que cada lista ocupará o valor de 12 coluas (100% das colunas definidas)*/
+}
+
+/*TRABALHANDO COM RESPONSIVIDADE - Os valores aqui dentro serão aplicados à visão de desktop web*/
+@media screen and (min-width: 720px) {
+    .minha-classe img {
+        width: 100%; /* % considera o tamanho do elemento pai */
+    }
+
+    .conteudo img {
+        width: 500px;
+        height: 700px;
+        object-fit: cover; /*ADAPTANDO A IMAGEM NO TAMANHO DEFINIDO SEM DEFORMAR A IMG*/
+    }
+
+    .navbar {
+        display: flex;
+        gap: 1em;
+        list-style-type: none;
+    }
+
+    .navbar li a {
+        text-decoration: none;
+    }
+
+    .projto-lista li {
+        grid-column: span 3; /*definindo que cada lista ocupará o valor de 3 coluas*/
+    }
+}
