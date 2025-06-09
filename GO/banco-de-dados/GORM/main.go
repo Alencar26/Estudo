@@ -17,7 +17,7 @@ type Product struct {
 //gorm.Model = Adiciona atributos de gerenciamento ao nosso modelo.
 
 func main() {
-  dns := "root:root@tcp(localhost:3306)/godb" 
+  dns := "root:root@tcp(localhost:3306)/godb?charset=utf8&parseTime=True&loc=Local" 
   db, err := gorm.Open(mysql.Open(dns), &gorm.Config{})
   if err != nil {
     panic(err)
@@ -79,5 +79,5 @@ func main() {
   db.Save(&p)
 
   //Delete ------------------------------
-  //db.Delete(&p)
+  db.Delete(&p)
 }
