@@ -1,0 +1,13 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: go-mysql
+    platform: linux/amd64
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: godb
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    restart: "no"
+
