@@ -11,7 +11,10 @@ type Product struct {
   ID int `gorm:"primaryKey"`
   Name string
   Price float64
+  gorm.Model
 }
+
+//gorm.Model = Adiciona atributos de gerenciamento ao nosso modelo.
 
 func main() {
   dns := "root:root@tcp(localhost:3306)/godb" 
@@ -68,4 +71,13 @@ func main() {
   //Using LIKE --------------------------
   db.Where("name LIKE ?", "%3%").Find(&allProducts)
   fmt.Println(allProducts)
+
+  //Update -----------------------------
+  var p Product
+  db.First(&p, 1)
+  p.Name = "Novo Valor"
+  db.Save(&p)
+
+  //Delete ------------------------------
+  //db.Delete(&p)
 }
