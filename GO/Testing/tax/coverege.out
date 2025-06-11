@@ -1,0 +1,6 @@
+mode: set
+testing/taxgo/tax.go:3.43,4.18 1 1
+testing/taxgo/tax.go:4.18,6.4 1 1
+testing/taxgo/tax.go:7.3,7.21 1 1
+testing/taxgo/tax.go:7.21,9.4 1 1
+testing/taxgo/tax.go:10.3,10.13 1 1
