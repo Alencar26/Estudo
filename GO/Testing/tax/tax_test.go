@@ -41,3 +41,21 @@ func TestCalculateTaxBatch(t * testing.T) {
     }
   }
 }
+
+//COMANDO PARA RODAR O BENCHMARK
+//  go test -bench=. | Rodar tests + Benchmark
+//  go test -bench=. -run=^# | REGEX que vai impedir que rodem os testes juntos. Só vai rodar o benchmark
+//  go test -bench=. -run=^# -count=10 | Vai rodar o benchmark 10x para verificar a média
+//  go test -bench=. -run=^# -benchmem | Informações de alocação de memória
+func BenchmarkCalculateTax(b *testing.B) {
+  for i := 0; i < b.N; i ++ {
+    CalculateTax(500.0)
+  }
+}
+
+//comparação do desempenho da funcção abaixo com a função acima;
+func BenchmarkCalculateTax2(b *testing.B) {
+  for i := 0; i < b.N; i ++ {
+    CalculateTax2(500.0)
+  }
+}
