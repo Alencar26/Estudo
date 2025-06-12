@@ -59,3 +59,28 @@ func BenchmarkCalculateTax2(b *testing.B) {
     CalculateTax2(500.0)
   }
 }
+
+//FUZZING - TESTES COM VALORES ALEATÓRIOS 
+//COMANDO: 
+//  go test -fuzz=.
+//  go test -funzz=. -fuzztime=5s -run=^#
+func FuzzCalculateTax(f *testing.F) {
+  //"Treinando" - passando valores de exemplo par o fuzzing
+  seed := []float64{-1, -2, -2.5, 500.0, 0, 1000.0, 1001.4,999.67}
+  for _, amount := range seed {
+    f.Add(amount)
+  }
+
+  //Execução de fato
+  f.Fuzz(func(t *testing.T, amount float64) {
+
+    result := CalculateTax(amount)
+    if amount <= 0 && result != 0 {
+      t.Errorf("Expected 0 but got %f - Amount: %f", result, amount)
+    }
+    if amount > 20000 && result != 20.0 {
+      t.Errorf("Expected 20 but got %f - Amount: %f", result, amount)
+    }
+
+  })
+} 
