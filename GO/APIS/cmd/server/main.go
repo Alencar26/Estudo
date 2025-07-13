@@ -9,6 +9,7 @@ import (
 	"github.com/Alencar26/Estudo/GO/APIS/internal/infa/database"
 	"github.com/Alencar26/Estudo/GO/APIS/internal/infa/webserver/handlers"
 	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/jwtauth"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -29,11 +30,14 @@ func main() {
 	productHandler := handlers.NewProductHandler(productDB)
 
 	userDB := database.NewUser(db)
-	userHandler := handlers.NewUserHandler(userDB, configs.TokenAuth, configs.JwtExpireIn)
+	userHandler := handlers.NewUserHandler(userDB)
 
 	r := chi.NewRouter()
-	//r.Use(middleware.Logger)
-	r.Use(LogRequest)
+	r.Use(middleware.Logger)
+	r.Use(middleware.Recoverer)                                  //impede o servidor de cair após um exception
+	r.Use(middleware.WithValue("jwt", configs.TokenAuth))        //passando dados por contexto através de middlewares
+	r.Use(middleware.WithValue("expireIn", configs.JwtExpireIn)) //passando informações por contexto
+	//r.Use(LogRequest) //Middlewaree Customizado
 
 	r.Route("/products", func(r chi.Router) {
 		r.Use(jwtauth.Verifier(configs.TokenAuth))
