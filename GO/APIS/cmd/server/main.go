@@ -17,17 +17,24 @@ import (
 	"gorm.io/gorm"
 )
 
-// @tilte                           Go Project API with Go-Chi
+/*
+COMANDO NO TERMINAL PARA GERAR OS ARQUIVOS DO SWAGGER A CADA MODIFICAÇÃO:
+*
+swag init -g /path/do/arquivo/main.go
+*
+*/
+
+// @title                           Go Project API with Go-Chi
 // @version                         1.0
 // @description                     Product API with authenticator
-// @termOfService                   http://swagger.io/terms/
+// @termsOfService                   http://swagger.io/terms/
 
 // @contact.name                    André Alencar
 // @contact.url                     http://github.com/alencar26
 // @contact.email                   email.example@email.com
 
-// @licence.name                    Alencar26
-// @licence.url                     http://github.com/alencar26
+// @license.name                    Alencar26
+// @license.url                     http://github.com/alencar26
 
 // @host                            localhost:8000
 // @BasePath                        /

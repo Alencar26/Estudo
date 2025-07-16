@@ -11,10 +11,6 @@ import (
 	"github.com/go-chi/jwtauth"
 )
 
-type Error struct {
-	Message string `json:"message"`
-}
-
 type UserHandler struct {
 	UserDB database.UserInterface
 }
@@ -33,8 +29,8 @@ func NewUserHandler(db database.UserInterface) *UserHandler {
 // @Produce         json
 // @Param           request   body          dto.GetJWTInput true "user credentials"
 // @Success         200       {object}      dto.GetJwtOutput
-// @Failure         404       {object}      Error
-// @Failure         500       {object}      Error
+// @Failure         404       {object}      dto.Error
+// @Failure         500       {object}      dto.Error
 // @Router          /users/generate_token   [post]
 func (h *UserHandler) GetJWT(w http.ResponseWriter, r *http.Request) {
 	jwt := r.Context().Value("jwt").(*jwtauth.JWTAuth)
@@ -48,7 +44,7 @@ func (h *UserHandler) GetJWT(w http.ResponseWriter, r *http.Request) {
 	u, err := h.UserDB.FindByEmail(user.Email)
 	if err != nil {
 		w.WriteHeader(http.StatusNotFound)
-		error := Error{Message: err.Error()}
+		error := dto.Error{Message: err.Error()}
 		json.NewEncoder(w).Encode(error)
 		return
 	}
@@ -76,7 +72,7 @@ func (h *UserHandler) GetJWT(w http.ResponseWriter, r *http.Request) {
 // @Produce       json
 // @Param         request   body      dto.CreateUserInput true "user request"
 // @Success       201
-// @Failure       500       {object}  Error
+// @Failure       500       {object}  dto.Error
 // @Router        /users    [post]
 func (h *UserHandler) CreateClient(w http.ResponseWriter, r *http.Request) {
 
@@ -89,14 +85,14 @@ func (h *UserHandler) CreateClient(w http.ResponseWriter, r *http.Request) {
 	u, err := entity.NewUser(user.Email, user.Name, user.Password)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
-		error := Error{Message: err.Error()}
+		error := dto.Error{Message: err.Error()}
 		json.NewEncoder(w).Encode(error)
 		return
 	}
 	err = h.UserDB.Create(u)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		error := Error{Message: err.Error()}
+		error := dto.Error{Message: err.Error()}
 		json.NewEncoder(w).Encode(error)
 		return
 	}
