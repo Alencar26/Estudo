@@ -16,9 +16,9 @@ func OpenChannel() (*amqp.Channel, error) {
 	return ch, nil
 }
 
-func Consume(ch *amqp.Channel, out chan<- amqp.Delivery) error {
+func Consume(ch *amqp.Channel, out chan<- amqp.Delivery, queue string) error {
 	msgs, err := ch.Consume(
-		"minhafila",   //nome da fila que quero consumir
+		queue,         //nome da fila que quero consumir
 		"go-consumer", //nome da aplicação que vai consumir
 		false,         //autoAck - Quando a msg é lida o rabbitmq já dá baixa na msg e remove da fila
 		false,         //fila exclusiva
@@ -32,6 +32,23 @@ func Consume(ch *amqp.Channel, out chan<- amqp.Delivery) error {
 
 	for msg := range msgs {
 		out <- msg
+	}
+	return nil
+}
+
+func Publish(ch *amqp.Channel, body string, exchangeName string) error {
+	err := ch.Publish(
+		exchangeName, //Exchange (default do rabbitmq)
+		"",           //Key
+		false,        //Mandatório
+		false,        //imediato
+		amqp.Publishing{
+			ContentType: "text/plain",
+			Body:        []byte(body),
+		},
+	)
+	if err != nil {
+		return err
 	}
 	return nil
 }
