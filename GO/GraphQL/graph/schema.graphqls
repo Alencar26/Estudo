@@ -1,0 +1,44 @@
+# Criação do modelo de Categoria (model)
+type Category {
+  id: ID!
+  name: String!
+  description: String
+  courses: [Course!]!
+}
+
+#Criação do modelo de Curso (model)
+type Course {
+  id: ID!
+  name: String!
+  description: String
+  category: Category!
+}
+
+#Inputs ajudam a fazer entrada de dados
+#Input indicando quais campos eu preciso para criar uma nova Categoria
+input NewCategory {
+  name: String!
+  description: String 
+}
+
+#Mesmas coisa para o Curso
+input NewCourse {
+  name: String!
+  description: String
+  categoryId: ID!
+}
+
+#O GraphQL permite efetuar querys (buscas)
+#Aqui estou buscando por todos os cursos e categorias
+type Query {
+  categories: [Category!]!
+  courses: [Course!]!
+}
+
+#Mutation permite que façamos alterações em nossos modelos (adicionar ou remover informações)
+ type Mutation {
+  #Aqui eu recebo um input de NewCategory e retorno um model de Category
+  createCategory(input: NewCategory!): Category! 
+  #Aui eu recebo um input de  NewCourse e retorno um model de Course
+  createCourse(input: NewCourse!): Course!
+ }
