@@ -17,6 +17,15 @@ tmux ls
 ### Comandos funcionais dentro do Tmux
 
 ```tmux
+#Navegação com scroll e pesquisa
+C-b + [
+#Para sair do modo de naveção use 'q'
+
+#Ainda no mode navegação para pesquisar algo em tela, use:
+/ + termo de pesquisa + ENTER
+
+#Para navegar em cada termo use 'n'
+
 #split terminal (vertical)
 C-b + %
 
