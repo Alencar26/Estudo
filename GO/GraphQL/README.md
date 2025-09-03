@@ -68,4 +68,10 @@ Apoś executar o comando, **haverá necessidade de realizar algumas correções 
 Navegue para o arquivo `./graph/schema.resolvers.go` e no final dele conter um aviso de "WARNING" comentado. Apegue tudo do "WARNING" para baixo.
 
 Nesse mesmo arquivo `./graph/schema.resolvers.go` foram criados várias funções para nos auxiliarem nas querys com GraphQL.
-Agora precisamos implementa-las.
+	Agora precisamos implementa-las.
+
+**PS: TODA FEZ QUE HOUVER ALTERÇÃO NO CÓDIGO ONDE O GRAPHQL DEVE ENTENDER E SE ADEQUAR, ENTÃO, DEVE-SE RODAR NOVAMENTE O COMANDO:**
+
+```bash
+	go run github.com/99designs/gqlgen generate
+````
