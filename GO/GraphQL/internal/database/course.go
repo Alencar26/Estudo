@@ -18,9 +18,9 @@ func NewCourse(db *sql.DB) *Course {
 	return &Course{db: db}
 }
 
-func (c *Course) Create(name, description, categoryId string) (*Course, error) {
+func (c *Course) Create(name, description, categoryID string) (*Course, error) {
 	id := uuid.New().String()
-	_, err := c.db.Exec("INSERT INTO courses (id, name, description, category_id) VALUES($1, $2, $3, $4);", id, name, description, categoryId)
+	_, err := c.db.Exec("INSERT INTO courses (id, name, description, category_id) VALUES($1, $2, $3, $4);", id, name, description, categoryID)
 	if err != nil {
 		return nil, err
 	}
@@ -28,7 +28,7 @@ func (c *Course) Create(name, description, categoryId string) (*Course, error) {
 		ID:          id,
 		Name:        name,
 		Description: description,
-		CategoryID:  categoryId,
+		CategoryID:  categoryID,
 	}, nil
 }
 
@@ -41,18 +41,18 @@ func (c *Course) FindAll() ([]Course, error) {
 
 	courses := []Course{}
 	for rows.Next() {
-		var id, name, description, categoryId string
-		err := rows.Scan(&id, &name, &description, &categoryId)
+		var id, name, description, categoryID string
+		err := rows.Scan(&id, &name, &description, &categoryID)
 		if err != nil {
 			return nil, err
 		}
-		courses = append(courses, Course{ID: id, Name: name, Description: description, CategoryID: categoryId})
+		courses = append(courses, Course{ID: id, Name: name, Description: description, CategoryID: categoryID})
 	}
 	return courses, nil
 }
 
-func (c *Course) FindByCategoryId(categoryId string) ([]Course, error) {
-	rows, err := c.db.Query("SELECT id, name, description, category_id FROM courses WHERE category_id=$1;", categoryId)
+func (c *Course) FindByCategoryID(categoryID string) ([]Course, error) {
+	rows, err := c.db.Query("SELECT id, name, description, category_id FROM courses WHERE category_id=$1;", categoryID)
 	if err != nil {
 		return nil, err
 	}
@@ -60,12 +60,12 @@ func (c *Course) FindByCategoryId(categoryId string) ([]Course, error) {
 
 	courses := []Course{}
 	for rows.Next() {
-		var id, name, description, catId string
-		err := rows.Scan(&id, &name, &description, &catId)
+		var id, name, description, catID string
+		err := rows.Scan(&id, &name, &description, &catID)
 		if err != nil {
 			return nil, err
 		}
-		courses = append(courses, Course{ID: id, Name: name, Description: description, CategoryID: catId})
+		courses = append(courses, Course{ID: id, Name: name, Description: description, CategoryID: catID})
 	}
 	return courses, nil
 }
