@@ -1,6 +1,10 @@
 # GRPC
 
+[Documentoação Oficial do gRPC para GO](https://grpc.io/docs/languages/go/basics/#server-side-streaming-rpc).
+
 Introdução ao protocolo gRPC utilizando HTTP 2.
+
+gRPC faz o uso de protocol buffers, [saiba mais - doc](https://protobuf.dev/).
 
 Se faz necessário criar um arquivo com a extensão `.proto` para definies os schemas das nossas entidades.
 Após criação desse arquivo deve-se rodar o comando abaixo:
