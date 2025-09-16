@@ -3,6 +3,10 @@ package pb;
 
 option go_package = "internal/pb";
 
+//Não é possível criar um serviço sem passar um parâmetro
+//Sendo assim, é comum criar uma message em branco para passar como parâmentro no service.
+message blank {}
+
 message Category {
   string id = 1;
   string name = 2;
@@ -18,6 +22,12 @@ message CategoryResponse {
   Category category = 1;
 }
 
+//repeated = receber várias categorias
+message CategoryList {
+  repeated Category categories = 1;
+}
+
 service CategoryService {
   rpc CreateCategory(CreateCategoryRequest) returns (Category) {} 
+  rpc ListCategories(blank) returns (CategoryList) {}
 }
