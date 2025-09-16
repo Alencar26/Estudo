@@ -32,7 +32,11 @@ message CategoryGetRequest {
 }
 
 service CategoryService {
+  //Jeito tradicional (request/response) igual REST
   rpc CreateCategory(CreateCategoryRequest) returns (Category) {} 
+  //Abaixo temos um exemplo de como abrir um canal de comunicação com gRPC
+  //Abrimos um canal (stream) onde passaremos tudo que queremos e recebemos tudo de uma vez
+  rpc CreateCategoryStream(stream CreateCategoryRequest) returns (CategoryList) {}
   rpc ListCategories(blank) returns (CategoryList) {}
   rpc GetCategory(CategoryGetRequest) returns (Category) {}
 }

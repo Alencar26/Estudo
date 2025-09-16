@@ -26,3 +26,5 @@ Comando para rodar o client:
 ```bash
 evans -r repl
 ```
+
+Em uma chamada de Stream n Evans para finalizar precione `CTRL+d`
