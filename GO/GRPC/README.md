@@ -26,5 +26,8 @@ Comando para rodar o client:
 ```bash
 evans -r repl
 ```
+No Evans é preciso sempre iniciar escolhendo o pacote que será utilizado com o comando `package nome_pacote`
+Depois é preciso informar qual o serviço com o comando `service nome_serviço`
+E por fim a escolha das chamadas com o comando `call nome_da_chamada`.
 
 Em uma chamada de Stream n Evans para finalizar precione `CTRL+d`
