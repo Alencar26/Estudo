@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"sync"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
@@ -14,6 +15,7 @@ import (
 var (
 	s3Cliet  *s3.S3
 	s3Bucket string
+	wg       sync.WaitGroup
 )
 
 // ESSA FUNC É EXECUTADA ANTES DE MAIN POR DEFAULT NO GO
@@ -43,6 +45,8 @@ func main() {
 		panic(err)
 	}
 	defer dir.Close()
+	//channel para controle de quantas goroutines vou ter em paralelo
+	uploadControl := make(chan struct{}, 100) //strutct é minha menor unidade por isso o uso dela
 
 	for {
 		files, err := dir.ReadDir(1)
@@ -53,17 +57,22 @@ func main() {
 			fmt.Printf("Error reading directory: %s\n", err)
 			continue
 		}
-		uploadFile(files[0].Name())
+		wg.Add(1)
+		uploadControl <- struct{}{} //recebe um struct vazia a cada iteração
+		go uploadFile(files[0].Name(), uploadControl)
 	}
+	wg.Wait()
 }
 
-func uploadFile(filename string) {
+func uploadFile(filename string, uploadControl <-chan struct{}) {
+	defer wg.Done()
 	completeFileName := fmt.Sprintf("./tmp/%s", filename)
 	fmt.Printf("Uploading file %s to bucket %s\n", completeFileName, s3Bucket)
 
 	f, err := os.Open(completeFileName)
 	if err != nil {
 		fmt.Printf("Error opening file %s\n", completeFileName)
+		<-uploadControl //esvaziando channel em caso de erro
 		return
 	}
 	defer f.Close()
@@ -76,8 +85,10 @@ func uploadFile(filename string) {
 	})
 	if err != nil {
 		fmt.Printf("Error uploading file %s\n", completeFileName)
+		<-uploadControl //esvaziando channel em caso de erro
 		return
 	}
 
 	fmt.Printf("File %s iploaded successfully\n", completeFileName)
+	<-uploadControl //esvaziando channel em caso de erro
 }
