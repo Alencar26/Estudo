@@ -47,6 +47,18 @@ func main() {
 	defer dir.Close()
 	//channel para controle de quantas goroutines vou ter em paralelo
 	uploadControl := make(chan struct{}, 100) //strutct é minha menor unidade por isso o uso dela
+	errorFileUpload := make(chan string, 10)
+
+	go func() {
+		for {
+			select {
+			case filename := <-errorFileUpload:
+				uploadControl <- struct{}{}
+				wg.Add(1)
+				go uploadFile(filename, uploadControl, errorFileUpload)
+			}
+		}
+	}()
 
 	for {
 		files, err := dir.ReadDir(1)
@@ -59,12 +71,12 @@ func main() {
 		}
 		wg.Add(1)
 		uploadControl <- struct{}{} //recebe um struct vazia a cada iteração
-		go uploadFile(files[0].Name(), uploadControl)
+		go uploadFile(files[0].Name(), uploadControl, errorFileUpload)
 	}
 	wg.Wait()
 }
 
-func uploadFile(filename string, uploadControl <-chan struct{}) {
+func uploadFile(filename string, uploadControl <-chan struct{}, errorFileUpload chan<- string) {
 	defer wg.Done()
 	completeFileName := fmt.Sprintf("./tmp/%s", filename)
 	fmt.Printf("Uploading file %s to bucket %s\n", completeFileName, s3Bucket)
@@ -73,6 +85,7 @@ func uploadFile(filename string, uploadControl <-chan struct{}) {
 	if err != nil {
 		fmt.Printf("Error opening file %s\n", completeFileName)
 		<-uploadControl //esvaziando channel em caso de erro
+		errorFileUpload <- filename
 		return
 	}
 	defer f.Close()
@@ -86,6 +99,7 @@ func uploadFile(filename string, uploadControl <-chan struct{}) {
 	if err != nil {
 		fmt.Printf("Error uploading file %s\n", completeFileName)
 		<-uploadControl //esvaziando channel em caso de erro
+		errorFileUpload <- filename
 		return
 	}
 
