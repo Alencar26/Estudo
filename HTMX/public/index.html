@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7/dist/htmx.min.js"
+    integrity="sha384-ZBXiYtYQ6hJ2Y0ZNoYuI+Nq5MqWBr+chMrS/RkXpNzQCApHEhOt2aY8EJgqwHLkJ"
+    crossorigin="anonymous"></script>
+  <script src="/static/script.js"></script>
+  <title>Curso de HTMX</title>
+</head>
+
+<body>
+  <h1>Curso HTMX</h1>
+
+  <!-- hx-get - Get para o backend -->
+  <!-- hx-trigger - Tipo do evento  -->
+  <!-- hx-target - Local de despejo do HTML -->
+  <button hx-get="/carrega-conteudo">Carregar Conteúdo</button>
+  <p hx-get="/carrega-conteudo" hx-trigger="click">Carregar Conteúdo</p>
+  <p hx-get="/carrega-conteudo" hx-trigger="click[ctrlKey]">Carregar Conteúdo com o CTRL + Click</p>
+  <button hx-get="/carrega-conteudo" hx-trigger="click" hx-target="#conteudo-get">Carregar Conteúdo em outro
+    elemento</button>
+  <div id="conteudo-get"></div>
+
+  <!-- hx-post - Requisição POST -->
+  <!-- name (atributo) - Valor que será enviado para o backend -->
+  <!-- form - Sempre será enviado no backend para o body - request.body.algumaChave -->
+  <form hx-post="/enviar-formulario" hx-trigger="submit" hx-target="#resposta-formulario">
+    <label for="name">Nome:</label>
+    <input type="text" name="name" />
+    <button>Enviar</button>
+  </form>
+  <div id="resposta-formulario"></div>
+
+  <!-- SWAP - ao invez de direcionar alvo para despejo do HTML, vou trocar a tag atual pela nova -->
+  <!-- hx-swap - para trocar a tag autal por outra -->
+  <button hx-get="/trocar-conteudo" hx-target="#conteudo-swap" hx-swap="outerHTML">
+    Carregar Conteúdo
+  </button>
+  <div id="conteudo-swap">SOU CONTEÚDO TEMPORÁRIO SOLVO EM UMA DIV. SEREI TROCADO</div>
+
+  <!-- hx-vals - Enviar valores extrar ao backend -->
+  <!-- é enviado como um objeto JS com chave: valor -->
+  <!-- adiciona mais valores ao request.body -->
+  <form hx-post="/valores-adicionais" hx-trigger="submit" hx-target="#valores-adicionais"
+    hx-vals='{"valorExtra": "Valor via hx-vals", "user": "andre"}'>
+    <label for="name">Nome:</label>
+    <input type="text" name="name" />
+    <button>Enviar</button>
+  </form>
+  <div id="valores-adicionais"></div>
+
+  <!-- Polling - Requisições a cada X tempo para o servidor -->
+  <div hx-get="/tempo-servidor" hx-trigger="every 5s" hx-target="#tempo-servidor">
+    <p>Carregando hora do servidor...</p>
+  </div>
+  <div id="tempo-servidor"></div>
+
+  <!-- validações -->
+  <form hx-post="/enviar-formulario-validacao" hx-trigger="submit" hx-target="#resultado">
+    <label for="username">Nome: </label>
+    <input type="text" name="username" id="username" required />
+    <!-- Validação de no Frontend -->
+    <div id="username-error"></div>
+    <button>Enviar</button>
+  </form>
+  <div id="resultado"></div>
+</body>
+
+</html>
