@@ -35,6 +35,15 @@ to quickly create a Cobra application.`,
 		fmt.Printf("Sua categoria: %s\n", categoria)
 		fmt.Printf("Seu tipo: %s\n", tipo)
 	},
+	PreRun: func(cmd *cobra.Command, args []string) {
+		fmt.Println("Chamado ANTES do Run.")
+	},
+	PostRun: func(cmd *cobra.Command, args []string) {
+		fmt.Println("Chamado DEPOIS do Run.")
+	},
+	// RunE: func(cmd *cobra.Command, args []string) error {
+	// return fmt.Errorf("possibilidade de retornar ERRO com o RunE")
+	// },
 }
 
 var (
