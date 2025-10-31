@@ -24,12 +24,23 @@ to quickly create a Cobra application.`,
 		existe, _ := cmd.Flags().GetBool("existe")
 		fmt.Printf("Comando existe: %t", existe)
 
-		fmt.Println("---------------------")
+		fmt.Println("\n---------------------")
 
 		quantidade, _ := cmd.Flags().GetInt64("quantidade")
 		fmt.Printf("Quantidade informada é: %d", quantidade)
+
+		fmt.Println("\n---------------------")
+
+		//pegando valores das variáveis.
+		fmt.Printf("Sua categoria: %s\n", categoria)
+		fmt.Printf("Seu tipo: %s\n", tipo)
 	},
 }
+
+var (
+	categoria string
+	tipo      string
+)
 
 func init() {
 	categoryCmd.AddCommand(createCmd)
@@ -37,6 +48,10 @@ func init() {
 	categoryCmd.PersistentFlags().StringP("name2", "n", "SEM NOME", "Flag tipo StringP para ter um comando menor")
 	categoryCmd.PersistentFlags().BoolP("existe", "e", true, "Verifica se comando existe.")
 	categoryCmd.PersistentFlags().Int64P("quantidade", "q", 0, "Informe um Int64")
+
+	//passando o que receber para uma variável
+	categoryCmd.PersistentFlags().StringVarP(&categoria, "categoria", "c", "", "Nome da Categoria")
+	categoryCmd.PersistentFlags().StringVarP(&tipo, "tipo", "t", "", "Informe o tipo")
 
 	// Here you will define your flags and configuration settings.
 
