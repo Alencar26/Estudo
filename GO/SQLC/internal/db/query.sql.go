@@ -42,7 +42,7 @@ func (q *Queries) CreateCategoryWithResult(ctx context.Context, arg CreateCatego
 }
 
 const createCourse = `-- name: CreateCourse :exec
-INSERT INTO courses (id, name, description, price, category_id)
+INSERT INTO courses (id, name, description, category_id, price)
 VALUES (?,?,?,?,?)
 `
 
@@ -50,8 +50,8 @@ type CreateCourseParams struct {
 	ID          string
 	Name        string
 	Description sql.NullString
-	Price       string
 	CategoryID  string
+	Price       float64
 }
 
 func (q *Queries) CreateCourse(ctx context.Context, arg CreateCourseParams) error {
@@ -59,8 +59,8 @@ func (q *Queries) CreateCourse(ctx context.Context, arg CreateCourseParams) erro
 		arg.ID,
 		arg.Name,
 		arg.Description,
-		arg.Price,
 		arg.CategoryID,
+		arg.Price,
 	)
 	return err
 }

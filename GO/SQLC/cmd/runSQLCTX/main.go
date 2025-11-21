@@ -26,7 +26,7 @@ type CourseParam struct {
 	ID          string
 	Name        string
 	Description sql.NullString
-	Price       string
+	Price       float64
 }
 
 type CategoryParam struct {
@@ -35,6 +35,8 @@ type CategoryParam struct {
 	Description sql.NullString
 }
 
+// Função que cria uma categoria e um curso dentro de uma transação
+// Se qualquer uma das operações falhar, nenhuma delas será aplicada ao banco de dados
 func (c *CourseDB) CreateCourseAndCategory(ctx context.Context, argsCategory CategoryParam, argsCourse CourseParam) error {
 	err := c.callTx(ctx, func(q *db.Queries) error {
 		var err error
@@ -50,6 +52,7 @@ func (c *CourseDB) CreateCourseAndCategory(ctx context.Context, argsCategory Cat
 			ID:          argsCourse.ID,
 			Name:        argsCourse.Name,
 			Description: argsCourse.Description,
+			CategoryID:  argsCategory.ID,
 			Price:       argsCourse.Price,
 		})
 		if err != nil {
@@ -63,6 +66,8 @@ func (c *CourseDB) CreateCourseAndCategory(ctx context.Context, argsCategory Cat
 	return nil
 }
 
+// Vai preparar a trasação e executar a função passada como parâmetro
+// Se a função retornar erro, faz rollback, senão faz commit
 func (c *CourseDB) callTx(ctx context.Context, fn func(*db.Queries) error) error {
 	tx, err := c.dbConn.BeginTx(ctx, nil)
 	if err != nil {
@@ -94,7 +99,7 @@ func main() {
 		ID:          uuid.NewString(),
 		Name:        "Go",
 		Description: sql.NullString{String: "Go Course", Valid: true},
-		Price:       "25.99",
+		Price:       25.99,
 	}
 
 	CategoryArgs := CategoryParam{
