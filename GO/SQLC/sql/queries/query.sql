@@ -28,3 +28,6 @@ DELETE FROM categories WHERE id = ?;
 INSERT INTO courses (id, name, description, category_id, price)
 VALUES (?,?,?,?,?);
 
+-- name: ListCourses :many
+SELECT c.*, ca.name as category_name
+FROM courses c JOIN categories ca ON c.category_id = ca.id;

@@ -93,8 +93,19 @@ func main() {
 	}
 	defer dbConn.Close()
 
-	//queries := db.New(dbConn)
+	queries := db.New(dbConn)
 
+	//LISTAGEM DE CONSULTA SQL COM JOIN
+	courses, err := queries.ListCourses(ctx)
+	if err != nil {
+		panic(err)
+	}
+
+	for _, course := range courses {
+		fmt.Printf("Course ID: %s, Name: %s, Category: %s\n", course.ID, course.Name, course.CategoryName)
+	}
+
+	//CRIAÇÃO DE CURSO E CATEGORIA (TRANSAÇÃO ATÔMICA)
 	courseArgs := CourseParam{
 		ID:          uuid.NewString(),
 		Name:        "Go",
